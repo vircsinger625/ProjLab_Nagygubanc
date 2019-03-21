@@ -5,9 +5,9 @@ public class Orangutan extends Animal implements Steppable {
 	private boolean hasCapturedPanda;
 	private Panda capturedPandas;
 	
-	public boolean collide(Orangutan o) {System.out.println("Orangutan.collide(Orangutan o) ");}
+	public boolean collide(Orangutan o) {System.out.println("Orangutan.collide(Orangutan o) "); return true;}
 	
-	public boolean collide(Panda p) {System.out.println("Orangutan.collide(Panda p) ");}
+	public boolean collide(Panda p) {System.out.println("Orangutan.collide(Panda p) "); return true;}
 	
 	public void reaction(InputEffect i, Tile t) {System.out.println("Orangutan.reaction(InputEffect i, Tile t) ");}
 	

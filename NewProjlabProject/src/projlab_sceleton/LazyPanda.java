@@ -5,9 +5,9 @@ public class LazyPanda extends Panda {
 	private boolean isResting;
 	private int paralyzedCounter;
 	
-	public boolean collide(Orangutan o) {System.out.println("LazyPanda.collide(Orangutan o) ");}
+	public boolean collide(Orangutan o) {System.out.println("LazyPanda.collide(Orangutan o) "); return true;}
 	
-	public boolean collide(Panda p) {System.out.println("LazyPanda.collide(Panda p) ");}
+	public boolean collide(Panda p) {System.out.println("LazyPanda.collide(Panda p) "); return true;}
 	
 	public void reaction(InputEffect i, Tile t) {System.out.println("LazyPanda.reaction(InputEffect i, Tile t) ");}
 	

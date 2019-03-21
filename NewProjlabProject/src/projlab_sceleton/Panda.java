@@ -4,9 +4,9 @@ public class Panda extends Animal implements Steppable {
 	
 	private boolean isCaptured;
 	
-	public boolean collide(Orangutan o) {System.out.println("Panda.collide(Orangutan o) ");}
+	public boolean collide(Orangutan o) {System.out.println("Panda.collide(Orangutan o) "); return true;}
 	
-	public boolean collide(Panda p) {System.out.println("Panda.collide(Panda p) ");}
+	public boolean collide(Panda p) {System.out.println("Panda.collide(Panda p) "); return true;}
 	
 	public void reaction(InputEffect i, Tile t) {System.out.println("Panda.reaction(InputEffect i, Tile t) ");}
 	

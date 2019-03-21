@@ -2,9 +2,9 @@ package projlab_sceleton;
 
 public class ScaryPanda extends Panda {
 
-	public boolean collide(Orangutan o) {System.out.println("ScaryPanda.collide(Orangutan o) ");}
+	public boolean collide(Orangutan o) {System.out.println("ScaryPanda.collide(Orangutan o) "); return true;}
 	
-	public boolean collide(Panda p) {System.out.println("ScaryPanda.collide(Panda p) ");}
+	public boolean collide(Panda p) {System.out.println("ScaryPanda.collide(Panda p) "); return true;}
 	
 	public void reaction(InputEffect i, Tile t) {System.out.println("ScaryPanda.reaction(InputEffect i, Tile t) ");}
 	

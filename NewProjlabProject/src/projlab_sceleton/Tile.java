@@ -7,10 +7,10 @@ public class Tile {
 	
 	public void setElement(Element e) {System.out.println("Tile.setElement(Element e) ");}
 	
-	public boolean stepIn(Animal a) {System.out.println("Tile.stepIn(Animal a) ");}
+	public boolean stepIn(Animal a) {System.out.println("Tile.stepIn(Animal a) "); return true;}
 	
 	public void remove(Element e) {System.out.println("Tile.remove(Element e) ");}
 	
-	public Element getElement() {System.out.println("Tile.getElement() ");}
+	public Element getElement() {System.out.println("Tile.getElement() "); return element;} //ide is kell majd még valami!!
 
 }
