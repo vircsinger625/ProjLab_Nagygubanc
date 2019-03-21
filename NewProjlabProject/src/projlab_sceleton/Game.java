@@ -4,11 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
 public class Game {
 
+	public static int usecase; //komment
+	
 	public static void main(String[] args) {
 		
-		int usecase;
+		
 		
 		while(true) {
 			System.out.println("Melyik Use - case-t akarod kipróbálni?");
