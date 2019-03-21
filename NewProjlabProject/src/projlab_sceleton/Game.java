@@ -7,14 +7,14 @@ import java.io.InputStreamReader;
 
 public class Game {
 
-	public static int usecase; //komment
+	public static int usecase; //komment Ã¡tÃ­rÃ¡sa
 	
 	public static void main(String[] args) {
 		
 		
 		
 		while(true) {
-			System.out.println("Melyik Use - case-t akarod kipróbálni?");
+			System.out.println("Melyik Use - case-t akarod kiprï¿½bï¿½lni?");
 			System.out.println("");
 			
 			InputStreamReader isr = new InputStreamReader(System.in);
