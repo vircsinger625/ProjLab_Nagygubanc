@@ -7,15 +7,19 @@ import java.io.InputStreamReader;
 
 public class Game {
 
-	public static int usecase; //komment átírása
+	public static int usecase;
+	public static Floor floor = new Floor();
 	
 	public static void main(String[] args) {
 		
 		
 		
 		while(true) {
-			System.out.println("Melyik Use - case-t akarod kipr�b�lni?");
 			System.out.println("");
+			System.out.println("------------------------------------------------------");
+			System.out.println("");
+			System.out.println("Melyik Use - case-t akarod kiprobalni?");
+			
 			
 			InputStreamReader isr = new InputStreamReader(System.in);
 			try {
@@ -44,10 +48,18 @@ public class Game {
 					;
 					break;
 				case 6:
-					;
+					Panda p6 = new Panda();
+				    Tile nextTile6 = new Tile();
+					Tile tile6 = new Tile();
+					p6.setTile(tile6);
+					p6.move(nextTile6);
 					break;
 				case 7:
-					;
+					Panda p7 = new Panda();
+				    Tile nextTile7 = new Tile();
+					Tile tile7 = new Tile();
+					p7.setTile(tile7);
+					p7.move(nextTile7);
 					break;
 				case 8:
 					;

@@ -21,6 +21,16 @@ public class Orangutan extends Animal implements Steppable {
 	
 	public void addCapturedPandas(Panda p) {System.out.println("Orangutan.addCapturedPandas(Panda p) ");}
 	
-	public void removeCapturedPandas(Panda p) {System.out.println("Orangutan.removeCapturedPandas(Panda p) ");}
+	public void removeCapturedPandas(Panda p) {//System.out.println("Orangutan.removeCapturedPandas(Panda p) ");
+		switch (Game.usecase) {
+		case 7:
+			System.out.println("o.removeCapturedPandas(p)");
+			break;
+
+		default:
+			break;
+		}
+		return;
+	}
 	
 }

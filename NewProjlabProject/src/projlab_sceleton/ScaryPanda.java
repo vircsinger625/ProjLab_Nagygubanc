@@ -16,6 +16,7 @@ public class ScaryPanda extends Panda {
 	
 	public void step() {System.out.println("ScaryPanda.step() ");}
 	
-	public void getTile() {System.out.println("ScaryPanda.getTile() ");}
+	public Tile getTile() {//System.out.println("ScaryPanda.getTile() ");
+	return this.tile;}
 		
 }

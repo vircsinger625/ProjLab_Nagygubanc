@@ -16,6 +16,7 @@ public class HoppperPanda extends Panda{
 	
 	public void step() {System.out.println("HopperPanda.step() ");}
 	
-	public void getTile() {System.out.println("HopperPanda.getTile() ");}
+	public Tile getTile() {//System.out.println("HopperPanda.getTile() ");
+	return this.tile;}
 	
 }

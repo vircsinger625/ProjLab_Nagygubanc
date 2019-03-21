@@ -10,6 +10,7 @@ public class Wardrobe extends Element {
 	
 	public void reaction(InputEffect i, Tile t) {System.out.println("Wardrobe.reaction(InputEffect i, Tile t) ");}
 	
-	public void getTile() {System.out.println("Wardrobe.getTile() ");}
+	public Tile getTile() {//System.out.println("Wardrobe.getTile() ");
+	return this.tile;}
 
 }

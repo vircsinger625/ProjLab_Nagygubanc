@@ -19,7 +19,8 @@ public class LazyPanda extends Panda {
 	
 	public void step() {System.out.println("LazyPanda.step() ");}
 	
-	public void getTile() {System.out.println("LazyPanda.getTile() ");}
+	public Tile getTile() {//System.out.println("LazyPanda.getTile() ");
+	return this.tile;}
 	
 	public void setParalyzedCounter() {System.out.println("LazyPanda.setParalyzedCounter() ");}
 	
