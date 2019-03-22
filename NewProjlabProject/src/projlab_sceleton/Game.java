@@ -62,13 +62,29 @@ public class Game {
 					p7.move(nextTile7);
 					break;
 				case 8:
-					;
+					Orangutan o8 = new Orangutan();
+					Panda p8 = new Panda();
+					p8.collide(o8);
 					break;
-				case 9:
-					;
+				case 9: /*a szekvenciába nem kell egy o: Orangutan is? */
+					Orangutan o9 = new Orangutan();
+					Tile t9 = new Tile();
+					ArmChair ac9 = new ArmChair();
+					t9.setElement(ac9); //a szék a t9-es csempén van.
+					o9.move(t9); 		//megpróbál rálépni az orángután, de sikertelenül
 					break;
 				case 10:
-					;
+					Orangutan o10 = new Orangutan();
+					Tile exitTile = new Tile();
+					Exit exit = new Exit();
+					exitTile.setElement(exit);
+					Panda p10 = new Panda();
+					p10.collide(o10);
+					Panda p11 = new Panda();
+					p11.collide(o10);
+					Panda p12 = new Panda();
+					p12.collide(o10);
+					
 					break;
 				case 11:
 					;

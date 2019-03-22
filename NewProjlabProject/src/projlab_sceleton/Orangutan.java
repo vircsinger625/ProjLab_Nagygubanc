@@ -3,7 +3,7 @@ package projlab_sceleton;
 public class Orangutan extends Animal implements Steppable {
 	
 	private boolean hasCapturedPanda;
-	private Panda capturedPandas;
+	public Panda[] capturedPandas;  /*TÖMB */
 	
 	public boolean collide(Orangutan o) {System.out.println("Orangutan.collide(Orangutan o) "); return true;}
 	
@@ -15,13 +15,19 @@ public class Orangutan extends Animal implements Steppable {
 	
 	public void die() {System.out.println("Orangutan.die() ");}
 	
-	public void move(Tile t) {System.out.println("Orangutan.move(Tile t) ");}
+	public void move(Tile t) 
+	{
+		System.out.println("Orangutan.move(Tile t) ");
+		/* 5.3.9 OrangutanCollideWithThing */
+		/*5.3.10	OrangutanExit*/
+		t.stepIn(this); //a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+	}
 	
 	public void step() {System.out.println("Orangutan.step() ");}
 	
 	public void addCapturedPandas(Panda p) {System.out.println("Orangutan.addCapturedPandas(Panda p) ");}
 	
-	public void removeCapturedPandas(Panda p) {//System.out.println("Orangutan.removeCapturedPandas(Panda p) ");
+	public void removeCapturedPandas(Panda p) {/*System.out.println("Orangutan.removeCapturedPandas(Panda p) ");*/
 		switch (Game.usecase) {
 		case 7:
 			System.out.println("o.removeCapturedPandas(p)");

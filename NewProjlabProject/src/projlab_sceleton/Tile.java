@@ -20,7 +20,25 @@ public class Tile {
 
 	}
 	
-	public boolean stepIn(Animal a) {System.out.println("Tile.stepIn(Animal a) "); return true;}
+	public boolean stepIn(Animal a) 
+	{
+		System.out.println("Tile.stepIn(Animal a) "); 
+		Element e = this.getElement();		
+		/* 5.3.9 OrangutanCollideWithThing */
+		if(e == null) { 
+			this.setElement(a);
+			return true;
+		}
+		else {
+			//e.collide(); /*Hogy adok át neki pandát vagy orángutánt? nem lehetne inkább animal-t átvenni?  */
+			/* ez így még nem jó*/
+			
+			/*5.3.10	OrangutanExit*/
+
+			return false; 
+		}
+	}
+	
 	
 	public void remove(Element e) {
 		switch (Game.usecase) {

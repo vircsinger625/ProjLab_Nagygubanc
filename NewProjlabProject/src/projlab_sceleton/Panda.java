@@ -6,7 +6,15 @@ public class Panda extends Animal implements Steppable {
 	
 	private boolean isCaptured;
 	
-	public boolean collide(Orangutan o) {System.out.println("Panda.collide(Orangutan o) "); return true;}
+	public boolean collide(Orangutan o) {
+		System.out.println("Panda.collide(Orangutan o) "); 
+		this.setIsCaptured(true);
+		o.addCapturedPandas(this);
+		Tile t1 = o.getTile(); /*KI KELL CSERÉLNI ÕKET szekvencián is (?)*/
+		o.move(this.getTile());
+		this.move(t1);
+		return true;
+	}
 	
 	public boolean collide(Panda p) {System.out.println("Panda.collide(Panda p) "); return true;}
 	
@@ -14,7 +22,7 @@ public class Panda extends Animal implements Steppable {
 	
 	public void move(Direction d) {System.out.println("Panda.move(Direction d) ");}
 	
-	public void die() {switch (Game.usecase) {
+	public void die() {switch (Game.usecase) { /*nem ugyanúgy hal meg mindenhol? nem elég csak egy println? a switch-case elég a mainben*/
 	case 6:
 		System.out.println("p.die())");
 		break;
