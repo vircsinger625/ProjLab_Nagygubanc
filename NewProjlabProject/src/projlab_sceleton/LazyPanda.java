@@ -16,7 +16,23 @@ public class LazyPanda extends Panda {
 	}
 
 	public void reaction(InputEffect i, Tile t) {
-		System.out.println("LazyPanda.reaction(InputEffect i, Tile t) ");
+
+		switch (Game.usecase) {
+		case 12:
+			System.out.println("lp.reaction(sleepMessage, acTile)");
+			this.setIsResting(true);
+			this.setParalyzedCounter();
+			t.remove(this);
+			t.setElement(this);
+			this.die();
+			break;
+
+		default:
+
+			break;
+		}
+
+		// System.out.println("LazyPanda.reaction(InputEffect i, Tile t) ");
 	}
 
 	public void move(Direction d) {
@@ -39,12 +55,24 @@ public class LazyPanda extends Panda {
 		return this.tile;
 	}
 
-	public void setParalyzedCounter() {
-		System.out.println("LazyPanda.setParalyzedCounter() ");
+	public void setParalyzedCounter() {// System.out.println("LazyPanda.setParalyzedCounter() ");
+		switch (Game.usecase) {
+		case 12:
+			System.out.println("lp.setParalyzedCounter()");
+			break;
+
+		default:
+			break;
+		}
+
 	}
 
-	public void setIsResting(boolean b) {
-		System.out.println("LazyPanda.setIsResting(boolean b) ");
+	public void setIsResting(boolean b) { // System.out.println("LazyPanda.setIsResting(boolean b) ");
+		isResting = b;
+		switch (Game.usecase) {
+		case 12:
+			System.out.println("lp.setIsResting(true)");
+		}
 	}
 
 	public void decraseCounter() {

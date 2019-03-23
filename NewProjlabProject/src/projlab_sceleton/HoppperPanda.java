@@ -1,5 +1,9 @@
 package projlab_sceleton;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class HoppperPanda extends Panda {
 
 	public boolean collide(Orangutan o) {
@@ -12,8 +16,27 @@ public class HoppperPanda extends Panda {
 		return true;
 	}
 
-	public void reaction(InputEffect i, Tile t) {
-		System.out.println("HopperPanda.reaction(InputEffect i, Tile t) ");
+	public void reaction(InputEffect i, Tile t) {// System.out.println("HopperPanda.reaction(InputEffect i, Tile t) ");
+		switch (Game.usecase) {
+		case 13:
+			System.out.println("hp.reaction(whistleMessage, hpTile)");
+			System.out.println("Ez egy weakTile?");
+			InputStreamReader isr = new InputStreamReader(System.in);
+			try {
+				BufferedReader br = new BufferedReader(isr);
+				String answer = br.readLine();
+				if (answer.equals("y")) {
+					System.out.println("hpTile Is WeakTile");
+					this.tile = new WeakTile();
+					this.tile.incraseCounter();
+
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 	public void move(Direction d) {
