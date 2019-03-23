@@ -102,34 +102,49 @@ public class Game {
 					o9.move(t9); // megpróbál rálépni az orángután, de sikertelenül
 					break;
 				case 10:
-					System.out.println("*******Use-Case felépítése*******");
-					Orangutan o10 = new Orangutan();
-					Tile t10 = new Tile();
-					o10.setTile(t10);
+					// System.out.println("*******Use-Case felépítése*******");
+					/*
+					 * Orangutan o10 = new Orangutan(); Tile t10 = new Tile(); o10.setTile(t10);
+					 * 
+					 * Panda p10 = new Panda(); // Pand utána... Tile t10p1 = new Tile();
+					 * p10.setTile(t10p1); p10.collide(o10);
+					 * 
+					 * Panda p11 = new Panda(); Tile t10p2 = new Tile(); p11.setTile(t10p2);
+					 * p11.collide(o10);
+					 * 
+					 * Panda p12 = new Panda(); Tile t10p3 = new Tile(); p12.setTile(t10p3);
+					 * p12.collide(o10);
+					 * 
+					 * Tile exitTile = new Tile(); Exit exit = new Exit();
+					 * exitTile.setElement(exit); Tile enterTile = new Tile();
+					 * floor.setEntranceTile(enterTile);
+					 * 
+					 * System.out.println("*******Use-Case felépítésének vége*******");
+					 * o10.move(exitTile); // Orángután a kijáratra lép
+					 */
 
-					Panda p10 = new Panda(); // Pand utána...
-					Tile t10p1 = new Tile();
-					p10.setTile(t10p1);
-					p10.collide(o10);
+					Orangutan o = new Orangutan();
+					Panda p1 = new Panda();
+					Panda p2 = new Panda();
+					Panda p3 = new Panda();
 
-					Panda p11 = new Panda();
-					Tile t10p2 = new Tile();
-					p11.setTile(t10p2);
-					p11.collide(o10);
-
-					Panda p12 = new Panda();
-					Tile t10p3 = new Tile();
-					p12.setTile(t10p3);
-					p12.collide(o10);
+					Tile ot = new Tile();
+					Tile pt1 = new Tile();
+					Tile pt2 = new Tile();
+					Tile pt3 = new Tile();
 
 					Tile exitTile = new Tile();
-					Exit exit = new Exit();
-					exitTile.setElement(exit);
-					Tile enterTile = new Tile();
-					floor.setEntranceTile(enterTile);
 
-					System.out.println("*******Use-Case felépítésének vége*******");
-					o10.move(exitTile); // Orángután a kijáratra lép
+					o.setTile(ot);
+					p1.setTile(pt1);
+					p2.setTile(pt2);
+					p3.setTile(pt3);
+
+					o.addCapturedPandas(p1);
+					o.addCapturedPandas(p2);
+					o.addCapturedPandas(p3);
+
+					o.move(exitTile);
 
 					break;
 				case 11:

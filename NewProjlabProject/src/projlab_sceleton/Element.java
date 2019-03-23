@@ -36,7 +36,13 @@ public class Element {
 	}
 
 	public Tile getTile() {
-		System.out.println("getTile()");
+		switch(Game.usecase) {
+		case 10:
+			//System.out.println("getTile()");
+			break;
+		default:
+			System.out.println("getTile()");
+		}
 		return tile;
 	}
 

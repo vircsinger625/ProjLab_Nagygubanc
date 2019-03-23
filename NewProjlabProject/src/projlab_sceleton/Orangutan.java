@@ -74,6 +74,7 @@ public class Orangutan extends Animal implements Steppable {
 			break;
 		case 4:
 			System.out.println("o.move(nextWardrobe)");
+			break;
 		case 8:
 			System.out.println("Orangutan.move(Tile t) ");
 			t.stepIn(this); // a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
@@ -86,7 +87,20 @@ public class Orangutan extends Animal implements Steppable {
 
 		case 10:/* 5.3.10 OrangutanExit */
 			System.out.println("Orangutan.move(Tile t) ");
-			t.stepIn(this); // a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+			Tile temp2 = new Tile();
+			temp2 = this.getTile();
+			this.getTile().remove(this);
+			Tile entranceTile = new Tile();
+			entranceTile.setElement(this);
+			Tile temp = new Tile();
+			temp = capturedPandas.get(0).getTile();
+			capturedPandas.get(0).move(temp2);
+			temp2 = capturedPandas.get(1).getTile();
+			capturedPandas.get(1).move(temp);
+			temp = capturedPandas.get(2).getTile();
+			capturedPandas.get(2).move(temp2);
+			//t.stepIn(this); // a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+			
 			break;
 
 		default:
@@ -101,8 +115,10 @@ public class Orangutan extends Animal implements Steppable {
 	public void addCapturedPandas(Panda p) {
 
 		switch (Game.usecase) {
+		case 8:
+			System.out.println("o.addCapturedPandas(p)");
 		case 10:
-			System.out.println("Orangutan.addCapturedPandas(Panda p) ");
+			//System.out.println("Orangutan.addCapturedPandas(Panda p) ");
 			capturedPandas.add(p); // panda az orángután került a sorba
 			break;
 		default:

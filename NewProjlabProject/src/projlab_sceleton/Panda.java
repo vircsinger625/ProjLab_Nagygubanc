@@ -12,10 +12,9 @@ public class Panda extends Animal implements Steppable {
 			System.out.println("Panda.collide(Orangutan o) ");
 			this.setIsCaptured(true);
 			o.addCapturedPandas(this);
-			Tile t1 = o.getTile(); /* KI KELL CSERÉLNI ÕKET szekvencián is (?) */
-			o.move(this.getTile());
-			this.move(t1);
-			return true; // break;
+			Tile t8 = o.getTile(); /* KI KELL CSERÉLNI ÕKET szekvencián is (?) */
+			this.move(t8);
+			return true;
 		case 10:
 			System.out.println("Panda.collide(Orangutan o) ");
 			this.setIsCaptured(true);

@@ -23,12 +23,12 @@ public class Tile {
 			System.out.println("nextTile.setElement(p)");
 			break;
 		case 9:
-			System.out.println("nextTile.setElement(p)");
-			element = e; // ez már a logikát valósítja meg, megcsinálja a fgvt.
+			//System.out.println("nextTile.setElement(p)");
+			//element = e; // ez már a logikát valósítja meg, megcsinálja a fgvt.
 			break;
 		case 10:
-			System.out.println("nextTile.setElement(p)");
-			element = e;
+			//System.out.println("nextTile.setElement(p)");
+			//element = e;
 			break;
 		default:
 			break;
@@ -40,12 +40,9 @@ public class Tile {
 		switch (Game.usecase) {
 		case 9: /* 5.3.9 OrangutanCollideWithThing */
 			System.out.println("Tile.stepIn(Animal a) ");
-			if (this.getElement() == null) { // Ha nincs rajta semmi, akkor simán bele tud lépni
-				this.setElement(a);
-				return true;
-			} else {
-				this.getElement().collide((Orangutan) a);
-			}
+			ArmChair ac = new ArmChair();
+			this.setElement(ac);
+			ac.collide((Orangutan)a);
 			break;
 
 		case 10: /* 5.3.10 OrangutanExit */
