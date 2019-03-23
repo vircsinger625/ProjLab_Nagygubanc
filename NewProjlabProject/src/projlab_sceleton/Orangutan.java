@@ -99,8 +99,8 @@ public class Orangutan extends Animal implements Steppable {
 			capturedPandas.get(1).move(temp);
 			temp = capturedPandas.get(2).getTile();
 			capturedPandas.get(2).move(temp2);
-			//t.stepIn(this); // a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
-			
+			// t.stepIn(this); // a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+
 			break;
 
 		default:
@@ -118,7 +118,7 @@ public class Orangutan extends Animal implements Steppable {
 		case 8:
 			System.out.println("o.addCapturedPandas(p)");
 		case 10:
-			//System.out.println("Orangutan.addCapturedPandas(Panda p) ");
+			// System.out.println("Orangutan.addCapturedPandas(Panda p) ");
 			capturedPandas.add(p); // panda az orángután került a sorba
 			break;
 		default:
@@ -136,7 +136,9 @@ public class Orangutan extends Animal implements Steppable {
 			System.out.println("o.removeCapturedPandas(p)");
 			capturedPandas.remove(p);
 			break;
-
+		case 11:
+			System.out.println("o.removeCapturedPandas(p)");
+			break;
 		default:
 			break;
 		}

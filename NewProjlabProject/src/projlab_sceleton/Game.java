@@ -148,13 +148,25 @@ public class Game {
 
 					break;
 				case 11:
-					;
+					ScaryPanda sp11 = new ScaryPanda();
+					Orangutan o11 = new Orangutan();
+					Tile smTile11 = new Tile();
+					InputEffect ie11 = InputEffect.jingleMessage;										
+					sp11.reaction(ie11, smTile11);
 					break;
 				case 12:
-					;
+					LazyPanda lp12 = new LazyPanda();
+					Tile tile12 = new Tile();
+					Tile acTile12 = new Tile();
+					InputEffect ie12 = InputEffect.sleepMessage;					
+					lp12.reaction(ie12, acTile12);
 					break;
 				case 13:
-					;
+					HoppperPanda hp13 = new HoppperPanda();
+					Tile hpTile13 = new Tile();
+					Tile caTile13 = new Tile();
+					InputEffect ie13 = InputEffect.whistleMessage;					
+					hp13.reaction(ie13,caTile13);
 					break;
 
 				}

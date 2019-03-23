@@ -23,13 +23,15 @@ public class Tile {
 			System.out.println("nextTile.setElement(p)");
 			break;
 		case 9:
-			//System.out.println("nextTile.setElement(p)");
-			//element = e; // ez már a logikát valósítja meg, megcsinálja a fgvt.
+			// System.out.println("nextTile.setElement(p)");
+			// element = e; // ez már a logikát valósítja meg, megcsinálja a fgvt.
 			break;
 		case 10:
-			//System.out.println("nextTile.setElement(p)");
-			//element = e;
+			// System.out.println("nextTile.setElement(p)");
+			// element = e;
 			break;
+		case 12:
+			System.out.println("acTile.setElement(lp)");
 		default:
 			break;
 		}
@@ -42,7 +44,7 @@ public class Tile {
 			System.out.println("Tile.stepIn(Animal a) ");
 			ArmChair ac = new ArmChair();
 			this.setElement(ac);
-			ac.collide((Orangutan)a);
+			ac.collide((Orangutan) a);
 			break;
 
 		case 10: /* 5.3.10 OrangutanExit */
@@ -77,7 +79,9 @@ public class Tile {
 		case 7:
 			System.out.println("tile.remove(p)");
 			break;
-
+		case 12:
+			System.out.println("tile.remove(lp)");
+			break;
 		default:
 			break;
 		}
