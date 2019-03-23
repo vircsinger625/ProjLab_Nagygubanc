@@ -45,7 +45,16 @@ public class Wardrobe extends Element {
 	}
 
 	public Tile getTile() {
-		System.out.println("Wardrobe.getTile() ");
+		switch (Game.usecase) {
+		case 4:
+			System.out.println("nextWardrobe.getTile()");
+			break;
+		case 5:
+			System.out.println("nextWardrobe.getTile()");
+			break;
+		default:
+			break;
+		}
 		return this.tile;
 	}
 

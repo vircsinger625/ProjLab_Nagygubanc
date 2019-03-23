@@ -8,7 +8,7 @@ public class Element {
 		switch (Game.usecase) {
 		case 9:
 			System.out.println("Element.collide(Orangutan o) ");
-			// az orángután csak bejáratra, kijáratra, szekrényre tud lépni
+			// az orï¿½ngutï¿½n csak bejï¿½ratra, kijï¿½ratra, szekrï¿½nyre tud lï¿½pni
 			if (o.getTile().getElement() == new Entrance() || /* 5.3.10 OrangutanExit */
 					o.getTile().getElement() == new Wardrobe() || /* 5.3.9 OrangutanCollideWithThing */
 					o.getTile().getElement() == new Exit()) {
@@ -16,7 +16,7 @@ public class Element {
 			}
 		case 10:
 			System.out.println("Element.collide(Orangutan o) ");
-			// az orángután csak bejáratra, kijáratra, szekrényre tud lépni
+			// az orï¿½ngutï¿½n csak bejï¿½ratra, kijï¿½ratra, szekrï¿½nyre tud lï¿½pni
 			if (o.getTile().getElement() == new Entrance() || /* 5.3.10 OrangutanExit */
 					o.getTile().getElement() == new Wardrobe() || /* 5.3.9 OrangutanCollideWithThing */
 					o.getTile().getElement() == new Exit()) {
@@ -37,6 +37,8 @@ public class Element {
 
 	public Tile getTile() {
 		switch(Game.usecase) {
+		case 8:
+			System.out.println("o.getTile()");
 		case 10:
 			//System.out.println("getTile()");
 			break;

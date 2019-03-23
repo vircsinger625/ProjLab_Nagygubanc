@@ -24,7 +24,7 @@ public class LazyPanda extends Panda {
 			this.setParalyzedCounter();
 			t.remove(this);
 			t.setElement(this);
-			this.die();
+			//this.die();   Eszter valamiért megölte a fotelben alvó pandát :D
 			break;
 
 		default:

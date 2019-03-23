@@ -9,18 +9,17 @@ public class Panda extends Animal implements Steppable {
 	public boolean collide(Orangutan o) {
 		switch (Game.usecase) {
 		case 8:
-			System.out.println("Panda.collide(Orangutan o) ");
+			System.out.println("p.collide(o) ");
 			this.setIsCaptured(true);
 			o.addCapturedPandas(this);
-			Tile t8 = o.getTile(); /* KI KELL CSERÉLNI ÕKET szekvencián is (?) */
+			Tile t8 = o.getTile();
 			this.move(t8);
 			return true;
 		case 10:
 			System.out.println("Panda.collide(Orangutan o) ");
 			this.setIsCaptured(true);
 			o.addCapturedPandas(this);
-			Tile t2 = o.getTile(); /* KI KELL CSERÉLNI ÕKET szekvencián is (?) */
-			o.move(this.getTile());
+			Tile t2 = o.getTile(); /* KI KELL CSERï¿½LNI ï¿½KET szekvenciï¿½n is (?) */
 			this.move(t2);
 			return true; // break;
 		default:
@@ -77,12 +76,12 @@ public class Panda extends Animal implements Steppable {
 			this.die();
 			break;
 		case 8:
-			System.out.println("p.move(nextTile)");
+			System.out.println("p.move(orangutanTile)");
 			this.tile.remove(this);
 			t.setElement(this);
 			break;
 		default:
-			System.out.println("p.move(nextTile)"); // hogy tuti kiírja, hogy belelépett a fgv-be
+			System.out.println("p.move(nextTile)"); // hogy tuti kiï¿½rja, hogy belelï¿½pett a fgv-be
 			break;
 		}
 	}
@@ -92,7 +91,14 @@ public class Panda extends Animal implements Steppable {
 	}
 
 	public void setIsCaptured(boolean b) {
-		System.out.println("Panda.setIsCaptured(boolean b) ");
+	switch(Game.usecase) {
+	case 8:
+		System.out.println("p.setIsCaptured(true)");
+		break;
+	default:
+		break;
+			
+	}
 	}
 
 }

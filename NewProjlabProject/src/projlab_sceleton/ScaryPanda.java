@@ -30,7 +30,7 @@ public class ScaryPanda extends Panda {
 				String answer = br.readLine();
 				if (answer.equals("y")) {
 
-					System.out.println("sp.isCaptured = true");
+					System.out.println("[sp.isCaptured is true]");
 					Game.floor.getOrangutan().removeCapturedPandas(this);
 
 				}
