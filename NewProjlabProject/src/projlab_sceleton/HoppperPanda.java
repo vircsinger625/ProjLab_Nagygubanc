@@ -26,7 +26,7 @@ public class HoppperPanda extends Panda {
 				BufferedReader br = new BufferedReader(isr);
 				String answer = br.readLine();
 				if (answer.equals("y")) {
-					System.out.println("hpTile Is WeakTile");
+					System.out.println("[hpTile Is WeakTile]");
 					this.tile = new WeakTile();
 					this.tile.incraseCounter();
 
