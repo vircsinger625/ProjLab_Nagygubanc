@@ -22,8 +22,11 @@ public class Game {
 				BufferedReader br = new BufferedReader(isr);
 				String number = br.readLine();
 
-				if (number == "exit")
+				if (number.equals("exit")) {
+					System.out.println("TesztelÃ©s vÃ©ge.");
 					System.exit(0);
+					
+				}
 
 				usecase = Integer.parseInt(number);
 
@@ -94,19 +97,19 @@ public class Game {
 					p8.setTile(t8p);
 					p8.collide(o8);
 					break;
-				case 9: /* a szekvenciába nem kell egy o: Orangutan is? */
+				case 9: /* a szekvenciï¿½ba nem kell egy o: Orangutan is? */
 					Orangutan o9 = new Orangutan();
 					Tile t9 = new Tile();
 					ArmChair ac9 = new ArmChair();
-					t9.setElement(ac9); // a szék a t9-es csempén van.
-					o9.move(t9); // megpróbál rálépni az orángután, de sikertelenül
+					t9.setElement(ac9); // a szï¿½k a t9-es csempï¿½n van.
+					o9.move(t9); // megprï¿½bï¿½l rï¿½lï¿½pni az orï¿½ngutï¿½n, de sikertelenï¿½l
 					break;
 				case 10:
-					// System.out.println("*******Use-Case felépítése*******");
+					// System.out.println("*******Use-Case felï¿½pï¿½tï¿½se*******");
 					/*
 					 * Orangutan o10 = new Orangutan(); Tile t10 = new Tile(); o10.setTile(t10);
 					 * 
-					 * Panda p10 = new Panda(); // Pand utána... Tile t10p1 = new Tile();
+					 * Panda p10 = new Panda(); // Pand utï¿½na... Tile t10p1 = new Tile();
 					 * p10.setTile(t10p1); p10.collide(o10);
 					 * 
 					 * Panda p11 = new Panda(); Tile t10p2 = new Tile(); p11.setTile(t10p2);
@@ -119,8 +122,8 @@ public class Game {
 					 * exitTile.setElement(exit); Tile enterTile = new Tile();
 					 * floor.setEntranceTile(enterTile);
 					 * 
-					 * System.out.println("*******Use-Case felépítésének vége*******");
-					 * o10.move(exitTile); // Orángután a kijáratra lép
+					 * System.out.println("*******Use-Case felï¿½pï¿½tï¿½sï¿½nek vï¿½ge*******");
+					 * o10.move(exitTile); // Orï¿½ngutï¿½n a kijï¿½ratra lï¿½p
 					 */
 
 					Orangutan o = new Orangutan();
