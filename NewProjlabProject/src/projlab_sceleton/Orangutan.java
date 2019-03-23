@@ -1,5 +1,9 @@
 package projlab_sceleton;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Orangutan extends Animal implements Steppable {
 	
 	private boolean hasCapturedPanda;
@@ -17,28 +21,47 @@ public class Orangutan extends Animal implements Steppable {
 	
 	public void move(Tile t) 
 	{
-		System.out.println("Orangutan.move(Tile t) ");
+		//System.out.println("Orangutan.move(Tile t) ");
 		/* 5.3.9 OrangutanCollideWithThing */
 		/*5.3.10	OrangutanExit*/
-		t.stepIn(this); //a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+		//t.stepIn(this); //a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
 		switch (Game.usecase) {
 		case 1:
-			System.out.println("o1.move(nextTile1)");
+			System.out.println("o.move(nextTile)");
 			this.tile.remove(this);
 			t.setElement(this);
-			this.die();
 			break;
 		case 2:
-			System.out.println("o2.move(nextTile2)");
+			System.out.println("o.move(nextTile)");
+			this.tile.remove(this);
+			t.setElement(this);
+			t.incraseCounter();
+			
+			System.out.println("Eltörik a csempe?");
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader br = new BufferedReader(isr);
+			String answer;
+			try {
+				answer = br.readLine();
+				if ( answer.equals("y") )
+				{
+					this.die();
+					break;
+				}
+			
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case 3:
+			System.out.println("o.move(nextTile)");
 			this.tile.remove(this);
 			t.setElement(this);
 			this.die();
 			break;
-		case 3:
-			System.out.println("o3.move(nextTile3)");
-			this.tile.remove(this);
-			t.setElement(this);
-			this.die();
+		case 4:
+			System.out.println("o.move(nextWardrobe)");
 			break;
 		}
 	}

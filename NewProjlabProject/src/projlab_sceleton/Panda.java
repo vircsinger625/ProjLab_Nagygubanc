@@ -39,6 +39,9 @@ public class Panda extends Animal implements Steppable {
 		//System.out.println("Panda.move(Tile t) ");
 		//Mindig írjuk ki a konkrét függvényt + paramétert a szekvenciadiagram alapján
 		switch (Game.usecase) {
+		case 5:
+			System.out.println("p.move(nextWardrobe)");
+			break;
 		case 6:
 			System.out.println("p.move(nextTile)");
 			this.tile.remove(this);

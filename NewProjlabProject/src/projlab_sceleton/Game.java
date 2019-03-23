@@ -37,56 +37,46 @@ public class Game {
 					Orangutan o1 = new Orangutan();
 					Tile nextTile1 = new Tile();
 					Tile tile1 = new Tile();
+					o1.setTile(tile1);
 					o1.move(nextTile1);
-					tile1.remove(o1);
-					nextTile1.setElement(o1);
+					
 					break;
 				case 2:
 					Orangutan o2 = new Orangutan();
 					WeakTile nextTile2 = new WeakTile();
 					Tile tile2 = new Tile();
-					int lifeOfWeakTile;
-					BufferedReader br1 = new BufferedReader(isr);
-					String input1 = br1.readLine();
-					System.out.println("Mennyi élete van a csempének?");
-					lifeOfWeakTile = Integer.parseInt(input1);
-					if (lifeOfWeakTile > 20) {
-						o2.die();
-						break;
-					}
+					o2.setTile(tile2);
 					o2.move(nextTile2);
-					tile2.remove(o2);
-					nextTile2.setElement(o2);
-					nextTile2.incraseCounter();
+					
+					
 					
 					break;
 				case 3:
 					Orangutan o3 = new Orangutan();
 					WeakTile nextTile3 = new WeakTile();
 					Tile tile3 = new Tile();
+					o3.setTile(tile3);
 					o3.move(nextTile3);
-					tile3.remove(o3);
-					nextTile3.setElement(o3);
-					o3.die();
+
 					break;
 				case 4:
 					Wardrobe w4 = new Wardrobe();
 					Orangutan o4 = new Orangutan();
-					Wardrobe nextWardrobe4 = new Wardrobe();
+					
 					Tile tile4 = new Tile();
+					o4.setTile(tile4);
 					w4.collide(o4);
-					tile4 = nextWardrobe4.getTile();
-					o4.move(tile4);
 					
 					break;
 				case 5:
 					Wardrobe w5 = new Wardrobe();
 					Panda p5 = new Panda();
-					Wardrobe nextWardrobe5 = new Wardrobe();
-					p5.collide(p5);
+					
 					Tile tile5 = new Tile();
-					tile5 = nextWardrobe5.getTile();
-					p5.move(tile5);
+					p5.setTile(tile5);
+					w5.collide(p5);
+					
+					
 					break;
 				case 6:
 					Panda p6 = new Panda();
