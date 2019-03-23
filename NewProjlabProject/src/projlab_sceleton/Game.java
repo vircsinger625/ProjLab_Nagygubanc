@@ -45,13 +45,26 @@ public class Game {
 					Orangutan o2 = new Orangutan();
 					WeakTile nextTile2 = new WeakTile();
 					Tile tile2 = new Tile();
+					int lifeOfWeakTile;
+					BufferedReader br1 = new BufferedReader(isr);
+					String input1 = br1.readLine();
+					System.out.println("Mennyi élete van a csempének?");
+					lifeOfWeakTile = Integer.parseInt(input1);
+					if (lifeOfWeakTile > 20) {
+						o2.die();
+						break;
+					}
 					o2.move(nextTile2);
 					tile2.remove(o2);
 					nextTile2.setElement(o2);
+					nextTile2.incraseCounter();
 					
 					break;
 				case 3:
-					;
+					Orangutan o3 = new Orangutan();
+					WeakTile nextTile3 = new WeakTile();
+					Tile tile3 = new Tile();
+					
 					break;
 				case 4:
 					;
