@@ -64,13 +64,29 @@ public class Game {
 					Orangutan o3 = new Orangutan();
 					WeakTile nextTile3 = new WeakTile();
 					Tile tile3 = new Tile();
-					
+					o3.move(nextTile3);
+					tile3.remove(o3);
+					nextTile3.setElement(o3);
+					o3.die();
 					break;
 				case 4:
-					;
+					Wardrobe w4 = new Wardrobe();
+					Orangutan o4 = new Orangutan();
+					Wardrobe nextWardrobe4 = new Wardrobe();
+					Tile tile4 = new Tile();
+					w4.collide(o4);
+					tile4 = nextWardrobe4.getTile();
+					o4.move(tile4);
+					
 					break;
 				case 5:
-					;
+					Wardrobe w5 = new Wardrobe();
+					Panda p5 = new Panda();
+					Wardrobe nextWardrobe5 = new Wardrobe();
+					p5.collide(p5);
+					Tile tile5 = new Tile();
+					tile5 = nextWardrobe5.getTile();
+					p5.move(tile5);
 					break;
 				case 6:
 					Panda p6 = new Panda();

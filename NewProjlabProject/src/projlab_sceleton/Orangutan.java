@@ -28,6 +28,18 @@ public class Orangutan extends Animal implements Steppable {
 			t.setElement(this);
 			this.die();
 			break;
+		case 2:
+			System.out.println("o2.move(nextTile2)");
+			this.tile.remove(this);
+			t.setElement(this);
+			this.die();
+			break;
+		case 3:
+			System.out.println("o3.move(nextTile3)");
+			this.tile.remove(this);
+			t.setElement(this);
+			this.die();
+			break;
 		}
 	}
 	

@@ -10,6 +10,12 @@ public class Tile {
 		case 1:
 			System.out.println("nextTile.setElement(o1)");
 			break;
+		case 2:
+			System.out.println("nextTile.setElement(o2)");
+			break;
+		case 3:
+			System.out.println("nextTile.setElement(o3)");
+			break;
 		case 6:
 			System.out.println("nextTile.setElement(p)");
 			break;
@@ -47,6 +53,12 @@ public class Tile {
 		switch (Game.usecase) {
 		case 1:
 			System.out.println("tile.remove(o1)");
+			break;
+		case 2:
+			System.out.println("tile.remove(o2)");
+			break;
+		case 3:
+			System.out.println("tile.remove(o3)");
 			break;
 		case 6:
 			System.out.println("tile.remove(p)");
