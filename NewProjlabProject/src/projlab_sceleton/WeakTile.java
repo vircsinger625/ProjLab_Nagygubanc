@@ -12,7 +12,9 @@ public class WeakTile extends Tile {
 	public void incraseCounter() {// System.out.println("WeakTile.incraseCounter() ");
 
 		switch (Game.usecase) {
-
+		case 2:
+			System.out.println("nextTile.increaseCounter()");
+			break;
 		case 13:
 			stepInCounter++;
 			System.out.println("hpTile.increaseCounter()");

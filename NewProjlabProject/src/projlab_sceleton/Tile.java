@@ -24,7 +24,7 @@ public class Tile {
 			break;
 		case 9:
 			// System.out.println("nextTile.setElement(p)");
-			// element = e; // ez már a logikát valósítja meg, megcsinálja a fgvt.
+			// element = e; // ez mï¿½r a logikï¿½t valï¿½sï¿½tja meg, megcsinï¿½lja a fgvt.
 			break;
 		case 10:
 			// System.out.println("nextTile.setElement(p)");
@@ -49,7 +49,7 @@ public class Tile {
 
 		case 10: /* 5.3.10 OrangutanExit */
 			System.out.println("Tile.stepIn(Animal a) ");
-			if (this.getElement() == null) { // Ha nincs rajta semmi, akkor simán bele tud lépni
+			if (this.getElement() == null) { // Ha nincs rajta semmi, akkor simï¿½n bele tud lï¿½pni
 				this.setElement(a);
 				return true;
 			} else {
@@ -89,6 +89,7 @@ public class Tile {
 	}
 
 	public void incraseCounter() {
+		
 	}
 
 	public Element getElement() {
