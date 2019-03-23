@@ -5,7 +5,7 @@ public class Wardrobe extends Element {
 	private int personalNumber;
 
 	public boolean collide(Orangutan o) {
-		//System.out.println("Wardrobe.collide(Orangutan o) ");
+		// System.out.println("Wardrobe.collide(Orangutan o) ");
 		switch (Game.usecase) {
 		case 4:
 			System.out.println("w.collide(o) ");
@@ -15,8 +15,7 @@ public class Wardrobe extends Element {
 			Tile tile41 = nextWardrobe4.getTile();
 			o.move(tile41);
 			return false;
-		
-		
+
 		default:
 			break;
 		}
@@ -24,7 +23,7 @@ public class Wardrobe extends Element {
 	}
 
 	public boolean collide(Panda p) {
-		//System.out.println("Wardrobe.collide(Panda p) ");
+		// System.out.println("Wardrobe.collide(Panda p) ");
 		switch (Game.usecase) {
 		case 5:
 			System.out.println("w.collide(p) ");
@@ -34,7 +33,7 @@ public class Wardrobe extends Element {
 			Tile tile51 = nextWardrobe5.getTile();
 			p.move(tile51);
 			return false;
-			
+
 		default:
 			break;
 		}
@@ -45,7 +44,8 @@ public class Wardrobe extends Element {
 		System.out.println("Wardrobe.reaction(InputEffect i, Tile t) ");
 	}
 
-	public Tile getTile() { System.out.println("Wardrobe.getTile() ");
+	public Tile getTile() {
+		System.out.println("Wardrobe.getTile() ");
 		return this.tile;
 	}
 

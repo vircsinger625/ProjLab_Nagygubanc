@@ -9,8 +9,7 @@ public class WeakTile extends Tile {
 		return true;
 	}
 
-	public void incraseCounter() 
-	{
+	public void incraseCounter() {
 		System.out.println("WeakTile.incraseCounter() ");
 		stepInCounter++;
 	}
