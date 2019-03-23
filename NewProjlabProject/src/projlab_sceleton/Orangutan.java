@@ -21,6 +21,14 @@ public class Orangutan extends Animal implements Steppable {
 		/* 5.3.9 OrangutanCollideWithThing */
 		/*5.3.10	OrangutanExit*/
 		t.stepIn(this); //a Tile-ban vizsgáljuk, hogy oda tud e lépni az orángután.
+		switch (Game.usecase) {
+		case 1:
+			System.out.println("o1.move(nextTile1)");
+			this.tile.remove(this);
+			t.setElement(this);
+			this.die();
+			break;
+		}
 	}
 	
 	public void step() {System.out.println("Orangutan.step() ");}

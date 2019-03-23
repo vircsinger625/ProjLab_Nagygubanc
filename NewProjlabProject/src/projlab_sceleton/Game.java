@@ -33,10 +33,22 @@ public class Game {
 				
 				switch(usecase) {
 				case 1:
-					System.out.println("1-est irtal be");
+					//System.out.println("1-est irtal be");
+					Orangutan o1 = new Orangutan();
+					Tile nextTile1 = new Tile();
+					Tile tile1 = new Tile();
+					o1.move(nextTile1);
+					tile1.remove(o1);
+					nextTile1.setElement(o1);
 					break;
 				case 2:
-					;
+					Orangutan o2 = new Orangutan();
+					WeakTile nextTile2 = new WeakTile();
+					Tile tile2 = new Tile();
+					o2.move(nextTile2);
+					tile2.remove(o2);
+					nextTile2.setElement(o2);
+					
 					break;
 				case 3:
 					;

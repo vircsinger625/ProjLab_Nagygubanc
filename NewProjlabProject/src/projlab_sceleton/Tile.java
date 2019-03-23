@@ -7,6 +7,9 @@ public class Tile {
 	
 	public void setElement(Element e) {
 		switch (Game.usecase) {
+		case 1:
+			System.out.println("nextTile.setElement(o1)");
+			break;
 		case 6:
 			System.out.println("nextTile.setElement(p)");
 			break;
@@ -42,6 +45,9 @@ public class Tile {
 	
 	public void remove(Element e) {
 		switch (Game.usecase) {
+		case 1:
+			System.out.println("tile.remove(o1)");
+			break;
 		case 6:
 			System.out.println("tile.remove(p)");
 			break;
