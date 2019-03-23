@@ -16,6 +16,20 @@ public class Game {
 			System.out.println("------------------------------------------------------");
 			System.out.println("");
 			System.out.println("Melyik Use - case-t akarod kiprobalni?");
+			System.out.println("1  - OrangutanStepsOnTile");
+			System.out.println("2  - OrangutanStepsOnWeakTile");
+			System.out.println("3  - OrangutanStepsOnBrokenTile");
+			System.out.println("4  - OrangutanStepsIntoWardrobe");
+			System.out.println("5  - PandaStepsIntoWardrobe");
+			System.out.println("6  - PandaStepsOnBrokenTile");
+			System.out.println("7  - CapturedPandaStepsOnBrokenTile");
+			System.out.println("8  - OrangutanCachesPanda");
+			System.out.println("9  - OrangutanCollideWithThing");
+			System.out.println("10 - OrangutanExit");
+			System.out.println("11 - ScaryPandaGetsFrightened");
+			System.out.println("12 - LazyPandaSleep");
+			System.out.println("13 - HopperPandaJumps");
+			System.out.println("------------------------------------------------------");
 
 			InputStreamReader isr = new InputStreamReader(System.in);
 			try {
@@ -32,7 +46,7 @@ public class Game {
 
 				switch (usecase) {
 				case 1:
-					// System.out.println("1-est irtal be");
+					System.out.println("1  - OrangutanStepsOnTile");
 					Orangutan o1 = new Orangutan();
 					Tile nextTile1 = new Tile();
 					Tile tile1 = new Tile();
@@ -41,6 +55,7 @@ public class Game {
 
 					break;
 				case 2:
+					System.out.println("2  - OrangutanStepsOnWeakTile");
 					Orangutan o2 = new Orangutan();
 					WeakTile nextTile2 = new WeakTile();
 					Tile tile2 = new Tile();
@@ -49,6 +64,7 @@ public class Game {
 
 					break;
 				case 3:
+					System.out.println("3  - OrangutanStepsOnBrokenTile");
 					Orangutan o3 = new Orangutan();
 					WeakTile nextTile3 = new WeakTile();
 					Tile tile3 = new Tile();
@@ -57,6 +73,7 @@ public class Game {
 
 					break;
 				case 4:
+					System.out.println("4  - OrangutanStepsIntoWardrobe");
 					Wardrobe w4 = new Wardrobe();
 					Orangutan o4 = new Orangutan();
 
@@ -66,6 +83,7 @@ public class Game {
 
 					break;
 				case 5:
+					System.out.println("5  - PandaStepsIntoWardrobe");
 					Wardrobe w5 = new Wardrobe();
 					Panda p5 = new Panda();
 
@@ -75,6 +93,7 @@ public class Game {
 
 					break;
 				case 6:
+					System.out.println("6  - PandaStepsOnBrokenTile");
 					Panda p6 = new Panda();
 					Tile nextTile6 = new Tile();
 					Tile tile6 = new Tile();
@@ -82,6 +101,7 @@ public class Game {
 					p6.move(nextTile6);
 					break;
 				case 7:
+					System.out.println("7  - CapturedPandaStepsOnBrokenTile");
 					Panda p7 = new Panda();
 					Tile nextTile7 = new Tile();
 					Tile tile7 = new Tile();
@@ -89,6 +109,7 @@ public class Game {
 					p7.move(nextTile7);
 					break;
 				case 8:
+					System.out.println("8  - OrangutanCachesPanda");
 					Orangutan o8 = new Orangutan();
 					Tile t8o = new Tile();
 					o8.setTile(t8o);
@@ -97,7 +118,8 @@ public class Game {
 					p8.setTile(t8p);
 					p8.collide(o8);
 					break;
-				case 9: /* a szekvenci�ba nem kell egy o: Orangutan is? */
+				case 9:
+					System.out.println("9  - OrangutanCollideWithThing");
 					Orangutan o9 = new Orangutan();
 					Tile t9 = new Tile();
 					ArmChair ac9 = new ArmChair();
@@ -105,6 +127,7 @@ public class Game {
 					o9.move(t9); // megpr�b�l r�l�pni az or�ngut�n, de sikertelen�l
 					break;
 				case 10:
+					System.out.println("10 - OrangutanExit");
 					// System.out.println("*******Use-Case fel�p�t�se*******");
 					/*
 					 * Orangutan o10 = new Orangutan(); Tile t10 = new Tile(); o10.setTile(t10);
@@ -151,6 +174,7 @@ public class Game {
 
 					break;
 				case 11:
+					System.out.println("11 - ScaryPandaGetsFrightened");
 					ScaryPanda sp11 = new ScaryPanda();
 					Orangutan o11 = new Orangutan();
 					Tile smTile11 = new Tile();
@@ -158,6 +182,7 @@ public class Game {
 					sp11.reaction(ie11, smTile11);
 					break;
 				case 12:
+					System.out.println("12 - LazyPandaSleep");
 					LazyPanda lp12 = new LazyPanda();
 					Tile tile12 = new Tile();
 					Tile acTile12 = new Tile();
@@ -165,6 +190,7 @@ public class Game {
 					lp12.reaction(ie12, acTile12);
 					break;
 				case 13:
+					System.out.println("13 - HopperPandaJumps");
 					HoppperPanda hp13 = new HoppperPanda();
 					Tile hpTile13 = new Tile();
 					Tile caTile13 = new Tile();
