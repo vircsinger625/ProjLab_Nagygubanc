@@ -22,7 +22,14 @@ public class Tile {
 		case 7:
 			System.out.println("nextTile.setElement(p)");
 			break;
-
+		case 9:
+			System.out.println("nextTile.setElement(p)");
+			element = e; //ez már a logikát valósítja meg, megcsinálja a fgvt.
+			break;
+		case 10:
+			System.out.println("nextTile.setElement(p)");
+			element = e; 
+			break;
 		default:
 			break;
 		}
@@ -30,22 +37,33 @@ public class Tile {
 	}
 	
 	public boolean stepIn(Animal a) 
-	{
-		System.out.println("Tile.stepIn(Animal a) "); 
-		Element e = this.getElement();		
-		/* 5.3.9 OrangutanCollideWithThing */
-		if(e == null) { 
-			this.setElement(a);
-			return true;
+	{		
+		switch (Game.usecase) {
+			case 9: /* 5.3.9 OrangutanCollideWithThing */
+				System.out.println("Tile.stepIn(Animal a) "); 
+				if(this.getElement() == null) { //Ha nincs rajta semmi, akkor simán bele tud lépni 
+					this.setElement(a);
+					return true;
+				}
+				else {			
+					this.getElement().collide((Orangutan)a);
+				}
+				break;
+					
+			case 10: /*5.3.10	OrangutanExit*/
+				System.out.println("Tile.stepIn(Animal a) "); 
+				if(this.getElement() == null) { //Ha nincs rajta semmi, akkor simán bele tud lépni 
+					this.setElement(a);
+					return true;
+				}
+				else {	
+					this.getElement().collide((Orangutan)a); //this.getElement() az Exit
+				}
+				break;
+			default:
+				break;
 		}
-		else {
-			//e.collide(); /*Hogy adok át neki pandát vagy orángutánt? nem lehetne inkább animal-t átvenni?  */
-			/* ez így még nem jó*/
-			
-			/*5.3.10	OrangutanExit*/
-
-			return false; 
-		}
+		return false; /*???*/
 	}
 	
 	
@@ -73,6 +91,10 @@ public class Tile {
 		
 	}
 	
-	public Element getElement() {System.out.println("Tile.getElement() "); return element;} //ide is kell majd mï¿½g valami!!
+	public Element getElement() 
+	{
+		System.out.println("Tile.getElement() "); 
+		return element;
+	} 
 
 }

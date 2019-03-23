@@ -104,7 +104,11 @@ public class Game {
 					break;
 				case 8:
 					Orangutan o8 = new Orangutan();
+					Tile t8o = new Tile();
+					o8.setTile(t8o);
 					Panda p8 = new Panda();
+					Tile t8p = new Tile();
+					p8.setTile(t8p);
 					p8.collide(o8);
 					break;
 				case 9: /*a szekvenciába nem kell egy o: Orangutan is? */
@@ -115,17 +119,36 @@ public class Game {
 					o9.move(t9); 		//megpróbál rálépni az orángután, de sikertelenül
 					break;
 				case 10:
+					System.out.println("*******Use-Case felépítése*******");
 					Orangutan o10 = new Orangutan();
+					Tile t10 = new Tile();
+					o10.setTile(t10);
+					
+					Panda p10 = new Panda(); //Pand utána...
+					Tile t10p1 = new Tile();
+					p10.setTile(t10p1);
+					p10.collide(o10);
+					
+					Panda p11 = new Panda();
+					Tile t10p2 = new Tile();
+					p11.setTile(t10p2);
+					p11.collide(o10);
+					
+					Panda p12 = new Panda();
+					Tile t10p3 = new Tile();
+					p12.setTile(t10p3);
+					p12.collide(o10);
+
+					
 					Tile exitTile = new Tile();
 					Exit exit = new Exit();
 					exitTile.setElement(exit);
-					Panda p10 = new Panda();
-					p10.collide(o10);
-					Panda p11 = new Panda();
-					p11.collide(o10);
-					Panda p12 = new Panda();
-					p12.collide(o10);
-					
+					Tile enterTile = new Tile();
+					floor.setEntranceTile(enterTile);
+
+					System.out.println("*******Use-Case felépítésének vége*******");
+					o10.move(exitTile); //Orángután a kijáratra lép
+										
 					break;
 				case 11:
 					;

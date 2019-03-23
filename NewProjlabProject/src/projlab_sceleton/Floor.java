@@ -7,6 +7,7 @@ public class Floor {
 	private Orangutan orangutan = new Orangutan();
 	private Panda panda;
 	private Wardrobe wardrobes;
+	private Tile enteranceTile; //nincs még konkrét értéke
 	
 	public Tile getNextTile(Tile t, Direction d) {System.out.println("Floor.getNextTile(Tile t, Direction d) "); return tiles;} // tï¿½mb kï¿½ne ide!
 	
@@ -16,8 +17,10 @@ public class Floor {
 	
 	public Wardrobe getNextWardrobe(Wardrobe w) {System.out.println("Floor.getNextWardrobe(Wardrobe w) "); return wardrobes;} //tï¿½mb
 	
-	public Tile getEntranceTile() {System.out.println("Floor.getEntranceTile() "); return tiles;} //tï¿½mb
+	public Tile getEntranceTile() {System.out.println("Floor.getEntranceTile() "); return enteranceTile;} 
 
+	public void setEntranceTile(Tile et) {System.out.println("Floor.setEntranceTile() ");  enteranceTile = et;} 
+	
 	public Orangutan getOrangutan() {
 		return orangutan;
 	}
