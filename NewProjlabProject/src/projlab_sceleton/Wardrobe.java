@@ -5,20 +5,17 @@ public class Wardrobe extends Element {
 	private int personalNumber;
 
 	public boolean collide(Orangutan o) {
-		Wardrobe nextWardrobe = new Wardrobe();
-		Tile tile1 = new Tile();
-		nextWardrobe.setTile(tile1);
-		Tile tile2 = nextWardrobe.getTile();
-		o.move(tile2);
+		Wardrobe w2 =Game.floor.getNextWardrobe(this);
+		o.move(w2.getTile());
+		
 		return false;
 	}
 
 	public boolean collide(Panda p) {
-		Wardrobe nextWardrobe = new Wardrobe();
-		Tile tile1 = new Tile();
-		nextWardrobe.setTile(tile1);
-		Tile tile2 = nextWardrobe.getTile();
-		p.move(tile2);
+	
+		Wardrobe w2 =Game.floor.getNextWardrobe(this);
+		p.move(w2.getTile());
+		
 		return false;
 	}
 

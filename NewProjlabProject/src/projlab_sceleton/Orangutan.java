@@ -1,14 +1,11 @@
 package projlab_sceleton;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Orangutan extends Animal implements Steppable {
 
-	private boolean hasCapturedPanda;
+	private boolean hasCapturedPanda = false;
 	public List<Panda> capturedPandas = new ArrayList<Panda>(); 
 
 	public boolean collide(Orangutan o) {
@@ -16,6 +13,13 @@ public class Orangutan extends Animal implements Steppable {
 	}
 
 	public boolean collide(Panda p) {
+		
+		p.setCaptured(true);
+		addCapturedPandas(p);
+		Tile pandaTile = p.getTile();
+		tile.remove(this);
+		pandaTile.setElement(this);
+		
 		return true;
 	}
 
@@ -24,19 +28,45 @@ public class Orangutan extends Animal implements Steppable {
 
 	public void move(int x, int y) {
 		
-		Tile t = new Tile();
+		Tile t = Game.floor.getTile(x, y);
+		
 		boolean canStepIn = t.stepIn(this);
 		if (canStepIn) {
 			this.tile.remove(this);
 			t.setElement(this);
 			
-			/*if (hasCapturedPandas) {
-				
-			}*/
+			if(hasCapturedPanda == true) {
+				Tile tile1 = null;
+				Tile tile2 = null;
+				Tile tmp;
+				Panda p;
+				for (int i = 0; i < capturedPandas.size(); i++) {
+					if(i==0) {
+						p = capturedPandas.get(i);
+						tile2 = p.getTile();
+						p.move(tile);
+					}else {
+						if (i%2 == 0) {
+							tmp = tile2;
+							p = capturedPandas.get(i);
+							tile2 = p.getTile();
+							p.move(tmp);
+						}else {
+							tmp = tile1;
+							p = capturedPandas.get(i);
+							tile1 = p.getTile();
+							p.move(tmp);
+								
+						}
+						}
+					}
+			}
 		}
 	}
 
 	public void die() {
+		tile.remove(this);
+		Game.floor.removeElement(this);
 	}
 
 	public void move(Tile t) {
@@ -45,10 +75,32 @@ public class Orangutan extends Animal implements Steppable {
 		if (canStepIn) {
 			this.tile.remove(this);
 			t.setElement(this);
-			
-			/*if (hasCapturedPandas) {
-				
-			}*/
+			if(hasCapturedPanda == true) {
+				Tile tile1 = null;
+				Tile tile2 = null;
+				Tile tmp;
+				Panda p;
+				for (int i = 0; i < capturedPandas.size(); i++) {
+					if(i==0) {
+						p = capturedPandas.get(i);
+						tile2 = p.getTile();
+						p.move(tile);
+					}else {
+						if (i%2 == 0) {
+							tmp = tile2;
+							p = capturedPandas.get(i);
+							tile2 = p.getTile();
+							p.move(tmp);
+						}else {
+							tmp = tile1;
+							p = capturedPandas.get(i);
+							tile1 = p.getTile();
+							p.move(tmp);
+								
+						}
+						}
+					}
+			}
 		}
 		
 	}
@@ -57,11 +109,18 @@ public class Orangutan extends Animal implements Steppable {
 	}
 
 	public void addCapturedPandas(Panda p) {
-		capturedPandas.add(p);
+		capturedPandas.add(0, p);
 	}
 
 	public void removeCapturedPandas(Panda p) {
-		capturedPandas.remove(p);
+		int pos = capturedPandas.indexOf(p);
+		for (int i = 0; i < capturedPandas.size(); i++) {
+			if (i >= pos) {
+				capturedPandas.get(i).setCaptured(false);
+				capturedPandas.remove(i);
+				
+			}
+		}
 	}
 
 	public boolean isHasCapturedPanda() {

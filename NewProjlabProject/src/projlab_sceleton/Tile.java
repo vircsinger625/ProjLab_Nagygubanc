@@ -3,23 +3,30 @@ package projlab_sceleton;
 public class Tile {
 
 	private int numberOfSides;
-	private Element element;
+	protected Element element = null;
+	private int x;
+	private int y;
 
 	public void setElement(Element e) {
 	}
 
-	public boolean stepIn(Animal a) {
-		if (this.getElement() == null) { // Ha nincs rajta semmi, akkor sim�n bele tud l�pni
-			this.setElement(a);
+	public boolean stepIn(Orangutan o) {
+		if (element == null) {
 			return true;
+		}else {
+			return element.collide(o);
 		}
-		else {
-			this.getElement().collide((Orangutan) a);
+	}
+	public boolean stepIn(Panda p) {
+		if (element == null) {
+			return true;
+		}else {
+			return element.collide(p);
 		}
-		return false;
 	}
 
 	public void remove(Element e) {
+		element = null;
 	}
 
 	public void incraseCounter() {
@@ -35,5 +42,21 @@ public class Tile {
 
 	public void setNumberOfSides(int numberOfSides) {
 		this.numberOfSides = numberOfSides;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 }

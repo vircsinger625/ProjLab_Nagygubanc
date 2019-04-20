@@ -6,7 +6,7 @@ import java.util.List;
 public class Floor {
 
 	private int score;
-	private Tile tiles;
+	private List<Tile> tiles = new ArrayList<Tile>();
 	private Orangutan orangutan1;
 	private Orangutan orangutan2;
 	
@@ -14,13 +14,22 @@ public class Floor {
 
 	private List<Panda> pandas = new ArrayList<Panda>();
 	private List<Wardrobe> wardrobes = new ArrayList<Wardrobe>();
-	private Tile enteranceTile; // nincs meg konkret ertéke
+	private Tile enteranceTile; // nincs meg konkret ertï¿½ke
 
-	public Tile getNextTile(Tile t, int x, int y) { //diretction --> x, y koordinatak
+/*	public Tile getNextTile(Tile t, Direction d) { //diretction --> x, y koordinatak
 		return tiles;
 	}
-
-	public void removeElement(Element e) {
+*/
+	public void removeElement(Orangutan o) {
+		if(o == orangutan1) {
+			orangutan1 = null;
+		}
+		if(o == orangutan2) {
+			orangutan2 = null;
+		}
+	}
+	public void removeElement(Panda p) {
+		pandas.remove(p);
 	}
 
 	public void incraseScore() {
@@ -62,5 +71,20 @@ public class Floor {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+	
+	public Tile getTile(int x, int y) {
+		Tile tile = null;
+		for (int i = 0; i < tiles.size(); i++) {
+			if (tiles.get(i).getX() == x && tiles.get(i).getY() == y) {
+				
+				tile = tiles.get(i);
+				return tile;
+			}
+			
+		}
+		
+		return tile;
+		
 	}
 }

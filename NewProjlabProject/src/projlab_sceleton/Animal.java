@@ -2,7 +2,7 @@ package projlab_sceleton;
 
 public class Animal extends Element {
 
-	private Tile previousTile;
+	private Tile previousTile = null;
 	
 	
 
@@ -29,6 +29,8 @@ public class Animal extends Element {
 	}
 
 	public void die() {
+		tile.remove(this);
+		Game.floor.removeElement(this);
 	}
 
 	public void move(Tile t) {
