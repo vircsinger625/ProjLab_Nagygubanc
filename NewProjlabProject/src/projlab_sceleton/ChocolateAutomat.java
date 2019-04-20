@@ -21,4 +21,12 @@ public class ChocolateAutomat extends Element implements Steppable {
 	public void incraseWhistleCounter() {
 	}
 
+	public int getWhistleCounter() {
+		return whistleCounter;
+	}
+
+	public void setWhistleCounter(int whistleCounter) {
+		this.whistleCounter = whistleCounter;
+	}
+
 }
