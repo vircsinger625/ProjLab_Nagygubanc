@@ -23,12 +23,34 @@ public class Orangutan extends Animal implements Steppable {
 	}
 
 	public void move(int x, int y) {
+		
+		Tile t = new Tile();
+		boolean canStepIn = t.stepIn(this);
+		if (canStepIn) {
+			this.tile.remove(this);
+			t.setElement(this);
+			
+			/*if (hasCapturedPandas) {
+				
+			}*/
+		}
 	}
 
 	public void die() {
 	}
 
 	public void move(Tile t) {
+		
+		boolean canStepIn = t.stepIn(this);
+		if (canStepIn) {
+			this.tile.remove(this);
+			t.setElement(this);
+			
+			/*if (hasCapturedPandas) {
+				
+			}*/
+		}
+		
 	}
 
 	public void step() {
@@ -40,6 +62,14 @@ public class Orangutan extends Animal implements Steppable {
 
 	public void removeCapturedPandas(Panda p) {
 		capturedPandas.remove(p);
+	}
+
+	public boolean isHasCapturedPanda() {
+		return hasCapturedPanda;
+	}
+
+	public void setHasCapturedPanda(boolean hasCapturedPanda) {
+		this.hasCapturedPanda = hasCapturedPanda;
 	}
 
 }

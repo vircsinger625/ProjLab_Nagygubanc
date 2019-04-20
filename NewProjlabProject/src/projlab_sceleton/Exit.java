@@ -26,4 +26,12 @@ public class Exit extends Element {
 	public void reaction(InputEffect i, Tile t) {
 	}
 
+	public boolean isCounting() {
+		return isCounting;
+	}
+
+	public void setCounting(boolean isCounting) {
+		this.isCounting = isCounting;
+	}
+
 }

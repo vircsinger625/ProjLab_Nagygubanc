@@ -21,4 +21,12 @@ public class SlotMachine extends Element implements Steppable {
 	public void incraseJingleCounter() {
 	}
 
+	public int getJingleCounter() {
+		return jingleCounter;
+	}
+
+	public void setJingleCounter(int jingleCounter) {
+		this.jingleCounter = jingleCounter;
+	}
+
 }

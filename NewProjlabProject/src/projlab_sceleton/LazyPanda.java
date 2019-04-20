@@ -47,4 +47,12 @@ public class LazyPanda extends Panda {
 	public void decraseCounter() {
 	}
 
+	public int getParalyzedCounter() {
+		return paralyzedCounter;
+	}
+
+	public void setParalyzedCounter(int paralyzedCounter) {
+		this.paralyzedCounter = paralyzedCounter;
+	}
+
 }

@@ -4,7 +4,15 @@ import java.awt.image.TileObserver;
 
 public class Panda extends Animal implements Steppable {
 
-	private boolean isCaptured;
+	protected boolean isCaptured;
+
+	public boolean isCaptured() {
+		return isCaptured;
+	}
+
+	public void setCaptured(boolean isCaptured) {
+		this.isCaptured = isCaptured;
+	}
 
 	public boolean collide(Orangutan o) {
 		return true;
@@ -29,7 +37,6 @@ public class Panda extends Animal implements Steppable {
 	public void step() {
 	}
 
-	public void setIsCaptured(boolean b) {
-	}
+	
 
 }

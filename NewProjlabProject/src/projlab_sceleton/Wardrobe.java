@@ -29,4 +29,12 @@ public class Wardrobe extends Element {
 		return this.tile;
 	}
 
+	public int getPersonalNumber() {
+		return personalNumber;
+	}
+
+	public void setPersonalNumber(int personalNumber) {
+		this.personalNumber = personalNumber;
+	}
+
 }

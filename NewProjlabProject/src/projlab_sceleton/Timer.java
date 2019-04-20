@@ -13,4 +13,12 @@ public class Timer {
 	public void removeSteppable(Steppable s) {
 	}
 
+	public Steppable getSteppable() {
+		return steppable;
+	}
+
+	public void setSteppable(Steppable steppable) {
+		this.steppable = steppable;
+	}
+
 }

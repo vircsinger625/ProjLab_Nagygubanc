@@ -28,4 +28,12 @@ public class Tile {
 	public Element getElement() {
 		return element;
 	}
+
+	public int getNumberOfSides() {
+		return numberOfSides;
+	}
+
+	public void setNumberOfSides(int numberOfSides) {
+		this.numberOfSides = numberOfSides;
+	}
 }
