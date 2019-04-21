@@ -29,8 +29,7 @@ public class Animal extends Element {
 	}
 
 	public void die() {
-		tile.remove(this);
-		Game.floor.removeElement(this);
+
 	}
 
 	public void move(Tile t) {

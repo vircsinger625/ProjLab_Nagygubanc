@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,7 +157,7 @@ public static void main(String[] args) {
 						{
 							Tile pandatile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							HoppperPanda hp = new HoppperPanda();
-							hp.setId(1);
+							hp.setId(Integer.parseInt(cmd1[3]));
 							pandatile.setElement(hp);
 						}
 						else
@@ -194,6 +195,15 @@ public static void main(String[] args) {
 							break;
 						}
 						br19.close();
+						
+						PrintWriter writer = new PrintWriter("output_13.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: a panda elmozdult.");
+						}
+						writer.close();
 					}
 					catch (IOException e)
 					{
@@ -356,6 +366,11 @@ public static void main(String[] args) {
 						if(cmd3[0].equals("Orangutan"))
 						{
 							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							break;
 						}
 						line4 = br19.readLine();
 						String[] cmd4 = line4.split(" ");
