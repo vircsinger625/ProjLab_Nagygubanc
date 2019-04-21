@@ -114,7 +114,76 @@ public static void main(String[] args) {
 					break;
 					
 				case 7:
-					System.out.println("7");
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_7.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp1 = new HoppperPanda();
+							hp1.setId(Integer.parseInt(cmd1[3]));
+							panda1tile.setElement(hp1);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("HopperPanda"))
+						{
+							Tile panda2tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp2 = new HoppperPanda();
+							hp2.setId(Integer.parseInt(cmd1[3]));
+							panda2tile.setElement(hp2);
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("movePanda"))
+						{
+							
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
+							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						br19.close();
+						
+						PrintWriter writer = new PrintWriter("output_7.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: a panda elmozdult, olyan csempere lepett, amin masik panda all.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 					break;
 					
 				case 8:
