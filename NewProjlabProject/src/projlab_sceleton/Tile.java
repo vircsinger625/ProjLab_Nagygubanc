@@ -8,6 +8,8 @@ public class Tile {
 	private int y;
 
 	public void setElement(Element e) {
+		this.element = e;
+		element.setTile(this);
 	}
 
 	public boolean stepIn(Orangutan o) {

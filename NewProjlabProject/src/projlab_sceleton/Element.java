@@ -3,6 +3,15 @@ package projlab_sceleton;
 public class Element {
 
 	protected Tile tile;
+	protected int id = -1;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public boolean collide(Orangutan o) {
 		return false;

@@ -7,6 +7,8 @@ public class Floor {
 
 	private int score;
 	private List<Tile> tiles = new ArrayList<Tile>();
+	
+
 	private Orangutan orangutan1;
 	private Orangutan orangutan2;
 	
@@ -86,5 +88,11 @@ public class Floor {
 		
 		return tile;
 		
+	}
+	public List<Tile> getTiles() {
+		return tiles;
+	}
+	public void setTiles(List<Tile> tiles) {
+		this.tiles = tiles;
 	}
 }
