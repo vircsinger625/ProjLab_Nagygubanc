@@ -441,26 +441,376 @@ public static void main(String[] args) {
 					break;
 					
 				case 19:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_19.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("LazyPanda"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("ArmChair"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("stepArmChair"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						br19.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("19");
 					break;
 					
 				case 20:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_20.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br20 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						line1 = br20.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br20.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("ChocolateAutomat"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						line3 = br20.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("stepAutomat"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						br20.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("20");
 					break;
 					
 				case 21:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_21.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br21 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3, line4, line5;
+						line1 = br21.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("ScaryPanda"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br21.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("HopperPanda"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						line3 = br21.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("LazyPanda"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line4 = br21.readLine();
+						String[] cmd4 = line4.split(" ");
+						if(cmd4[0].equals("SlotMachine"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line5 = br21.readLine();
+						String[] cmd5 = line5.split(" ");
+						if(cmd5[0].equals("stepSlotMachine"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						br21.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("21");
 					break;
 					
 				case 22:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_22.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br22 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2;
+						line1 = br22.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("Orangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br22.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("moveOrangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						br22.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("22");
 					break;
 					
 				case 23:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_23.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br23 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						line1 = br23.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("Orangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br23.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("WeakTile"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						line3 = br23.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("moveOrangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						br23.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("23");
 					break;
 					
 				case 24:
+					
+					try
+					{
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_24.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br24 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3, line4;
+						line1 = br24.readLine();
+						String[] cmd1 = line1.split(" ");
+						if(cmd1[0].equals("Orangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line2 = br24.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("Exit"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+
+						line3 = br24.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("Entrance"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						line4 = br24.readLine();
+						String[] cmd4 = line4.split(" ");
+						if(cmd4[0].equals("moveOrangutan"))
+						{
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							break;
+						}
+						
+						br24.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					
 					System.out.println("24");
 					break;
 					
