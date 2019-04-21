@@ -8,8 +8,22 @@ public class Orangutan extends Animal implements Steppable {
 	private boolean hasCapturedPanda = false;
 	public List<Panda> capturedPandas = new ArrayList<Panda>(); 
 
+
+
 	public boolean collide(Orangutan o) {
-		return true;
+		if (o.isHasCapturedPanda() == true) {
+			return false;
+		}else {
+			Tile otile = o.getTile();
+			Tile owntile = tile;
+			tile.remove(this);
+			otile.remove(o);
+			otile.setElement(this);
+			owntile.setElement(o);
+			o.setCapturedPandas(capturedPandas);
+			capturedPandas = null;
+			return true;
+		}
 	}
 
 	public boolean collide(Panda p) {
@@ -30,8 +44,10 @@ public class Orangutan extends Animal implements Steppable {
 		
 		Tile t = Game.floor.getTile(x, y);
 		
+		
 		boolean canStepIn = t.stepIn(this);
 		if (canStepIn) {
+			Tile prevtile = tile;
 			this.tile.remove(this);
 			t.setElement(this);
 			
@@ -44,7 +60,7 @@ public class Orangutan extends Animal implements Steppable {
 					if(i==0) {
 						p = capturedPandas.get(i);
 						tile2 = p.getTile();
-						p.move(tile);
+						p.move(prevtile);
 					}else {
 						if (i%2 == 0) {
 							tmp = tile2;
@@ -129,6 +145,14 @@ public class Orangutan extends Animal implements Steppable {
 
 	public void setHasCapturedPanda(boolean hasCapturedPanda) {
 		this.hasCapturedPanda = hasCapturedPanda;
+	}
+	
+	public List<Panda> getCapturedPandas() {
+		return capturedPandas;
+	}
+
+	public void setCapturedPandas(List<Panda> capturedPandas) {
+		this.capturedPandas = capturedPandas;
 	}
 
 }
