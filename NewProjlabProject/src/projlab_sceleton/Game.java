@@ -53,7 +53,7 @@ public static void main(String[] args) {
 			System.out.println("25 - Orangutan steps on Exit alone");
 			System.out.println("26 - Orangutan steps on Exit with pandas");
 			System.out.println("27 - Orangutan steps on Armchair");
-			System.out.println("28 - Orangutan steps on Cocholate Automat");
+			System.out.println("28 - Orangutan steps on ChocolateAutomat");
 			System.out.println("29 - Orangutan steps on SlotMachine");
 			System.out.println("30 - Orangutan steps on Wardrobe");
 
@@ -112,10 +112,12 @@ public static void main(String[] args) {
 				case 6:
 					System.out.println("6");
 					break;
-					
+				
+				//7 - Panda collide with Panda
 				case 7:
 					try
 					{
+						//Input
 						String path = System.getProperty("user.dir");
 						File file = new File(path + "\\input_7.txt");
 						if (!file.exists()) {
@@ -127,6 +129,7 @@ public static void main(String[] args) {
 						String line1, line2, line3;
 						line1 = br19.readLine();
 						String[] cmd1 = line1.split(" ");
+						
 						if(cmd1[0].equals("HopperPanda"))
 						{
 							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
@@ -170,7 +173,8 @@ public static void main(String[] args) {
 							break;
 						}
 						br19.close();
-						
+
+						//Output
 						PrintWriter writer = new PrintWriter("output_7.txt", "ANSI");
 						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
@@ -185,25 +189,462 @@ public static void main(String[] args) {
 						e.printStackTrace();
 					}
 					break;
-					
+				
+				//8 - Panda collide with Orangutan
 				case 8:
-					System.out.println("8");
+					try
+					{
+						//Input
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_8.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						
+						//1HopperPanda 
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile pandatile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp = new HoppperPanda();
+							hp.setId(Integer.parseInt(cmd1[3]));
+							pandatile.setElement(hp);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//2Orangutan 
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("Orangutan"))
+						{
+							Tile orangutantile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							Orangutan o = new Orangutan();
+							o.setId(Integer.parseInt(cmd1[3]));
+							orangutantile.setElement(o);
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//2movePanda 
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("movePanda"))
+						{
+							
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
+							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						br19.close();
+						
+						//Output
+						PrintWriter writer = new PrintWriter("output_8.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: a panda elmozdult, olyan csempere lepett, amin orangutan all.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 					break;
-					
+				
+				// 9 - Panda steps into Wardrobe
 				case 9:
-					System.out.println("9");
+					try
+					{
+						//Input
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_9.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3,line4, line5;
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						
+						//1HopperPanda
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp1 = new HoppperPanda();
+							hp1.setId(Integer.parseInt(cmd1[3]));
+							panda1tile.setElement(hp1);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//2Wardrobe
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("Wardrobe"))
+						{
+							Tile wardrobe1_tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
+							Wardrobe w1 = new Wardrobe();
+							w1.setId(Integer.parseInt(cmd2[3]));
+							wardrobe1_tile.setElement(w1);
+							
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+
+						//3Wardrobe
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("Wardrobe"))
+						{
+							
+							Tile wardrobe2_tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
+							Wardrobe w2 = new Wardrobe();
+							w2.setId(Integer.parseInt(cmd2[3]));
+							wardrobe2_tile.setElement(w2);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//4movePanda 
+						line4 = br19.readLine();
+						String[] cmd4 = line4.split(" ");
+						if(cmd4[0].equals("movePanda"))
+						{
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd4[1]));
+							panda.move(Integer.parseInt(cmd4[2]), Integer.parseInt(cmd4[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//5movePanda 
+						line5 = br19.readLine();
+						String[] cmd5 = line5.split(" ");
+						if(cmd5[0].equals("movePanda"))
+						{
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd5[1]));
+							panda.move(Integer.parseInt(cmd5[2]), Integer.parseInt(cmd5[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						br19.close();
+						
+						//Output
+						PrintWriter writer = new PrintWriter("output_9.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda belépett a szekrénybe, majd teleportált.");
+						}else {
+							writer.println("A teszt sikertelen: a panda helyben maradt.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 					break;
-					
+				
+				//10 - Panda steps on Exit
 				case 10:
-					System.out.println("10");
-					break;
+					try
+					{
+						//Input
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_10.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3, line4;
+						
+						//1HopperPanda
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp1 = new HoppperPanda();
+							hp1.setId(Integer.parseInt(cmd1[3]));
+							panda1tile.setElement(hp1);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//2Exit 
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("Exit"))
+						{
+							Exit ex = new Exit();
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ex); //?????
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//3Entrance 
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("Entrance"))
+						{
+							Tile entrance_tile = floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2]));
+							Entrance en = new Entrance(entrance_tile);
+							floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2])).setElement(en); //?????
+
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//4movePanda 
+						line4 = br19.readLine();
+						String[] cmd4 = line4.split(" ");
+						if(cmd4[0].equals("movePanda"))
+						{
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd4[1]));
+							panda.move(Integer.parseInt(cmd4[2]), Integer.parseInt(cmd4[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						br19.close();
 					
+						//Output
+						PrintWriter writer = new PrintWriter("output_10.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: a panda elmozdult, rálépett a kijáratra.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+					break;
+				
+				//11 - Panda steps on Entrance
 				case 11:
-					System.out.println("11");
+					try
+					{
+						//Input
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_11.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3, line4;
+						
+						//1HopperPanda
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp1 = new HoppperPanda();
+							hp1.setId(Integer.parseInt(cmd1[3]));
+							panda1tile.setElement(hp1);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//2Exit 
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("Exit"))
+						{
+							Exit ex = new Exit();
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ex); //?????
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//3Entrance 
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("Entrance"))
+						{
+							Tile entrance_tile = floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2]));
+							Entrance en = new Entrance(entrance_tile);
+							floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2])).setElement(en); //?????
+
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//4movePanda 
+						line4 = br19.readLine();
+						String[] cmd4 = line4.split(" ");
+						if(cmd4[0].equals("movePanda"))
+						{
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd4[1]));
+							panda.move(Integer.parseInt(cmd4[2]), Integer.parseInt(cmd4[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						br19.close();
+					
+						//Output
+						PrintWriter writer = new PrintWriter("output_11.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: a panda elmozdult, rálépett a bejáratra.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 					break;
 					
+				//12 - Panda collide with ArmChair
 				case 12:
-					System.out.println("12");
+					try
+					{
+						//Input
+						String path = System.getProperty("user.dir");
+						File file = new File(path + "\\input_12.txt");
+						if (!file.exists()) {
+					          System.out.println("System couldnt file source file!");
+					          System.out.println("Application will explode");
+					    }
+						BufferedReader br19 = new BufferedReader(new FileReader(file));
+						
+						String line1, line2, line3;
+						line1 = br19.readLine();
+						String[] cmd1 = line1.split(" ");
+						
+						//1HopperPanda
+						if(cmd1[0].equals("HopperPanda"))
+						{
+							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							HoppperPanda hp1 = new HoppperPanda();
+							hp1.setId(Integer.parseInt(cmd1[3]));
+							panda1tile.setElement(hp1);
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						
+						//ArmChair
+						line2 = br19.readLine();
+						String[] cmd2 = line2.split(" ");
+						if(cmd2[0].equals("ArmChair"))
+						{
+							ArmChair ac = new ArmChair();
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ac);					
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+
+						//3movePanda
+						line3 = br19.readLine();
+						String[] cmd3 = line3.split(" ");
+						if(cmd3[0].equals("movePanda"))
+						{
+							
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
+							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+						}
+						else
+						{
+							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							break;
+						}
+						br19.close();
+
+						//Output
+						PrintWriter writer = new PrintWriter("output_12.txt", "ANSI");
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+							writer.println("A teszt sikeres: a panda helyben maradt.");
+						}else {
+							writer.println("A teszt sikertelen: az uggros panda elmozdult, olyan csempere lepett, amin fotel all.");
+						}
+						writer.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
 					break;
 					
 				case 13:
@@ -230,7 +671,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						
@@ -245,7 +686,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 
@@ -259,7 +700,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						br13.close();
@@ -304,7 +745,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						
@@ -319,7 +760,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 
@@ -332,7 +773,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						br14.close();
@@ -377,7 +818,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						
@@ -392,7 +833,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 
@@ -404,7 +845,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						br15.close();
@@ -413,10 +854,10 @@ public static void main(String[] args) {
 						Orangutan outo = floor.getOrangutan1();
 						if (outp.getTile().getX() == Integer.parseInt(cmd1[1]) && outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							if (outo.getTile().getX() == Integer.parseInt(cmd2[1]) && outo.getTile().getY() == Integer.parseInt(cmd2[2])) {
-								writer.println("A teszt sikeres: a panda és az orangutan helyet cserelt.");
+								writer.println("A teszt sikeres: a panda Ă©s az orangutan helyet cserelt.");
 							}
 						}else {
-							writer.println("A teszt sikertelen: a panda  és az orangutan nem cserelt helyet.");
+							writer.println("A teszt sikertelen: a panda  Ă©s az orangutan nem cserelt helyet.");
 						}
 						writer.close();
 					}
@@ -449,7 +890,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						
@@ -463,7 +904,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 
@@ -480,7 +921,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						line4 = br16.readLine();
@@ -491,7 +932,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						br16.close();
@@ -505,12 +946,12 @@ public static void main(String[] args) {
 						if (outp1.getTile().getX() == Integer.parseInt(cmd1[1]) && outp1.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							if (outp2.getTile().getX() == Integer.parseInt(cmd2[1]) && outp2.getTile().getY() == Integer.parseInt(cmd2[2])) {
 								if (outo.getTile().getX() == Integer.parseInt(cmd3[1]) && outo.getTile().getY() == Integer.parseInt(cmd3[2])) {
-									writer.println("A teszt sikeres: az orangutan húzta a pandakat.");
+									writer.println("A teszt sikeres: az orangutan hĂşzta a pandakat.");
 								}
 								
 							}
 						}else {
-							writer.println("A teszt sikertelen: az orangutan nem húzta a pandakat.");
+							writer.println("A teszt sikertelen: az orangutan nem hĂşzta a pandakat.");
 						}
 						writer.close();
 						
@@ -526,7 +967,7 @@ public static void main(String[] args) {
 					try
 					{
 						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_17.txt⁩");
+						File file = new File(path + "\\input_17.txtâ�©");
 						if (!file.exists()) {
 					          System.out.println("System couldnt file source file!");
 					          System.out.println("Application will explode");
@@ -544,7 +985,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						
@@ -560,7 +1001,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 
@@ -581,7 +1022,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelő paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
 						}
 						br17.close();
@@ -628,7 +1069,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -642,7 +1083,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -659,7 +1100,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -671,7 +1112,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						br18.close();
@@ -679,9 +1120,9 @@ public static void main(String[] args) {
 						PrintWriter writer = new PrintWriter("output_13.txt", "ANSI");
 						Orangutan outo = floor.getOrangutan1();
 						if (outo.isHasCapturedPanda() == false) {
-							writer.println("A teszt sikeres: az orángután elengedte a pandakat.");
+							writer.println("A teszt sikeres: az orĂˇngutĂˇn elengedte a pandakat.");
 						}else {
-							writer.println("A teszt sikertelen: az orángután nem engedte el a pandakat.");
+							writer.println("A teszt sikertelen: az orĂˇngutĂˇn nem engedte el a pandakat.");
 						}
 							writer.close();
 					}
@@ -712,7 +1153,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -724,7 +1165,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -736,7 +1177,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						br19.close();
@@ -770,7 +1211,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -782,7 +1223,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -794,7 +1235,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						br20.close();
@@ -828,7 +1269,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -840,7 +1281,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -852,7 +1293,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -864,7 +1305,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -876,7 +1317,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						br21.close();
@@ -910,7 +1351,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -922,7 +1363,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -957,7 +1398,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -969,7 +1410,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -981,7 +1422,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						br23.close();
@@ -1015,7 +1456,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -1027,7 +1468,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 
@@ -1039,7 +1480,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
@@ -1051,7 +1492,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelel� param�terek!");
+							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
 						}
 						
