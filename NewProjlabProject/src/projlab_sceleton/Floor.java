@@ -15,6 +15,12 @@ public class Floor {
 	
 
 	private List<Panda> pandas = new ArrayList<Panda>();
+	public List<Panda> getPandas() {
+		return pandas;
+	}
+	public void setPandas(List<Panda> pandas) {
+		this.pandas = pandas;
+	}
 	private List<Wardrobe> wardrobes = new ArrayList<Wardrobe>();
 	private Tile enteranceTile; // nincs meg konkret ert�ke
 
@@ -94,5 +100,13 @@ public class Floor {
 	}
 	public void setTiles(List<Tile> tiles) {
 		this.tiles = tiles;
+	}
+	public Panda getPandaById(int id) {
+		for (int i = 0; i < pandas.size(); i++) {
+			if (pandas.get(i).getId() == id) {
+				return pandas.get(i);
+			}
+		}
+		return null;
 	}
 }

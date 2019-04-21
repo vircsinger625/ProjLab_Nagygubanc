@@ -156,6 +156,7 @@ public static void main(String[] args) {
 						{
 							Tile pandatile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							HoppperPanda hp = new HoppperPanda();
+							hp.setId(1);
 							pandatile.setElement(hp);
 						}
 						else
@@ -184,6 +185,8 @@ public static void main(String[] args) {
 						if(cmd3[0].equals("movePanda"))
 						{
 							
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
+							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
 						}
 						else
 						{
@@ -204,7 +207,7 @@ public static void main(String[] args) {
 					try
 					{
 						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_19.txt");
+						File file = new File(path + "\\input_14.txt");
 						if (!file.exists()) {
 					          System.out.println("System couldnt file source file!");
 					          System.out.println("Application will explode");
@@ -260,7 +263,7 @@ public static void main(String[] args) {
 					try
 					{
 						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_19.txt");
+						File file = new File(path + "\\input_15.txt");
 						if (!file.exists()) {
 					          System.out.println("System couldnt file source file!");
 					          System.out.println("Application will explode");
@@ -461,7 +464,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -473,7 +476,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -485,7 +488,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						br19.close();
@@ -519,7 +522,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -531,7 +534,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -543,7 +546,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						br20.close();
@@ -577,7 +580,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -589,7 +592,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -601,7 +604,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -613,7 +616,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -625,7 +628,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						br21.close();
@@ -659,7 +662,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -671,7 +674,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -706,7 +709,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -718,7 +721,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -730,7 +733,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						br23.close();
@@ -764,7 +767,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -776,7 +779,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 
@@ -788,7 +791,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						
@@ -800,7 +803,7 @@ public static void main(String[] args) {
 						}
 						else
 						{
-							System.out.println("Nem a tesztesethez megfelelõ paraméterek!");
+							System.out.println("Nem a tesztesethez megfelelï¿½ paramï¿½terek!");
 							break;
 						}
 						

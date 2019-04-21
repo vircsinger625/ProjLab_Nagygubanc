@@ -64,6 +64,8 @@ public class Panda extends Animal implements Steppable {
 			
 		}
 	}
+	
+	
 
 	
 
