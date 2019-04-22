@@ -60,13 +60,16 @@ public class Game {
 			System.out.println("------------------------------------------------------");
 
 			floor = new Floor();
+			int id = 0;
 			List<Tile> tiles = new ArrayList<Tile>();
 			Tile tile = new Tile();
 			for (int i = 0; i < 5; i++) {
 				for (int j = 0; j < 5; j++) {
 					tile.setX(i);
 					tile.setY(j);
+					tile.setId(id);
 					tiles.add(tile);
+					id++;
 				}
 
 			}
@@ -179,11 +182,23 @@ public class Game {
 							
 							WeakTile wa = new WeakTile();
 							
-							//tiles.remove(1);
-							//input fájlban ez már broken tile nem pedig weak tile
-							//0,1 re beállítani a weaktile-t 
-							//floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(wa);
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
+							for (int i = 0; i < 5; i++) {
+								for (int j = 0; j < 5; j++) {
+									Tile tmp = floor.getTile(i, j);
+									if (tmp.getX() == Integer.parseInt(cmd2[1]) && tmp.getY() == Integer.parseInt(cmd2[2])) {
+										int tid = tmp.getId();
+										List<Tile> tiles2 = new ArrayList<Tile>();
+										tiles2 = floor.getTiles();
+										tiles2.set(tid, wa);
+										floor.setTiles(tiles2);
+										
+									}
+								}
+								
+							}
+							
 						}
 						else
 						{
@@ -259,10 +274,21 @@ public class Game {
 							
 							WeakTile wa = new WeakTile();
 							
-							//0,1 re beállítani a weaktile-t 
-							//move után kéne a weaktile re beállítni az orángutánt (setElement(o);
-							//floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(wa);
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							for (int i = 0; i < 5; i++) {
+								for (int j = 0; j < 5; j++) {
+									Tile tmp = floor.getTile(i, j);
+									if (tmp.getX() == Integer.parseInt(cmd2[1]) && tmp.getY() == Integer.parseInt(cmd2[2])) {
+										int tid = tmp.getId();
+										List<Tile> tiles2 = new ArrayList<Tile>();
+										tiles2 = floor.getTiles();
+										tiles2.set(tid, wa);
+										floor.setTiles(tiles2);
+										
+									}
+								}
+								
+							}
 						}
 						else
 						{
@@ -275,7 +301,7 @@ public class Game {
 						if(cmd3[0].equals("moveOrangutan"))
 						{
 							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
-							//wa.setElement(o);
+							/
 						}
 						else
 						{
@@ -491,10 +517,21 @@ public class Game {
 							
 							WeakTile wa = new WeakTile();
 							
-							//0,1 re beállítani a weaktile-t 
-							//move után kéne a weaktile re beállítni az orángutánt (setElement(o);
-							//floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(wa);
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							for (int i = 0; i < 5; i++) {
+								for (int j = 0; j < 5; j++) {
+									Tile tmp = floor.getTile(i, j);
+									if (tmp.getX() == Integer.parseInt(cmd2[1]) && tmp.getY() == Integer.parseInt(cmd2[2])) {
+										int tid = tmp.getId();
+										List<Tile> tiles2 = new ArrayList<Tile>();
+										tiles2 = floor.getTiles();
+										tiles2.set(tid, wa);
+										floor.setTiles(tiles2);
+										
+									}
+								}
+								
+							}
 						}
 						else
 						{

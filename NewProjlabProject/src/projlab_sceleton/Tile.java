@@ -6,6 +6,16 @@ public class Tile {
 	protected Element element = null;
 	private int x;
 	private int y;
+	
+	private int id;
+	
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public void setElement(Element e) {
 		this.element = e;
