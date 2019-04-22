@@ -85,8 +85,8 @@ public class Floor {
 		for (int i = 0; i < tiles.size(); i++) {
 			if (tiles.get(i).getX() == x && tiles.get(i).getY() == y) {
 				
-				tile = tiles.get(i);
-				return tile;
+				return tiles.get(i);
+				
 			}
 			
 		}
