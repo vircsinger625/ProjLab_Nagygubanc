@@ -180,6 +180,8 @@ public static void main(String[] args) {
 						{
 							
 							WeakTile wa = new WeakTile();
+							
+							//tiles.remove(1);
 							//input fájlban ez már broken tile nem pedig weak tile
 							//0,1 re beállítani a weaktile-t 
 							//floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(wa);
@@ -332,8 +334,8 @@ public static void main(String[] args) {
 						{
 							
 							HoppperPanda hp = new HoppperPanda();
-							hp.setId(Integer.parseInt(cmd1[3]));
-							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							hp.setId(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(hp);
 							
 						}
 						else
@@ -347,7 +349,7 @@ public static void main(String[] args) {
 						if(cmd3[0].equals("moveOrangutan"))
 						{
 							
-							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+							floor.getOrangutanById(Integer.parseInt(cmd3[1])).collide(floor.getPandaById(Integer.parseInt(cmd2[3])));
 						}
 						else
 						{
