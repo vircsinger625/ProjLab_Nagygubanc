@@ -8,7 +8,7 @@ public class HoppperPanda extends Panda {
 
 
 	public void reaction(InputEffect i, Tile t) {
-		if (i == InputEffect.jingleMessage) {
+		if (i == InputEffect.whistleMessage) {
 			tile.incraseCounter();
 		}
 		
