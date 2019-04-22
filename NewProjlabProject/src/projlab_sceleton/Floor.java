@@ -120,6 +120,9 @@ public class Floor {
 			else
 				return null;
 		}
+	public void addPanda(Panda p) {
+		pandas.add(p);
+	}
 	
 	
 	
