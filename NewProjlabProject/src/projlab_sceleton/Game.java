@@ -563,9 +563,9 @@ public class Game {
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("HopperPanda")) {
-							Tile panda2tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							Tile panda2tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							HoppperPanda hp2 = new HoppperPanda();
-							hp2.setId(Integer.parseInt(cmd1[3]));
+							hp2.setId(Integer.parseInt(cmd2[3]));
 							panda2tile.setElement(hp2);
 
 						} else {
@@ -633,9 +633,9 @@ public class Game {
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("Orangutan")) {
-							Tile orangutantile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+							Tile orangutantile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							Orangutan o = new Orangutan();
-							o.setId(Integer.parseInt(cmd1[3]));
+							o.setId(Integer.parseInt(cmd2[3]));
 							orangutantile.setElement(o);
 
 						} else {
@@ -658,7 +658,7 @@ public class Game {
 
 						// Output
 						PrintWriter writer = new PrintWriter("output_8.txt", "ANSI");
-						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: a panda helyben maradt.");
@@ -718,9 +718,9 @@ public class Game {
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("Wardrobe")) {
 
-							Tile wardrobe2_tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
+							Tile wardrobe2_tile = floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2]));
 							Wardrobe w2 = new Wardrobe();
-							w2.setId(Integer.parseInt(cmd2[3]));
+							w2.setId(Integer.parseInt(cmd3[3]));
 							wardrobe2_tile.setElement(w2);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -753,9 +753,9 @@ public class Game {
 
 						// Output
 						PrintWriter writer = new PrintWriter("output_9.txt", "ANSI");
-						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
-						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
+						if (outp.getTile().getX() == Integer.parseInt(cmd5[2])
+								&& outp.getTile().getY() == Integer.parseInt(cmd5[3])) {
 							writer.println("A teszt sikeres: a panda belépett a szekrénybe, majd teleportált.");
 						} else {
 							writer.println("A teszt sikertelen: a panda helyben maradt.");
@@ -833,7 +833,7 @@ public class Game {
 
 						// Output
 						PrintWriter writer = new PrintWriter("output_10.txt", "ANSI");
-						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: a panda helyben maradt.");
@@ -913,7 +913,7 @@ public class Game {
 
 						// Output
 						PrintWriter writer = new PrintWriter("output_11.txt", "ANSI");
-						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
+						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: a panda helyben maradt.");

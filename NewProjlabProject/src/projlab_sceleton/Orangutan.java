@@ -112,10 +112,9 @@ public class Orangutan extends Animal implements Steppable {
 							p = capturedPandas.get(i);
 							tile1 = p.getTile();
 							p.move(tmp);
-								
-						}
 						}
 					}
+				}
 			}
 		}
 		
