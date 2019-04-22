@@ -1059,6 +1059,7 @@ public class Game {
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							floor.addPanda(hp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
@@ -1122,6 +1123,7 @@ public class Game {
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							floor.addPanda(hp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
@@ -1184,6 +1186,7 @@ public class Game {
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							floor.addPanda(hp);
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
@@ -1247,6 +1250,7 @@ public class Game {
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							floor.addPanda(hp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
@@ -1258,6 +1262,7 @@ public class Game {
 							LazyPanda lp = new LazyPanda();
 							lp.setId(Integer.parseInt(cmd2[3]));
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(lp);
+							floor.addPanda(lp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelĹ‘ paramĂ©terek!");
 							break;
@@ -1409,9 +1414,10 @@ public class Game {
 						line2 = br18.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("ScaryPanda")) {
-							ScaryPanda hp = new ScaryPanda();
-							hp.setId(Integer.parseInt(cmd2[3]));
-							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(hp);
+							ScaryPanda sp = new ScaryPanda();
+							sp.setId(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(sp);
+							floor.addPanda(sp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelďż˝ paramďż˝terek!");
 							break;
