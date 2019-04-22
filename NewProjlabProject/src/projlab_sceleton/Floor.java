@@ -109,4 +109,20 @@ public class Floor {
 		}
 		return null;
 	}
+	
+	public Orangutan getOrangutanById(int id) {
+		
+			if (id == 1) {
+				return orangutan1;
+			}
+			if (id == 2) {
+				return orangutan2;
+			}
+			else
+				return null;
+		}
+	
+	
+	
+	
 }
