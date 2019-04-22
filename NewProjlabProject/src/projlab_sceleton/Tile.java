@@ -33,6 +33,10 @@ public class Tile {
 
 	public void incraseCounter() {
 	}
+	
+	public int getStepInCounter() {
+		return -1;
+	}
 
 	public Element getElement() {
 		return element;

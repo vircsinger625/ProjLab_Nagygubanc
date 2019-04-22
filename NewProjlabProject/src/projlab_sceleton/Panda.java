@@ -65,8 +65,12 @@ public class Panda extends Animal implements Steppable {
 		}
 	}
 	
-	
+	public void setIsResting(boolean b) {
+		
+	}
 
-	
+	public void setParalyzedCounter(int paralyzedCounter) {
+		
+	}
 
 }
