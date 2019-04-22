@@ -45,8 +45,15 @@ public class Floor {
 
 	public Wardrobe getNextWardrobe(Wardrobe w) {
 		
-		return wardrobes.get(w.getPersonalNumber() +1 );
-	} 
+		if(wardrobes.size() < w.getPersonalNumber() +1)
+		{
+			return wardrobes.get(w.getPersonalNumber() +1 );
+		}
+		else
+		{
+			return wardrobes.get(0);
+		} 
+	}
 
 	public Tile getEntranceTile() {
 		return enteranceTile;
@@ -122,6 +129,10 @@ public class Floor {
 		}
 	public void addPanda(Panda p) {
 		pandas.add(p);
+	}
+	
+	public void addWardrobe(Wardrobe w) {
+		wardrobes.add(w);
 	}
 	
 	
