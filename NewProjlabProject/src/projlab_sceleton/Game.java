@@ -112,6 +112,7 @@ public class Game {
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
+							floor.setOrangutan1(o);
 						}
 						else
 						{
@@ -170,6 +171,7 @@ public class Game {
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
+							floor.setOrangutan1(o);
 						}
 						else
 						{
@@ -262,6 +264,7 @@ public class Game {
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
+							floor.setOrangutan1(o);
 						}
 						else
 						{
@@ -350,6 +353,8 @@ public class Game {
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
+
+							floor.setOrangutan1(o);
 						}
 						else
 						{
@@ -432,6 +437,7 @@ public class Game {
 							Orangutan o1 = new Orangutan();
 							o1.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o1);
+							floor.setOrangutan1(o1);
 						}
 						else
 						{
@@ -447,6 +453,8 @@ public class Game {
 							Orangutan o2 = new Orangutan();
 							o2.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o2);
+
+							floor.setOrangutan1(o2);
 							
 						}
 						else
@@ -676,6 +684,7 @@ public class Game {
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd2[3]));
 							orangutantile.setElement(o);
+							floor.setOrangutan1(o);
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
