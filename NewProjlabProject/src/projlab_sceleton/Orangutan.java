@@ -11,7 +11,7 @@ public class Orangutan extends Animal implements Steppable {
 
 
 	public boolean collide(Orangutan o) {
-		if (o.isHasCapturedPanda() == true) {
+		if (o.isHasCapturedPanda() == false) {
 			return false;
 		}else {
 			Tile otile = o.getTile();
