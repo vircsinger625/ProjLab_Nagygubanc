@@ -171,6 +171,8 @@ public class Game {
 						if (cmd2[0].equals("WeakTile")) {
 
 							WeakTile wa = new WeakTile();
+							wa.setX(Integer.parseInt(cmd2[1]));
+							wa.setY(Integer.parseInt(cmd2[2]));
 
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
@@ -182,9 +184,10 @@ public class Game {
 										int tid = tmp.getId();
 										List<Tile> tiles2 = new ArrayList<Tile>();
 										tiles2 = floor.getTiles();
+										tiles2.remove(tid);
 										tiles2.set(tid, wa);
 										floor.setTiles(tiles2);
-
+										break;
 									}
 								}
 
@@ -251,8 +254,11 @@ public class Game {
 						if (cmd2[0].equals("WeakTile")) {
 
 							WeakTile wa = new WeakTile();
+							wa.setX(Integer.parseInt(cmd2[1]));
+							wa.setY(Integer.parseInt(cmd2[2]));
 
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							for (int i = 0; i < 5; i++) {
 								for (int j = 0; j < 5; j++) {
 									Tile tmp = floor.getTile(i, j);
@@ -261,13 +267,14 @@ public class Game {
 										int tid = tmp.getId();
 										List<Tile> tiles2 = new ArrayList<Tile>();
 										tiles2 = floor.getTiles();
+										tiles2.remove(tid);
 										tiles2.set(tid, wa);
 										floor.setTiles(tiles2);
-
+										break;
 									}
 								}
-
 							}
+
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -285,13 +292,11 @@ public class Game {
 						}
 						br3.close();
 
-						PrintWriter writer = new PrintWriter("output_2.txt", "utf-8");
-						Orangutan outp = floor.getOrangutanById(Integer.parseInt(cmd3[1]));
-						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
-							writer.println("A teszt sikertelen: az orángután helyben maradt.");
+						PrintWriter writer = new PrintWriter("output_3.txt", "utf-8");
+						if (floor.getOrangutanById(Integer.parseInt(cmd1[3])) == null) {
+							writer.println("A teszt sikeres: az orangutan meghalt.");
 						} else {
-							writer.println("A teszt sikeres: az orángután elmozdult a broken tile-re és meg is halt.");
+							writer.println("A teszt sikertelen: az orangutan nem halt meg.");
 						}
 						writer.close();
 					} catch (IOException e) {
@@ -345,8 +350,8 @@ public class Game {
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("moveOrangutan")) {
 
-							floor.getOrangutanById(Integer.parseInt(cmd3[1]))
-									.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]),
+									Integer.parseInt(cmd3[3]));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -357,11 +362,10 @@ public class Game {
 						PrintWriter writer = new PrintWriter("output_4.txt", "utf-8");
 						Orangutan outp1 = floor.getOrangutanById(Integer.parseInt(cmd3[1]));
 						Panda outp2 = floor.getPandaById(Integer.parseInt(cmd2[3]));
-						if (       outp1.getTile().getX() == Integer.parseInt(cmd3[2])
+						if (outp1.getTile().getX() == Integer.parseInt(cmd3[2])
 								&& outp1.getTile().getY() == Integer.parseInt(cmd3[3])
 								&& outp2.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp2.getTile().getY() == Integer.parseInt(cmd1[2])
-							)  {
+								&& outp2.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: az orángután és a panda helyet cseréltek.");
 						} else {
 							writer.println("A teszt sikertelen: az orángután helyben maradt.");
@@ -403,8 +407,8 @@ public class Game {
 						if (cmd2[0].equals("Orangutan")) {
 
 							Orangutan o2 = new Orangutan();
-							o2.setId(Integer.parseInt(cmd1[3]));
-							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o2);
+							o2.setId(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(o2);
 
 							floor.setOrangutan2(o2);
 
@@ -459,6 +463,7 @@ public class Game {
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
+							floor.addPanda(hp);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -469,8 +474,11 @@ public class Game {
 						if (cmd2[0].equals("WeakTile")) {
 
 							WeakTile wa = new WeakTile();
+							wa.setX(Integer.parseInt(cmd2[1]));
+							wa.setY(Integer.parseInt(cmd2[2]));
 
 							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							for (int i = 0; i < 5; i++) {
 								for (int j = 0; j < 5; j++) {
 									Tile tmp = floor.getTile(i, j);
@@ -479,13 +487,14 @@ public class Game {
 										int tid = tmp.getId();
 										List<Tile> tiles2 = new ArrayList<Tile>();
 										tiles2 = floor.getTiles();
+										tiles2.remove(tid);
 										tiles2.set(tid, wa);
 										floor.setTiles(tiles2);
-
+										break;
 									}
 								}
-
 							}
+
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -494,22 +503,19 @@ public class Game {
 						line3 = br6.readLine();
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("movePanda")) {
-							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]),
+							floor.getPandaById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]),
 									Integer.parseInt(cmd3[3]));
-							// wa.setElement(o);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
 						}
 						br6.close();
 
-						PrintWriter writer = new PrintWriter("output_2.txt", "utf-8");
-						Panda outp = floor.getPandaById(Integer.parseInt(cmd3[1]));
-						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
-							writer.println("A teszt sikertelen: a panda helyben maradt.");
+						PrintWriter writer = new PrintWriter("output_6.txt", "utf-8");
+						if (floor.getPandaById(Integer.parseInt(cmd3[1])) == null) {
+							writer.println("A teszt sikeres: a panda meghalt.");
 						} else {
-							writer.println("A teszt sikeres: a panda elmozdult a broken tile-re és meg is halt.");
+							writer.println("A teszt sikeres: a panda nem halt meg.");
 						}
 						writer.close();
 					} catch (IOException e) {
@@ -650,15 +656,13 @@ public class Game {
 						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd2[1])
 								&& outp.getTile().getY() == Integer.parseInt(cmd2[2])
-							&& floor.getOrangutan1().getTile().getX() == Integer.parseInt(cmd1[1])
-									&& floor.getOrangutan1().getTile().getY() == Integer.parseInt(cmd1[2]) 
-							)
-							
+								&& floor.getOrangutan1().getTile().getX() == Integer.parseInt(cmd1[1])
+								&& floor.getOrangutan1().getTile().getY() == Integer.parseInt(cmd1[2]))
+
 						{
 							writer.println("A teszt sikeres: helyetcserereltek.");
 						} else {
-							writer.println(
-									"A teszt sikertelen: nem csereltek helyet.");
+							writer.println("A teszt sikertelen: nem csereltek helyet.");
 						}
 						writer.close();
 					} catch (IOException e) {
@@ -1152,6 +1156,7 @@ public class Game {
 							o.setId(Integer.parseInt(cmd2[3]));
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(o);
 							floor.setOrangutan1(o);
+							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd1[3])));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -1166,17 +1171,17 @@ public class Game {
 							break;
 						}
 						br15.close();
+
 						PrintWriter writer = new PrintWriter("output_15.txt", "utf-8");
 						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						Orangutan outo = floor.getOrangutan1();
-						if (outp.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp.getTile().getY() == Integer.parseInt(cmd1[2])) {
-							if (outo.getTile().getX() == Integer.parseInt(cmd2[1])
-									&& outo.getTile().getY() == Integer.parseInt(cmd2[2])) {
-								writer.println("A teszt sikeres: a panda Ă©s az orangutan helyet cserelt.");
-							}
+						if (outp.getTile().getX() == Integer.parseInt(cmd2[1])
+								&& outp.getTile().getY() == Integer.parseInt(cmd2[2])
+								&& outo.getTile().getX() == Integer.parseInt(cmd3[2])
+								&& outo.getTile().getY() == Integer.parseInt(cmd3[3])) {
+							writer.println("A teszt sikeres: az orangutan huzta a pandat.");
 						} else {
-							writer.println("A teszt sikertelen: a panda  Ă©s az orangutan nem cserelt helyet.");
+							writer.println("A teszt sikertelen: az orangutan nem huzta a pandat.");
 						}
 						writer.close();
 					} catch (IOException e) {
@@ -1247,16 +1252,13 @@ public class Game {
 						Panda outp1 = floor.getPandaById(Integer.parseInt(cmd1[3]));
 						Panda outp2 = floor.getPandaById(Integer.parseInt(cmd2[3]));
 						Orangutan outo = floor.getOrangutan1();
-						if (outp1.getTile().getX() == Integer.parseInt(cmd1[1])
-								&& outp1.getTile().getY() == Integer.parseInt(cmd1[2])) {
-							if (outp2.getTile().getX() == Integer.parseInt(cmd2[1])
-									&& outp2.getTile().getY() == Integer.parseInt(cmd2[2])) {
-								if (outo.getTile().getX() == Integer.parseInt(cmd3[1])
-										&& outo.getTile().getY() == Integer.parseInt(cmd3[2])) {
-									writer.println("A teszt sikeres: az orangutan huzta a pandakat.");
-								}
-
-							}
+						if (outp1.getTile().getX() == Integer.parseInt(cmd3[1])
+								&& outp1.getTile().getY() == Integer.parseInt(cmd3[2])
+								&& outp2.getTile().getX() == Integer.parseInt(cmd1[1])
+								&& outp2.getTile().getY() == Integer.parseInt(cmd1[2])
+								&& outo.getTile().getX() == Integer.parseInt(cmd4[1])
+								&& outo.getTile().getY() == Integer.parseInt(cmd4[2])) {
+							writer.println("A teszt sikeres: az orangutan huzta a pandakat.");
 						} else {
 							writer.println("A teszt sikertelen: az orangutan nem huzta a pandakat.");
 						}
@@ -1498,12 +1500,38 @@ public class Game {
 						line1 = br20.readLine();
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("HopperPanda")) {
+							
+						WeakTile wa = new WeakTile();
+						wa.setX(Integer.parseInt(cmd1[1]));
+						wa.setY(Integer.parseInt(cmd1[2]));
+
+						wa.setStepInCounter(5);
+						floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
+						for (int i = 0; i < 5; i++) {
+							for (int j = 0; j < 5; j++) {
+								Tile tmp = floor.getTile(i, j);
+								if (tmp.getX() == Integer.parseInt(cmd1[1])
+										&& tmp.getY() == Integer.parseInt(cmd1[2])) {
+									int tid = tmp.getId();
+									List<Tile> tiles2 = new ArrayList<Tile>();
+									tiles2 = floor.getTiles();
+									tiles2.remove(tid);
+									tiles2.set(tid, wa);
+									floor.setTiles(tiles2);
+									break;
+								}
+							}
+						}
+							
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
 							floor.addPanda(hp);
 							tileLifeBeforeHop = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]))
 									.getStepInCounter();
+							
+							
+							
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -1522,8 +1550,8 @@ public class Game {
 						line3 = br20.readLine();
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("stepAutomat")) {
-							WeakTile t = (WeakTile) floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
-							floor.getPandaById(Integer.parseInt(cmd3[1])).reaction(InputEffect.whistleMessage, t);
+							
+							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).getElement().reaction(InputEffect.whistleMessage, floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])));
 							tileLifeAfterHop = floor.getPandaById(Integer.parseInt(cmd3[1])).getTile()
 									.getStepInCounter();
 						} else {
@@ -1534,9 +1562,9 @@ public class Game {
 
 						PrintWriter writer = new PrintWriter("output_20.txt", "utf-8");
 						if (tileLifeBeforeHop + 1 == tileLifeAfterHop) {
-							writer.println("A teszt sikeres: a lazypanda beleült a fotelba.");
+							writer.println("A teszt sikeres: a hopperpanda ugrott egyet.");
 						} else {
-							writer.println("A teszt sikertelen: a lazypanda nem ült bele a fotelba.");
+							writer.println("A teszt sikertelen: a hopperpanda nem ugrott.");
 						}
 						writer.close();
 
@@ -1544,7 +1572,6 @@ public class Game {
 						e.printStackTrace();
 					}
 
-					System.out.println("20");
 					break;
 
 				// ScaryPanda release hands
@@ -1604,9 +1631,9 @@ public class Game {
 							o.setId(Integer.parseInt(cmd0[3]));
 							floor.getTile(Integer.parseInt(cmd0[1]), Integer.parseInt(cmd0[2])).setElement(o);
 							floor.setOrangutan1(o);
-							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd1[3])));
-							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd2[3])));
 							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd3[3])));
+							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd2[3])));
+							floor.getOrangutan1().addCapturedPandas(floor.getPandaById(Integer.parseInt(cmd1[3])));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -1625,8 +1652,8 @@ public class Game {
 						line5 = br21.readLine();
 						String[] cmd5 = line5.split(" ");
 						if (cmd5[0].equals("stepSlotMachine")) {
-							Tile t = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd1[2]));
-							floor.getPandaById(Integer.parseInt(cmd1[3])).reaction(InputEffect.jingleMessage, t);
+							floor.getPandaById(Integer.parseInt(cmd1[3])).setOrangutan(floor.getOrangutan1());
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd1[2])).getElement().reaction(InputEffect.jingleMessage, floor.getTile(Integer.parseInt(cmd4[1]), Integer.parseInt(cmd4[2])));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -1634,8 +1661,7 @@ public class Game {
 						br21.close();
 
 						PrintWriter writer = new PrintWriter("output_21.txt", "utf-8");
-						ScaryPanda outp = (ScaryPanda) floor.getPandaById(Integer.parseInt(cmd2[3]));
-						if (!outp.isCaptured()) {
+						if (!floor.getPandaById(Integer.parseInt(cmd2[3])).isCaptured()) {
 							writer.println("A teszt sikeres: a scaryPanda elengedte a kezeket.");
 						} else {
 							writer.println("A teszt sikertelen: a scaryPanda nem engedte el a kezeket.");
@@ -1645,8 +1671,6 @@ public class Game {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-
-					System.out.println("21");
 					break;
 
 				case 22:
@@ -1708,12 +1732,13 @@ public class Game {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
 						}
-						BufferedReader br23 = new BufferedReader(new FileReader(file));
+						BufferedReader br3 = new BufferedReader(new FileReader(file));
 
 						String line1, line2, line3;
-						line1 = br23.readLine();
+						line1 = br3.readLine();
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("Orangutan")) {
+
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
@@ -1723,24 +1748,56 @@ public class Game {
 							break;
 						}
 
-						line2 = br23.readLine();
+						line2 = br3.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("WeakTile")) {
 
+							WeakTile wa = new WeakTile();
+							wa.setX(Integer.parseInt(cmd2[1]));
+							wa.setY(Integer.parseInt(cmd2[2]));
+
+							wa.setStepInCounter(Integer.parseInt(cmd2[3]));
+							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
+							for (int i = 0; i < 5; i++) {
+								for (int j = 0; j < 5; j++) {
+									Tile tmp = floor.getTile(i, j);
+									if (tmp.getX() == Integer.parseInt(cmd2[1])
+											&& tmp.getY() == Integer.parseInt(cmd2[2])) {
+										int tid = tmp.getId();
+										List<Tile> tiles2 = new ArrayList<Tile>();
+										tiles2 = floor.getTiles();
+										tiles2.remove(tid);
+										tiles2.set(tid, wa);
+										floor.setTiles(tiles2);
+										break;
+									}
+								}
+							}
+
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
 						}
 
-						line3 = br23.readLine();
+						line3 = br3.readLine();
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("moveOrangutan")) {
+							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]),
+									Integer.parseInt(cmd3[3]));
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
 						}
-						br23.close();
+						br3.close();
+
+						PrintWriter writer = new PrintWriter("output_23.txt", "utf-8");
+						if (floor.getOrangutanById(Integer.parseInt(cmd1[3])) == null) {
+							writer.println("A teszt sikeres: az orangutan meghalt.");
+						} else {
+							writer.println("A teszt sikertelen: az orangutan nem halt meg.");
+						}
+						writer.close();
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -1850,7 +1907,6 @@ public class Game {
 							Entrance entrance = new Entrance(entranceTile);
 							floor.setEntranceTile(entranceTile);
 							floor.getEntranceTile().setElement(entrance);
-							
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -1966,7 +2022,7 @@ public class Game {
 
 							Orangutan orangutan = floor.getOrangutan1();
 							orangutan.move(Integer.parseInt(cmd6[2]), Integer.parseInt(cmd6[3]));
-							
+
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -2187,7 +2243,6 @@ public class Game {
 					break;
 
 				case 30:
-					System.out.println("30");
 
 					try {
 
@@ -2220,7 +2275,6 @@ public class Game {
 							Wardrobe wardrobe = new Wardrobe();
 							wardrobeTile.setElement(wardrobe);
 							floor.addWardrobe(wardrobe);
-						
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");

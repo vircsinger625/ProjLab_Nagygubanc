@@ -29,6 +29,7 @@ public class Tile {
 			return element.collide(o);
 		}
 	}
+	
 	public boolean stepIn(Panda p) {
 		if (element == null) {
 			return true;

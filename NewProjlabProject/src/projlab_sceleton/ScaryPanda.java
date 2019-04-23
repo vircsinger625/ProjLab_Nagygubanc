@@ -10,7 +10,7 @@ public class ScaryPanda extends Panda {
 
 	public void reaction(InputEffect i, Tile t) {
 		if(i == InputEffect.jingleMessage) {
-			orangutan.removeCapturedPandas(this);
+			getOrangutan().removeCapturedPandas(this);
 		}
 	}
 
