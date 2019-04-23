@@ -1863,18 +1863,18 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_25.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_25.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
 						}
 						BufferedReader br25 = new BufferedReader(new FileReader(file));
 
-						String line1, line2, line3, line4;
+						String line1, line2, line3, line4; //beolvassuk a bementetet és space-ek mentén splitelünk
 						line1 = br25.readLine();
 						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							// o1.setId(Integer.parseInt(cmd1[3]));
@@ -1922,8 +1922,8 @@ public class Game {
 						}
 						br25.close();
 
-						PrintWriter writer = new PrintWriter("output_25.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+						PrintWriter writer = new PrintWriter("output_25.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikertelen: az orangutan helyben maradt.");
@@ -1941,8 +1941,8 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_26.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_26.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
@@ -1950,9 +1950,9 @@ public class Game {
 						BufferedReader br26 = new BufferedReader(new FileReader(file));
 
 						String line1, line2, line3, line4, line5, line6;
-						line1 = br26.readLine();
+						line1 = br26.readLine(); //beolvassuk a bementetet és space-ek mentén splitelünk
 						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							o1.setId(Integer.parseInt(cmd1[3]));
@@ -2027,8 +2027,8 @@ public class Game {
 
 						br26.close();
 
-						PrintWriter writer = new PrintWriter("output_26.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+						PrintWriter writer = new PrintWriter("output_26.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikertelen: az orangutan helyben maradt.");
@@ -2046,8 +2046,8 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_27.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_27.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
@@ -2056,8 +2056,8 @@ public class Game {
 
 						String line1, line2, line3;
 						line1 = br27.readLine();
-						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						String[] cmd1 = line1.split(" "); //beolvassuk a bementetet és space-ek mentén splitelünk
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							// o1.setId(Integer.parseInt(cmd1[3]));
@@ -2093,8 +2093,8 @@ public class Game {
 						}
 						br27.close();
 
-						PrintWriter writer = new PrintWriter("output_27.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+						PrintWriter writer = new PrintWriter("output_27.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: az orangutan helyben maradt.");
@@ -2112,8 +2112,8 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_28.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_28.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
@@ -2121,9 +2121,9 @@ public class Game {
 						BufferedReader br28 = new BufferedReader(new FileReader(file));
 
 						String line1, line2, line3;
-						line1 = br28.readLine();
+						line1 = br28.readLine(); //beolvassuk a bementetet és space-ek mentén splitelünk
 						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							// o1.setId(Integer.parseInt(cmd1[3]));
@@ -2158,9 +2158,9 @@ public class Game {
 							break;
 						}
 						br28.close();
-
-						PrintWriter writer = new PrintWriter("output_28.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+ 
+						PrintWriter writer = new PrintWriter("output_28.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: az orangutan helyben maradt.");
@@ -2178,8 +2178,8 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_29.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_29.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
@@ -2187,9 +2187,9 @@ public class Game {
 						BufferedReader br29 = new BufferedReader(new FileReader(file));
 
 						String line1, line2, line3;
-						line1 = br29.readLine();
+						line1 = br29.readLine(); //beolvassuk a bementetet és space-ek mentén splitelünk
 						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							// o1.setId(Integer.parseInt(cmd1[3]));
@@ -2224,8 +2224,8 @@ public class Game {
 						}
 						br29.close();
 
-						PrintWriter writer = new PrintWriter("output_29.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+						PrintWriter writer = new PrintWriter("output_29.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikeres: az orangutan helyben maradt.");
@@ -2243,8 +2243,8 @@ public class Game {
 
 					try {
 
-						String path = System.getProperty("user.dir");
-						File file = new File(path + "\\input_30.txt");
+						String path = System.getProperty("user.dir"); //megnyitjuk a bemeneti tesztesethez a user mappáját
+						File file = new File(path + "\\input_30.txt"); //megadjuk a tesztesetet txt ben
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
 							System.out.println("Application will explode");
@@ -2253,8 +2253,8 @@ public class Game {
 
 						String line1, line2, line3, line4, line5;
 						line1 = br30.readLine();
-						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						String[] cmd1 = line1.split(" "); //beolvas suk a bementetet és space-ek mentén splitelünk
+						if (cmd1[0].equals("Orangutan")) { //megnézzük az összes bemenetre, hogy jot adtak e meg, ha nem, akkor hibát dobunk
 							Tile orangutanTile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							Orangutan o1 = new Orangutan();
 							o1.setId(Integer.parseInt(cmd1[3]));
@@ -2315,8 +2315,8 @@ public class Game {
 
 						br30.close();
 
-						PrintWriter writer = new PrintWriter("output_30.txt", "utf-8");
-						Orangutan outo = floor.getOrangutan1();
+						PrintWriter writer = new PrintWriter("output_30.txt", "utf-8"); //kimenetként egy utf-8 kódolásu txt-t írunk ki
+						Orangutan outo = floor.getOrangutan1(); //megnézzük, hogyha lefutott a tesztünk, akkor sikerült-e, avagy sem
 						if (outo.getTile().getX() == Integer.parseInt(cmd1[1])
 								&& outo.getTile().getY() == Integer.parseInt(cmd1[2])) {
 							writer.println("A teszt sikertelen: az orangutan helyben maradt.");
