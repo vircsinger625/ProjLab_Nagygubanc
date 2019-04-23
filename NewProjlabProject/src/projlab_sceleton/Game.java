@@ -541,7 +541,7 @@ public class Game {
 						line1 = br19.readLine();
 						String[] cmd1 = line1.split(" ");
 
-						if (cmd1[0].equals("HopperPanda")) {
+						if (cmd1[0].equals("HopperPanda")) { //HopperPanda beolvasása esetén HopperPanda letrehozasa
 							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							HoppperPanda hp1 = new HoppperPanda();
 							hp1.setId(Integer.parseInt(cmd1[3]));
@@ -554,7 +554,7 @@ public class Game {
 
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
-						if (cmd2[0].equals("HopperPanda")) {
+						if (cmd2[0].equals("HopperPanda")) {  //HopperPanda beolvasasa esetén HopperPanda letrehozasa
 							Tile panda2tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							HoppperPanda hp2 = new HoppperPanda();
 							hp2.setId(Integer.parseInt(cmd2[3]));
@@ -570,7 +570,7 @@ public class Game {
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("movePanda")) {
 
-							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1])); //A beolvasott index szerinti panda mozgatas
 							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -612,12 +612,12 @@ public class Game {
 						line1 = br19.readLine();
 						String[] cmd1 = line1.split(" ");
 
-						if (cmd1[0].equals("HopperPanda")) {
+						if (cmd1[0].equals("HopperPanda")) { //uggros panda letrehozasa
 							Tile pandatile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							HoppperPanda hp = new HoppperPanda();
 							hp.setId(Integer.parseInt(cmd1[3]));
 							pandatile.setElement(hp);
-							floor.addPanda(hp);
+							floor.addPanda(hp); //Hozzaadasa a palyahoz
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -626,12 +626,12 @@ public class Game {
 						// 2Orangutan
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
-						if (cmd2[0].equals("Orangutan")) {
+						if (cmd2[0].equals("Orangutan")) {  //Orangutan letrehozasa 
 							Tile orangutantile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd2[3]));
 							orangutantile.setElement(o);
-							floor.setOrangutan1(o);
+							floor.setOrangutan1(o);//Hozzaadasa a palyahoz
 
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -643,8 +643,8 @@ public class Game {
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("movePanda")) {
 
-							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1]));
-							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
+							Panda panda = floor.getPandaById(Integer.parseInt(cmd3[1])); 
+							panda.move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3])); //Panda leptetése a beolvasott koordinatakra
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
@@ -654,9 +654,9 @@ public class Game {
 						// Output
 						PrintWriter writer = new PrintWriter("output_8.txt", "utf-8");
 						Panda outp = floor.getPandaById(Integer.parseInt(cmd1[3]));
-						if (outp.getTile().getX() == Integer.parseInt(cmd2[1])
+						if (       outp.getTile().getX() == Integer.parseInt(cmd2[1]) //Panda vegso helye megegyezik e az orángután eredeti helyevel
 								&& outp.getTile().getY() == Integer.parseInt(cmd2[2])
-								&& floor.getOrangutan1().getTile().getX() == Integer.parseInt(cmd1[1])
+								&& floor.getOrangutan1().getTile().getX() == Integer.parseInt(cmd1[1]) //Orangutan vegso helye megegyezik e a panda eredeti helyevel
 								&& floor.getOrangutan1().getTile().getY() == Integer.parseInt(cmd1[2]))
 
 						{
@@ -682,12 +682,12 @@ public class Game {
 						}
 						BufferedReader br19 = new BufferedReader(new FileReader(file));
 
-						String line1, line2, line3, line4, line5;
+						String line1, line2, line3, line4, line5; //5sorra szamitunk a beolvasott txt fajlbol.
 						line1 = br19.readLine();
 						String[] cmd1 = line1.split(" ");
 
 						// 1HopperPanda
-						if (cmd1[0].equals("HopperPanda")) {
+						if (cmd1[0].equals("HopperPanda")) {  //HopperPanda beolvasása esetén HopperPanda létrehozása
 							Tile panda1tile = floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2]));
 							HoppperPanda hp1 = new HoppperPanda();
 							hp1.setId(Integer.parseInt(cmd1[3]));
@@ -701,11 +701,11 @@ public class Game {
 						// 2Wardrobe
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
-						if (cmd2[0].equals("Wardrobe")) {
+						if (cmd2[0].equals("Wardrobe")) {//Szekreny letrehozasa, elhelyezése a palyan
 							Tile wardrobe1_tile = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							Wardrobe w1 = new Wardrobe();
-							w1.setId(Integer.parseInt(cmd2[3]));
-							wardrobe1_tile.setElement(w1);
+							w1.setId(Integer.parseInt(cmd2[3])); //Egyedi azonosítójának beállítása
+							wardrobe1_tile.setElement(w1); //csempen levo elem beallitasa 
 							floor.addWardrobe(w1);
 
 						} else {
@@ -731,11 +731,11 @@ public class Game {
 						// 4movePanda
 						line4 = br19.readLine();
 						String[] cmd4 = line4.split(" ");
-						if (cmd4[0].equals("movePanda")) {
+						if (cmd4[0].equals("movePanda")) { //movePanda utasitas beolvasasa eseten a panda mozgatása a megadott koordinatakra 
 							Panda panda = floor.getPandaById(Integer.parseInt(cmd4[1]));
 							panda.move(Integer.parseInt(cmd4[2]), Integer.parseInt(cmd4[3]));
 						} else {
-							System.out.println("Nem a tesztesethez megfelelo parameterek!");
+							System.out.println("Nem a tesztesethez megfelelo parameterek!"); //nem moovePanda talalhato az input fajlban
 							break;
 						}
 
@@ -799,7 +799,7 @@ public class Game {
 						// 2Exit
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
-						if (cmd2[0].equals("Exit")) {
+						if (cmd2[0].equals("Exit")) { //Kijarat letrehozása a megadott koordinatakra
 							Exit ex = new Exit();
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ex); // ?????
 						} else {
@@ -810,7 +810,7 @@ public class Game {
 						// 3Entrance
 						line3 = br19.readLine();
 						String[] cmd3 = line3.split(" ");
-						if (cmd3[0].equals("Entrance")) {
+						if (cmd3[0].equals("Entrance")) {//Bejarat letrehozása a megadott koordinatakra
 							Tile entrance_tile = floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2]));
 							Entrance en = new Entrance(entrance_tile);
 							floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2])).setElement(en); // ?????
@@ -823,7 +823,7 @@ public class Game {
 						// 4movePanda
 						line4 = br19.readLine();
 						String[] cmd4 = line4.split(" ");
-						if (cmd4[0].equals("movePanda")) {
+						if (cmd4[0].equals("movePanda")) { //Panda mozgatasa a megadott koordinatakra
 							Panda panda = floor.getPandaById(Integer.parseInt(cmd4[1]));
 							panda.move(Integer.parseInt(cmd4[2]), Integer.parseInt(cmd4[3]));
 						} else {
@@ -881,7 +881,7 @@ public class Game {
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("Exit")) {
-							Exit ex = new Exit();
+							Exit ex = new Exit(); //Kijarat letrehozása a megadott koordinatakra
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ex); // ?????
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -891,7 +891,7 @@ public class Game {
 						// 3Entrance
 						line3 = br19.readLine();
 						String[] cmd3 = line3.split(" ");
-						if (cmd3[0].equals("Entrance")) {
+						if (cmd3[0].equals("Entrance")) { //Bejarat letrehozása a megadott koordinatakra
 							Tile entrance_tile = floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2]));
 							Entrance en = new Entrance(entrance_tile);
 							floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2])).setElement(en); // ?????
@@ -959,9 +959,9 @@ public class Game {
 
 						// ArmChair
 						line2 = br19.readLine();
-						String[] cmd2 = line2.split(" ");
+						String[] cmd2 = line2.split(" "); 
 						if (cmd2[0].equals("ArmChair")) {
-							ArmChair ac = new ArmChair();
+							ArmChair ac = new ArmChair(); //Fotel létrehozása
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ac);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
