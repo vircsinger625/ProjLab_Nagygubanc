@@ -1405,9 +1405,9 @@ public class Game {
 						PrintWriter writer = new PrintWriter("output_18.txt", "utf-8");
 						Orangutan outo = floor.getOrangutan1();
 						if (outo.isHasCapturedPanda() == false) {
-							writer.println("A teszt sikeres: az orĂˇngutĂˇn elengedte a pandakat.");
+							writer.println("A teszt sikeres: az orangutan elengedte a pandakat.");
 						} else {
-							writer.println("A teszt sikertelen: az orĂˇngutĂˇn nem engedte el a pandakat.");
+							writer.println("A teszt sikertelen: az otangutan nem engedte el a pandakat.");
 						}
 						writer.close();
 					} catch (IOException e) {
@@ -1419,7 +1419,7 @@ public class Game {
 				case 19:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_19.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1431,7 +1431,7 @@ public class Game {
 						line1 = br19.readLine();
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("LazyPanda")) {
-							LazyPanda lp = new LazyPanda();
+							LazyPanda lp = new LazyPanda();  //lazypanda peldanyositasa es palyara illesztese
 							lp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(lp);
 							floor.addPanda(lp);
@@ -1443,7 +1443,7 @@ public class Game {
 						line2 = br19.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("ArmChair")) {
-							ArmChair ac = new ArmChair();
+							ArmChair ac = new ArmChair(); //armchair peldanyositasa
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ac);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -1454,7 +1454,7 @@ public class Game {
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("stepArmChair")) {
 
-							floor.getPandaById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd2[1]),
+							floor.getPandaById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd2[1]), //armchair step fuggvenyevel a reakcio kivaltasa
 									Integer.parseInt(cmd2[2]));
 							Tile t = floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2]));
 							floor.getPandaById(Integer.parseInt(cmd3[1])).reaction(InputEffect.sleepMessage, t);
@@ -1464,7 +1464,7 @@ public class Game {
 						}
 						br19.close();
 
-						PrintWriter writer = new PrintWriter("output_19.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_19.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						LazyPanda outp = (LazyPanda) floor.getPandaById(Integer.parseInt(cmd3[1]));
 						if (outp.getTile().getX() == Integer.parseInt(cmd2[1])
 								&& outp.getTile().getY() == Integer.parseInt(cmd2[2])) {
@@ -1484,7 +1484,7 @@ public class Game {
 				case 20:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_20.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1498,7 +1498,7 @@ public class Game {
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("HopperPanda")) {
 							
-						WeakTile wa = new WeakTile();
+						WeakTile wa = new WeakTile(); //weaktile letrehozasa amin a hopperpanda ugrani kepes
 						wa.setX(Integer.parseInt(cmd1[1]));
 						wa.setY(Integer.parseInt(cmd1[2]));
 
@@ -1520,7 +1520,7 @@ public class Game {
 							}
 						}
 							
-							HoppperPanda hp = new HoppperPanda();
+							HoppperPanda hp = new HoppperPanda(); //hopperpanda peldanyositasa
 							hp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(hp);
 							floor.addPanda(hp);
@@ -1537,7 +1537,7 @@ public class Game {
 						line2 = br20.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("ChocolateAutomat")) {
-							ChocolateAutomat ca = new ChocolateAutomat();
+							ChocolateAutomat ca = new ChocolateAutomat(); //csokiautomata peldanyositasa
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(ca);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -1546,7 +1546,7 @@ public class Game {
 
 						line3 = br20.readLine();
 						String[] cmd3 = line3.split(" ");
-						if (cmd3[0].equals("stepAutomat")) {
+						if (cmd3[0].equals("stepAutomat")) { //csokiautomata srep fuggvenye a reakcio kivaltasahoz
 							
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).getElement().reaction(InputEffect.whistleMessage, floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])));
 							tileLifeAfterHop = floor.getPandaById(Integer.parseInt(cmd3[1])).getTile()
@@ -1557,7 +1557,7 @@ public class Game {
 						}
 						br20.close();
 
-						PrintWriter writer = new PrintWriter("output_20.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_20.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						if (tileLifeBeforeHop + 1 == tileLifeAfterHop) {
 							writer.println("A teszt sikeres: a hopperpanda ugrott egyet.");
 						} else {
@@ -1575,7 +1575,7 @@ public class Game {
 				case 21:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_21.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1588,7 +1588,7 @@ public class Game {
 						line1 = br21.readLine();
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("ScaryPanda")) {
-							ScaryPanda sp = new ScaryPanda();
+							ScaryPanda sp = new ScaryPanda();  //scarypanda peldanyositasa
 							sp.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(sp);
 							floor.addPanda(sp);
@@ -1600,7 +1600,7 @@ public class Game {
 						line2 = br21.readLine();
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("HopperPanda")) {
-							HoppperPanda sp = new HoppperPanda();
+							HoppperPanda sp = new HoppperPanda(); //hopperpanda peldanyositasa
 							sp.setId(Integer.parseInt(cmd2[3]));
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd2[2])).setElement(sp);
 							floor.addPanda(sp);
@@ -1612,7 +1612,7 @@ public class Game {
 						line3 = br21.readLine();
 						String[] cmd3 = line3.split(" ");
 						if (cmd3[0].equals("LazyPanda")) {
-							LazyPanda sp = new LazyPanda();
+							LazyPanda sp = new LazyPanda(); //lazypanda peldanyositasa
 							sp.setId(Integer.parseInt(cmd3[3]));
 							floor.getTile(Integer.parseInt(cmd3[1]), Integer.parseInt(cmd3[2])).setElement(sp);
 							floor.addPanda(sp);
@@ -1624,7 +1624,7 @@ public class Game {
 						line0 = br21.readLine();
 						String[] cmd0 = line0.split(" ");
 						if (cmd0[0].equals("Orangutan")) {
-							Orangutan o = new Orangutan();
+							Orangutan o = new Orangutan(); //kell egy orangutan aminek vannak pandai a teszteleshez
 							o.setId(Integer.parseInt(cmd0[3]));
 							floor.getTile(Integer.parseInt(cmd0[1]), Integer.parseInt(cmd0[2])).setElement(o);
 							floor.setOrangutan1(o);
@@ -1639,7 +1639,7 @@ public class Game {
 						line4 = br21.readLine();
 						String[] cmd4 = line4.split(" ");
 						if (cmd4[0].equals("SlotMachine")) {
-							SlotMachine sm = new SlotMachine();
+							SlotMachine sm = new SlotMachine(); //slotmachine peldanyositasa
 							floor.getTile(Integer.parseInt(cmd4[1]), Integer.parseInt(cmd4[2])).setElement(sm);
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
@@ -1648,7 +1648,7 @@ public class Game {
 
 						line5 = br21.readLine();
 						String[] cmd5 = line5.split(" ");
-						if (cmd5[0].equals("stepSlotMachine")) {
+						if (cmd5[0].equals("stepSlotMachine")) { //slotmachine step fuggvenyeben reakcio kivaltasa
 							floor.getPandaById(Integer.parseInt(cmd1[3])).setOrangutan(floor.getOrangutan1());
 							floor.getTile(Integer.parseInt(cmd2[1]), Integer.parseInt(cmd1[2])).getElement().reaction(InputEffect.jingleMessage, floor.getTile(Integer.parseInt(cmd4[1]), Integer.parseInt(cmd4[2])));
 						} else {
@@ -1657,7 +1657,7 @@ public class Game {
 						}
 						br21.close();
 
-						PrintWriter writer = new PrintWriter("output_21.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_21.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						if (!floor.getPandaById(Integer.parseInt(cmd2[3])).isCaptured()) {
 							writer.println("A teszt sikeres: a scaryPanda elengedte a kezeket.");
 						} else {
@@ -1673,7 +1673,7 @@ public class Game {
 				case 22:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_22.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1685,7 +1685,7 @@ public class Game {
 						line1 = br22.readLine();
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("Orangutan")) {
-							Orangutan o = new Orangutan();
+							Orangutan o = new Orangutan(); //orangutan peldanyositasa es beallitasa
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
 							floor.setOrangutan1(o);
@@ -1696,14 +1696,14 @@ public class Game {
 
 						line2 = br22.readLine();
 						String[] cmd2 = line2.split(" ");
-						if (cmd2[0].equals("moveOrangutan")) {
+						if (cmd2[0].equals("moveOrangutan")) { //orangutan leptetese ures mezore
 							floor.getOrangutan1().move(Integer.parseInt(cmd2[2]), Integer.parseInt(cmd2[3]));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
 						}
 
-						PrintWriter writer = new PrintWriter("output_22.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_22.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						Orangutan outo = floor.getOrangutan1();
 						if (outo.getTile().getX() == Integer.parseInt(cmd2[2])
 								&& outo.getTile().getY() == Integer.parseInt(cmd2[3])) {
@@ -1723,7 +1723,7 @@ public class Game {
 				case 23:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_23.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1736,7 +1736,7 @@ public class Game {
 						String[] cmd1 = line1.split(" ");
 						if (cmd1[0].equals("Orangutan")) {
 
-							Orangutan o = new Orangutan();
+							Orangutan o = new Orangutan(); //orangutan peldanyositasa
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
 							floor.setOrangutan1(o);
@@ -1749,7 +1749,7 @@ public class Game {
 						String[] cmd2 = line2.split(" ");
 						if (cmd2[0].equals("WeakTile")) {
 
-							WeakTile wa = new WeakTile();
+							WeakTile wa = new WeakTile(); //weaktile letrehozasa a teszhez
 							wa.setX(Integer.parseInt(cmd2[1]));
 							wa.setY(Integer.parseInt(cmd2[2]));
 
@@ -1778,7 +1778,7 @@ public class Game {
 
 						line3 = br3.readLine();
 						String[] cmd3 = line3.split(" ");
-						if (cmd3[0].equals("moveOrangutan")) {
+						if (cmd3[0].equals("moveOrangutan")) { //orangutan raleptetese move fuggvennyel eltort csempere
 							floor.getOrangutanById(Integer.parseInt(cmd3[1])).move(Integer.parseInt(cmd3[2]),
 									Integer.parseInt(cmd3[3]));
 
@@ -1788,7 +1788,7 @@ public class Game {
 						}
 						br3.close();
 
-						PrintWriter writer = new PrintWriter("output_23.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_23.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						if (floor.getOrangutanById(Integer.parseInt(cmd1[3])) == null) {
 							writer.println("A teszt sikeres: az orangutan meghalt.");
 						} else {
@@ -1804,7 +1804,7 @@ public class Game {
 				case 24:
 
 					try {
-						String path = System.getProperty("user.dir");
+						String path = System.getProperty("user.dir"); //fajl megnyitasa es betoltese, space menten split es tokenek vizsgalata
 						File file = new File(path + "\\input_24.txt");
 						if (!file.exists()) {
 							System.out.println("System couldnt file source file!");
@@ -1815,7 +1815,7 @@ public class Game {
 						String line1, line2, line3;
 						line1 = br24.readLine();
 						String[] cmd1 = line1.split(" ");
-						if (cmd1[0].equals("Orangutan")) {
+						if (cmd1[0].equals("Orangutan")) { //orangutan peldanyositasa
 							Orangutan o = new Orangutan();
 							o.setId(Integer.parseInt(cmd1[3]));
 							floor.getTile(Integer.parseInt(cmd1[1]), Integer.parseInt(cmd1[2])).setElement(o);
@@ -1836,14 +1836,14 @@ public class Game {
 
 						line3 = br24.readLine();
 						String[] cmd3 = line3.split(" ");
-						if (cmd3[0].equals("moveOrangutan")) {
+						if (cmd3[0].equals("moveOrangutan")) { //orangutan raleptetese az entrance tilera teszhez
 							floor.getOrangutan1().move(Integer.parseInt(cmd3[2]), Integer.parseInt(cmd3[3]));
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
 						}
 
-						PrintWriter writer = new PrintWriter("output_24.txt", "utf-8");
+						PrintWriter writer = new PrintWriter("output_24.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
 						Orangutan outo = floor.getOrangutan1();
 						if (outo.getTile().getX() == Integer.parseInt(cmd3[2])
 								&& outo.getTile().getY() == Integer.parseInt(cmd3[3])) {
