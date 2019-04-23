@@ -8,6 +8,14 @@ public class Panda extends Animal implements Steppable {
 	protected boolean isCaptured;
 	protected Orangutan orangutan;
 
+	public Orangutan getOrangutan() {
+		return orangutan;
+	}
+
+	public void setOrangutan(Orangutan orangutan) {
+		this.orangutan = orangutan;
+	}
+
 	public boolean isCaptured() {
 		return isCaptured;
 	}
@@ -17,6 +25,7 @@ public class Panda extends Animal implements Steppable {
 	}
 
 	public boolean collide(Orangutan o) {
+		orangutan = o;
 		setCaptured(true);
 		o.addCapturedPandas(this);
 		Tile orangutantile = o.getTile();

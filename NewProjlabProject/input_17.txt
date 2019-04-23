@@ -1,4 +1,4 @@
 HopperPanda 0 0 1
-Oranguatn 0 1 1
+Orangutan 0 1 1
 Orangutan 0 2 2
 moveOrangutan 2 0 1

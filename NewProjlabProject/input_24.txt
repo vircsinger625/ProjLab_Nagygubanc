@@ -1,0 +1,3 @@
+Orangutan 0 0 1
+Entrance 0 1
+moveOrangutan 1 0 1

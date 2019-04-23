@@ -60,7 +60,7 @@ public class Floor {
 	}
 
 	public void setEntranceTile(Tile et) {
-		enteranceTile = et;
+		enteranceTile = getTile(et.getX(), et.getY());
 	}
 
 	public Orangutan getOrangutan1() {

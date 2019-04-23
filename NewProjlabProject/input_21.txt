@@ -1,0 +1,7 @@
+ScaryPanda 0 1 2
+HopperPanda 0 2 3
+LazyPanda 0 3 4
+Orangutan 0 0 1
+SlotMachine 1 1
+stepSlotMachine 2
+

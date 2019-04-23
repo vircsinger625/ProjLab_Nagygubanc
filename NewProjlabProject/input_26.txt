@@ -1,0 +1,6 @@
+Orangutan 1 2 1
+Exit 0 2
+LazyPanda 2 2 1
+LazyPanda 3 2 2
+Entrance 2 0
+moveOrangutan 1 2 0

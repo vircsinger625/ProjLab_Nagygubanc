@@ -16,7 +16,7 @@ public class Exit extends Element {
 		Panda p;
 		o.getTile().remove(o);
 		o.setTile(et);
-		et.setElement(o);
+		Game.floor.getEntranceTile().setElement(o);
 		if (o.isHasCapturedPanda()) {
 			int counter = 0;
 			while(o.capturedPandas.size() != 0) {

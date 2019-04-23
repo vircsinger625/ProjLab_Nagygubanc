@@ -1,0 +1,3 @@
+Orangutan 0 0 1
+WeakTile 0 1 15
+moveOrangutan 1 0 1

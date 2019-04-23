@@ -1,0 +1,5 @@
+Orangutan 0 0 1
+Wardrobe 0 1 1
+Wardrobe 3 3 2
+moveOrangutan 1 0 1
+moveOrangutan 1 2 3

@@ -14,8 +14,6 @@ public class HoppperPanda extends Panda {
 		
 	}
 
-	
-
 	public Tile getTile() {
 		return this.tile;
 	}
