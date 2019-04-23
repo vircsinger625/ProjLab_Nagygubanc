@@ -124,7 +124,7 @@ public class Game {
 						} else {
 							System.out.println("Nem a tesztesethez megfelelo parameterek!");
 							break;
-						}
+						} 
 
 						br1.close();
 
