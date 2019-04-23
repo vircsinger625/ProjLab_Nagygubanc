@@ -1843,7 +1843,7 @@ public class Game {
 							break;
 						}
 
-						PrintWriter writer = new PrintWriter("output_24.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik
+						PrintWriter writer = new PrintWriter("output_24.txt", "utf-8"); //fajlba kiiras, sikeres ha a teszt megfeleloen mukodik.
 						Orangutan outo = floor.getOrangutan1();
 						if (outo.getTile().getX() == Integer.parseInt(cmd3[2])
 								&& outo.getTile().getY() == Integer.parseInt(cmd3[3])) {
