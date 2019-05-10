@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -13,7 +15,8 @@ public class Window extends JFrame {
 	private final JLabel statusBar;
 	private final DrawRect mainPanel;
 	private final JPanel statusBarPanel;
-	JButton orangutanbutton, w1b, w2b, cab,smb;
+	JButton orangutanbutton, w1b, w2b, cab,smb,acb, sp1b, lp1b, hp1b, sp2b, lp2b, hp2b ;
+	private List<JButton> pandabuttons = new ArrayList<JButton>();
 
 	public Window() {
 		super("Window");
@@ -96,6 +99,78 @@ public class Window extends JFrame {
 				(int) (DrawRect.y24 - smb.getPreferredSize().getHeight() / 2));
 		smb.setText("SM");
 		
+		acb = new JButton("06");
+		acb.setBounds((int) (400 - acb.getPreferredSize().getWidth()) / 2, 0,
+				(int) acb.getPreferredSize().getWidth(), (int) acb.getPreferredSize().getHeight());
+		
+		mainPanel.add(acb);
+		acb.setLocation((int) (DrawRect.x37 - acb.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y37 - acb.getPreferredSize().getHeight() / 2));
+		acb.setText("AC");
+		
+		sp1b = new JButton("07");
+		sp1b.setBounds((int) (400 - sp1b.getPreferredSize().getWidth()) / 2, 0,
+				(int) sp1b.getPreferredSize().getWidth(), (int) sp1b.getPreferredSize().getHeight());
+		
+		mainPanel.add(sp1b);
+		sp1b.setLocation((int) (DrawRect.x9 - sp1b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y9 - sp1b.getPreferredSize().getHeight() / 2));
+		sp1b.setText("SP1");
+		
+		lp1b = new JButton("08");
+		lp1b.setBounds((int) (400 - lp1b.getPreferredSize().getWidth()) / 2, 0,
+				(int) lp1b.getPreferredSize().getWidth(), (int) lp1b.getPreferredSize().getHeight());
+		
+		mainPanel.add(lp1b);
+		lp1b.setLocation((int) (DrawRect.x18 - lp1b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y18 - lp1b.getPreferredSize().getHeight() / 2));
+		lp1b.setText("LP1");
+		
+
+		hp1b = new JButton("10");
+		hp1b.setBounds((int) (400 - hp1b.getPreferredSize().getWidth()) / 2, 0,
+				(int) hp1b.getPreferredSize().getWidth(), (int) hp1b.getPreferredSize().getHeight());
+		
+		mainPanel.add(hp1b);
+		hp1b.setLocation((int) (DrawRect.x25 - hp1b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y25 - hp1b.getPreferredSize().getHeight() / 2));
+		hp1b.setText("LP1");
+		
+		
+
+		sp2b = new JButton("11");
+		sp2b.setBounds((int) (400 - sp2b.getPreferredSize().getWidth()) / 2, 0,
+				(int) sp2b.getPreferredSize().getWidth(), (int) sp2b.getPreferredSize().getHeight());
+		
+		mainPanel.add(sp2b);
+		sp2b.setLocation((int) (DrawRect.x30 - sp2b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y30 - sp2b.getPreferredSize().getHeight() / 2));
+		sp2b.setText("SP2");
+		
+		lp2b = new JButton("12");
+		lp2b.setBounds((int) (400 - lp2b.getPreferredSize().getWidth()) / 2, 0,
+				(int) lp2b.getPreferredSize().getWidth(), (int) lp2b.getPreferredSize().getHeight());
+		
+		mainPanel.add(lp2b);
+		lp2b.setLocation((int) (DrawRect.x31 - lp2b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y31 - lp2b.getPreferredSize().getHeight() / 2));
+		lp2b.setText("LP2");
+		
+
+		hp2b = new JButton("13");
+		hp2b.setBounds((int) (400 - hp2b.getPreferredSize().getWidth()) / 2, 0,
+				(int) hp2b.getPreferredSize().getWidth(), (int) hp2b.getPreferredSize().getHeight());
+		
+		mainPanel.add(hp2b);
+		hp2b.setLocation((int) (DrawRect.x36 - hp2b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y36 - hp2b.getPreferredSize().getHeight() / 2));
+		hp2b.setText("LP2");
+		pandabuttons.add(sp1b);
+		pandabuttons.add(lp1b);
+		pandabuttons.add(hp1b);
+		pandabuttons.add(sp2b);
+		pandabuttons.add(lp2b);
+		pandabuttons.add(hp2b);
 		mainPanel.setFocusable(true);
 		setVisible(true);
 	};
@@ -103,6 +178,20 @@ public class Window extends JFrame {
 	public void moveOrangutanButton(int x, int y) {
 		orangutanbutton.setLocation((int) (x - orangutanbutton.getPreferredSize().getWidth() / 2),
 				(int) (y - orangutanbutton.getPreferredSize().getHeight() / 2));
+	}
+	public void pandaButtons() {
+		List<Panda> pandas = new ArrayList<Panda>();
+		pandas = Game.floor.getPandas();
+		for (int i = 0; i < pandas.size(); i++) {
+			Panda p = pandas.get(i);
+			if (p != null && pandabuttons.get(i) != null ) {
+				pandabuttons.get(i).setLocation((int) (p.getTile().getX() - pandabuttons.get(i).getPreferredSize().getWidth() / 2),
+						(int) (p.getTile().getY() - pandabuttons.get(i).getPreferredSize().getHeight() / 2));
+			}else {
+				mainPanel.remove(pandabuttons.get(i));
+				
+			}
+		}
 	}
 	
 }

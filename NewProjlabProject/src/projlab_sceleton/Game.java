@@ -1,6 +1,8 @@
 package projlab_sceleton;
 
 import java.io.BufferedReader;
+import java.util.Timer; 
+import java.util.TimerTask; 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,6 +17,7 @@ public class Game {
 	public static Floor floor = new Floor();
 	public static Window window = new Window();
 	public static Timer timer = new Timer();
+	public static TimerTask task = new MyTimer();
 
 	public static void main(String[] args) {
 
@@ -182,8 +185,8 @@ public class Game {
 			tiles.get(29).AddNeighbour(41);
 			
 			tiles.get(30).AddNeighbour(28);
+			tiles.get(30).AddNeighbour(29);
 			tiles.get(30).AddNeighbour(30);
-			tiles.get(30).AddNeighbour(32);
 			tiles.get(30).AddNeighbour(41);
 
 			tiles.get(31).AddNeighbour(24);
@@ -264,9 +267,42 @@ public class Game {
 			Wardrobe wa2 = new Wardrobe();
 			wa2.setPersonalNumber(2);
 			tiles.get(41).setElement(wa2);
-
+			
+			ScaryPanda sp = new ScaryPanda();
+			sp.setTile(tiles.get(8));
+			tiles.get(8).setElement(sp);
+			floor.addPanda(sp);
+			
+			LazyPanda lp = new LazyPanda();
+			lp.setTile(tiles.get(17));
+			tiles.get(17).setElement(lp);
+			floor.addPanda(lp);
+			
+			HoppperPanda hp = new HoppperPanda();
+			hp.setTile(tiles.get(24));
+			tiles.get(24).setElement(hp);
+			floor.addPanda(hp);
+			
+			ScaryPanda sp2 = new ScaryPanda();
+			sp2.setTile(tiles.get(29));
+			tiles.get(29).setElement(sp2);
+			floor.addPanda(sp2);
+			
+			LazyPanda lp2 = new LazyPanda();
+			lp2.setTile(tiles.get(30));
+			tiles.get(30).setElement(lp2);
+			floor.addPanda(lp2);
+			
+			HoppperPanda hp2 = new HoppperPanda();
+			hp2.setTile(tiles.get(35));
+			tiles.get(35).setElement(hp2);
+			floor.addPanda(hp2);
 			
 			floor.setTiles(tiles);
+			
+			timer.schedule(task, 20, 50); 
+			
+			
 			
 			
 			

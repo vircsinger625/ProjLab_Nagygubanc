@@ -51,7 +51,6 @@ public class Orangutan extends Animal implements Steppable {
 			this.tile.remove(this);
 			t.setElement(this);
 
-			Game.window.moveOrangutanButton(t.getX(), t.getY());
 			if (hasCapturedPanda == true) {
 				Tile tile1 = null;
 				Tile tile2 = null;
