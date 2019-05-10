@@ -11,9 +11,16 @@ public class Tile {
 	private int y;
 	private  List<Integer> neighbours = new ArrayList<Integer>();
 	private int id;
-	private 
 	
 
+	public boolean isNeighbour(int id) {
+		for (int i = 0; i < neighbours.size(); i++) {
+			if (neighbours.get(i) == id ) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public int getId() {
 		return id;
 	}
@@ -24,6 +31,7 @@ public class Tile {
 	public void setElement(Element e) {
 		this.element = e;
 		element.setTile(this);
+
 	}
 
 	public boolean stepIn(Orangutan o) {

@@ -14,6 +14,7 @@ public class Game {
 	public static int usecase;
 	public static Floor floor = new Floor();
 	public static Window window = new Window();
+	public static Timer timer = new Timer();
 
 	public static void main(String[] args) {
 
@@ -22,6 +23,9 @@ public class Game {
 			
 			for (int i = 1; i <= 42; i++) {
 				Tile tile = new Tile();
+				if (i == 13 || i == 35) {
+					tile = new WeakTile();
+				}
 				tile.setId(i);
 				tile.setX(DrawRect.xcoord[i-1]);
 				tile.setY(DrawRect.ycoord[i-1]);
@@ -238,17 +242,36 @@ public class Game {
 
 			tiles.get(41).AddNeighbour(40);
 			tiles.get(41).AddNeighbour(41);
-
-
-
-
-
+			
+			Orangutan o1 = new Orangutan();
+			floor.setOrangutan1(o1);
+			tiles.get(2).setElement(o1);
+			
+			Entrance ent = new Entrance(tiles.get(2));
+			tiles.get(2).setElement(ent);
+			floor.setEntranceTile(tiles.get(2));
+			
+			ChocolateAutomat ca1 = new ChocolateAutomat();
+			tiles.get(19).setElement(ca1);
+			
+			ArmChair ac1 = new ArmChair();
+			tiles.get(36).setElement(ac1);
+			
+			Wardrobe wa1 = new Wardrobe();
+			wa1.setPersonalNumber(1);
+			tiles.get(14).setElement(wa1);
+			
+			Wardrobe wa2 = new Wardrobe();
+			wa2.setPersonalNumber(2);
+			tiles.get(41).setElement(wa2);
 
 			
 			floor.setTiles(tiles);
 			
+			
+			
 		
-
+/*
 			InputStreamReader isr = new InputStreamReader(System.in);
 			try {
 				BufferedReader br = new BufferedReader(isr);
@@ -2506,7 +2529,7 @@ public class Game {
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			}*/
 		}
 
 	}

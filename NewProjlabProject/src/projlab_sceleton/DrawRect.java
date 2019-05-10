@@ -104,7 +104,7 @@ class DrawRect extends JPanel {
     public static int[] ycoord = {y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y23,y24,y25,y25,y26,y27,y28,y29,y31,y32,y33,y34,y35,y36,y37,y38,y39,y40,y41,y42,};
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // do your superclass's painting routine first, and then paint on top of it.
-        g.setColor(Color.RED);
+        g.setColor(Color.blue);
         g.fillRect(x1, y1, squareW, squareH);
         g.fillRect(x2, y2, squareW, squareH);
         g.fillRect(x3, y3, squareW, squareH);
@@ -161,7 +161,6 @@ class DrawRect extends JPanel {
 
         g.drawLine(x2, y2, x3, y3);
         g.drawLine(x2, y2, x8, y8);
-        g.drawLine(x2, y2, x9, y9);
         
         g.drawLine(x3, y3, x4, y4);
         g.drawLine(x3, y3, x5, y5);

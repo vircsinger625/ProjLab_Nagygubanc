@@ -90,7 +90,7 @@ public class Floor {
 	public Tile getTile(int x, int y) {
 		Tile tile = null;
 		for (int i = 0; i < tiles.size(); i++) {
-			if (tiles.get(i).getX() == x && tiles.get(i).getY() == y) {
+			if (tiles.get(i).getX() >= x-40 && tiles.get(i).getX() <= x+40 && tiles.get(i).getY() >= y-40 && tiles.get(i).getY() <= y+40) {
 				
 				return tiles.get(i);
 				
