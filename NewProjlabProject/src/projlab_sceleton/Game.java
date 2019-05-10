@@ -18,21 +18,236 @@ public class Game {
 	public static void main(String[] args) {
 
 			floor = new Floor();
-			int id = 0;
 			List<Tile> tiles = new ArrayList<Tile>();
-			Tile tile = new Tile();
-			for (int i = 0; i < 5; i++) {
-				for (int j = 0; j < 5; j++) {
-					tile = new Tile();
-					tile.setX(i);
-					tile.setY(j);
-					tile.setId(id);
-					tiles.add(tile);
-					id++;
-				}
-
+			
+			for (int i = 1; i <= 42; i++) {
+				Tile tile = new Tile();
+				tile.setId(i);
+				tile.setX(DrawRect.xcoord[i-1]);
+				tile.setY(DrawRect.ycoord[i-1]);
+				tiles.add(tile);
 			}
+			tiles.get(0).AddNeighbour(2);
+			tiles.get(0).AddNeighbour(3);
+			
+			tiles.get(1).AddNeighbour(1);
+			tiles.get(1).AddNeighbour(3);
+			tiles.get(1).AddNeighbour(8);
+			
+			tiles.get(2).AddNeighbour(1);
+			tiles.get(2).AddNeighbour(2);
+			tiles.get(2).AddNeighbour(4);
+			tiles.get(2).AddNeighbour(5);
+			tiles.get(2).AddNeighbour(6);
+			tiles.get(2).AddNeighbour(7);
+			tiles.get(2).AddNeighbour(8);
+			
+			tiles.get(3).AddNeighbour(3);
+			tiles.get(3).AddNeighbour(5);
+			
+			tiles.get(4).AddNeighbour(3);
+			tiles.get(4).AddNeighbour(4);
+			tiles.get(4).AddNeighbour(6);
+			tiles.get(4).AddNeighbour(14);
+
+			tiles.get(5).AddNeighbour(3);
+			tiles.get(5).AddNeighbour(5);
+			tiles.get(5).AddNeighbour(7);
+			tiles.get(5).AddNeighbour(13);
+
+			tiles.get(6).AddNeighbour(3);
+			tiles.get(6).AddNeighbour(6);
+			tiles.get(6).AddNeighbour(8);
+			tiles.get(6).AddNeighbour(11);
+			tiles.get(6).AddNeighbour(12);
+			
+			tiles.get(7).AddNeighbour(2);
+			tiles.get(7).AddNeighbour(3);
+			tiles.get(7).AddNeighbour(7);
+			tiles.get(7).AddNeighbour(9);
+			tiles.get(7).AddNeighbour(11);
+
+			tiles.get(8).AddNeighbour(8);
+			tiles.get(8).AddNeighbour(10);
+			tiles.get(8).AddNeighbour(11);
+
+			tiles.get(9).AddNeighbour(9);
+			tiles.get(9).AddNeighbour(11);
+			tiles.get(9).AddNeighbour(25);
+			
+			tiles.get(10).AddNeighbour(7);
+			tiles.get(10).AddNeighbour(8);
+			tiles.get(10).AddNeighbour(9);
+			tiles.get(10).AddNeighbour(10);
+			tiles.get(10).AddNeighbour(12);
+			tiles.get(10).AddNeighbour(18);
+			tiles.get(10).AddNeighbour(19);
+			tiles.get(10).AddNeighbour(24);
+			
+
+			tiles.get(11).AddNeighbour(7);
+			tiles.get(11).AddNeighbour(11);
+			tiles.get(11).AddNeighbour(13);
+			tiles.get(11).AddNeighbour(18);
+			
+
+			tiles.get(12).AddNeighbour(6);
+			tiles.get(12).AddNeighbour(12);
+			tiles.get(12).AddNeighbour(14);
+			tiles.get(12).AddNeighbour(15);
+			tiles.get(12).AddNeighbour(17);
+
+			tiles.get(13).AddNeighbour(5);
+			tiles.get(13).AddNeighbour(13);
+
+			tiles.get(14).AddNeighbour(13);
+			tiles.get(14).AddNeighbour(16);
+
+			tiles.get(15).AddNeighbour(15);
+			tiles.get(15).AddNeighbour(17);
+			tiles.get(15).AddNeighbour(20);
+
+			tiles.get(16).AddNeighbour(13);
+			tiles.get(16).AddNeighbour(16);
+			tiles.get(16).AddNeighbour(18);
+			tiles.get(16).AddNeighbour(20);
+
+			tiles.get(17).AddNeighbour(11);
+			tiles.get(17).AddNeighbour(12);
+			tiles.get(17).AddNeighbour(17);
+			tiles.get(17).AddNeighbour(19);
+			tiles.get(17).AddNeighbour(20);
+
+			tiles.get(18).AddNeighbour(11);
+			tiles.get(18).AddNeighbour(18);
+			tiles.get(18).AddNeighbour(20);
+			tiles.get(18).AddNeighbour(23);
+			tiles.get(18).AddNeighbour(24);
+
+			tiles.get(19).AddNeighbour(16);
+			tiles.get(19).AddNeighbour(17);
+			tiles.get(19).AddNeighbour(18);
+			tiles.get(19).AddNeighbour(19);
+			tiles.get(19).AddNeighbour(21);
+			tiles.get(19).AddNeighbour(22);
+			tiles.get(19).AddNeighbour(23);
+			
+			tiles.get(20).AddNeighbour(20);
+			tiles.get(20).AddNeighbour(36);
+
+			tiles.get(21).AddNeighbour(20);
+			tiles.get(21).AddNeighbour(35);
+
+			tiles.get(22).AddNeighbour(19);
+			tiles.get(22).AddNeighbour(20);
+			tiles.get(22).AddNeighbour(22);
+			tiles.get(22).AddNeighbour(24);
+			tiles.get(22).AddNeighbour(34);
+
+			tiles.get(23).AddNeighbour(11);
+			tiles.get(23).AddNeighbour(19);
+			tiles.get(23).AddNeighbour(23);
+			tiles.get(23).AddNeighbour(25);
+			tiles.get(23).AddNeighbour(26);
+			tiles.get(23).AddNeighbour(27);
+			tiles.get(23).AddNeighbour(32);
+			tiles.get(23).AddNeighbour(33);
+			tiles.get(23).AddNeighbour(34);
+
+			tiles.get(24).AddNeighbour(10);
+			tiles.get(24).AddNeighbour(24);
+			tiles.get(24).AddNeighbour(26);
+
+			tiles.get(25).AddNeighbour(25);
+			tiles.get(25).AddNeighbour(24);
+			tiles.get(25).AddNeighbour(27);
+
+			tiles.get(26).AddNeighbour(26);
+			tiles.get(26).AddNeighbour(24);
+			tiles.get(26).AddNeighbour(28);
+			tiles.get(26).AddNeighbour(32);
+
+			tiles.get(27).AddNeighbour(27);
+			tiles.get(27).AddNeighbour(29);
+			tiles.get(27).AddNeighbour(31);
+			
+			tiles.get(28).AddNeighbour(28);
+			tiles.get(28).AddNeighbour(30);
+			
+			tiles.get(29).AddNeighbour(31);
+			tiles.get(29).AddNeighbour(41);
+			
+			tiles.get(30).AddNeighbour(28);
+			tiles.get(30).AddNeighbour(30);
+			tiles.get(30).AddNeighbour(32);
+			tiles.get(30).AddNeighbour(41);
+
+			tiles.get(31).AddNeighbour(24);
+			tiles.get(31).AddNeighbour(27);
+			tiles.get(31).AddNeighbour(31);
+			tiles.get(31).AddNeighbour(33);
+			tiles.get(31).AddNeighbour(41);
+
+			tiles.get(32).AddNeighbour(24);
+			tiles.get(32).AddNeighbour(32);
+			tiles.get(32).AddNeighbour(34);
+			tiles.get(32).AddNeighbour(39);
+			tiles.get(32).AddNeighbour(41);
+
+			tiles.get(33).AddNeighbour(24);
+			tiles.get(33).AddNeighbour(23);
+			tiles.get(33).AddNeighbour(33);
+			tiles.get(33).AddNeighbour(35);
+
+			tiles.get(34).AddNeighbour(22);
+			tiles.get(34).AddNeighbour(34);
+			tiles.get(34).AddNeighbour(36);
+			tiles.get(34).AddNeighbour(38);
+			tiles.get(34).AddNeighbour(39);
+			
+			tiles.get(35).AddNeighbour(21);
+			tiles.get(35).AddNeighbour(35);
+			tiles.get(35).AddNeighbour(37);
+			
+			tiles.get(36).AddNeighbour(36);
+			tiles.get(36).AddNeighbour(38);
+
+			tiles.get(37).AddNeighbour(35);
+			tiles.get(37).AddNeighbour(37);
+			tiles.get(37).AddNeighbour(39);
+			tiles.get(37).AddNeighbour(40);
+			
+			tiles.get(38).AddNeighbour(33);
+			tiles.get(38).AddNeighbour(35);
+			tiles.get(38).AddNeighbour(38);
+			tiles.get(38).AddNeighbour(40);
+			tiles.get(38).AddNeighbour(41);
+			
+			tiles.get(39).AddNeighbour(38);
+			tiles.get(39).AddNeighbour(39);
+			tiles.get(39).AddNeighbour(41);
+			tiles.get(39).AddNeighbour(42);
+
+			tiles.get(40).AddNeighbour(30);
+			tiles.get(40).AddNeighbour(31);
+			tiles.get(40).AddNeighbour(32);
+			tiles.get(40).AddNeighbour(33);
+			tiles.get(40).AddNeighbour(39);
+			tiles.get(40).AddNeighbour(40);
+			tiles.get(40).AddNeighbour(42);
+
+			tiles.get(41).AddNeighbour(40);
+			tiles.get(41).AddNeighbour(41);
+
+
+
+
+
+
+			
 			floor.setTiles(tiles);
+			
+		
 
 			InputStreamReader isr = new InputStreamReader(System.in);
 			try {

@@ -1,5 +1,6 @@
 package projlab_sceleton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tile {
@@ -8,16 +9,10 @@ public class Tile {
 	protected Element element = null;
 	private int x;
 	private int y;
-	private List<Tile> neighbours;
+	private  List<Integer> neighbours = new ArrayList<Integer>();
 	private int id;
+	private 
 	
-	public void Add(Tile t) {
-		neighbours.add(t);
-	}
-	
-	public List<Tile> Get() {
-		return neighbours;
-	}
 
 	public int getId() {
 		return id;
@@ -84,5 +79,8 @@ public class Tile {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	public void AddNeighbour(int id) {
+		neighbours.add(id);
 	}
 }
