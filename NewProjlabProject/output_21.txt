@@ -1,0 +1,1 @@
+A teszt sikeres: a scaryPanda elengedte a kezeket.

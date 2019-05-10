@@ -1,14 +1,23 @@
 package projlab_sceleton;
 
+import java.util.List;
+
 public class Tile {
 
 	private int numberOfSides;
 	protected Element element = null;
 	private int x;
 	private int y;
-	
+	private List<Tile> neighbours;
 	private int id;
 	
+	public void Add(Tile t) {
+		neighbours.add(t);
+	}
+	
+	public List<Tile> Get() {
+		return neighbours;
+	}
 
 	public int getId() {
 		return id;

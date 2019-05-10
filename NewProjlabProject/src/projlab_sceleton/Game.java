@@ -13,51 +13,9 @@ public class Game {
 
 	public static int usecase;
 	public static Floor floor = new Floor();
+	public static Window window = new Window();
 
 	public static void main(String[] args) {
-
-		// TESZTEK
-		while (true) {
-			System.out.println("");
-			System.out.println("------------------------------------------------------");
-			System.out.println("");
-			System.out.println("Melyik tesztesetet akarod kiprobalni?");
-			System.out.println(" 1 - Orangutan steps on normal tile");
-			System.out.println(" 2 - Orangutan steps on weak Tile ");
-			System.out.println(" 3 - Orangutan steps on broken Tile");
-			System.out.println(" 4 - Orangutan collide with Panda");
-			System.out.println(" 5 - Orangutan collide with Orangutan");
-			System.out.println(" 6 - Panda steps on broken tile");
-
-			System.out.println(" 7 - Panda collide with Panda");
-			System.out.println(" 8 - Panda collide with Orangutan");
-			System.out.println(" 9 - Panda steps into Wardrobe");
-			System.out.println("10 - Panda steps on Exit");
-			System.out.println("11 - Panda steps on Enterance");
-			System.out.println("12 - Panda collide with ArmChair");
-
-			System.out.println("13 - Panda collide with SlothMachine");
-			System.out.println("14 - Panda collide with ChocolateAutomat");
-			System.out.println("15 - Orangutan pulls Panda");
-			System.out.println("16 - Orangutan Pulls Pandas");
-			System.out.println("17 - Orangutan steals from Orangutan");
-			System.out.println("18 - Orangutan unleash Panda");
-
-			System.out.println("19 - LazyPanda steps to ArmChair");
-			System.out.println("20 - HopperPanda jumps");
-			System.out.println("21 - ScaryPanda release hands");
-			System.out.println("22 - Orangutan steps on empty Tile");
-			System.out.println("23 - Orangutan steps on empty broken Tile");
-			System.out.println("24 - Orangutan steps on Enterance");
-
-			System.out.println("25 - Orangutan steps on Exit alone");
-			System.out.println("26 - Orangutan steps on Exit with pandas");
-			System.out.println("27 - Orangutan steps on Armchair");
-			System.out.println("28 - Orangutan steps on ChocolateAutomat");
-			System.out.println("29 - Orangutan steps on SlotMachine");
-			System.out.println("30 - Orangutan steps on Wardrobe");
-
-			System.out.println("------------------------------------------------------");
 
 			floor = new Floor();
 			int id = 0;
@@ -2337,5 +2295,3 @@ public class Game {
 		}
 
 	}
-
-}
