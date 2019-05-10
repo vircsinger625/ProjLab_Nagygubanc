@@ -13,11 +13,11 @@ public class Window extends JFrame {
 	private final JLabel statusBar;
 	private final DrawRect mainPanel;
 	private final JPanel statusBarPanel;
-	JButton button;
+	JButton orangutanbutton;
 
 	public Window() {
 		super("Window");
-		setSize(1000, 800);
+		setSize(1000, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		mainPanel = new DrawRect();
@@ -29,12 +29,12 @@ public class Window extends JFrame {
 		add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		statusBarPanel.add(statusBar, BorderLayout.CENTER);
-		button = new JButton("Default text");
+		orangutanbutton = new JButton("O1");
 
 		// place the button "manually"
-		button.setBounds((int) (400 - button.getPreferredSize().getWidth()) / 2, 0,
-				(int) button.getPreferredSize().getWidth(), (int) button.getPreferredSize().getHeight());
-		mainPanel.add(button);
+		orangutanbutton.setBounds((int) (400 - orangutanbutton.getPreferredSize().getWidth()) / 2, 0,
+				(int) orangutanbutton.getPreferredSize().getWidth(), (int) orangutanbutton.getPreferredSize().getHeight());
+		mainPanel.add(orangutanbutton);
 
 		mainPanel.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -48,8 +48,8 @@ public class Window extends JFrame {
 			@Override
 			public void mouseClicked(final MouseEvent e) {
 				super.mouseClicked(e);
-				button.setLocation((int) (e.getX() - button.getPreferredSize().getWidth() / 2),
-						(int) (e.getY() - button.getPreferredSize().getHeight() / 2));
+				orangutanbutton.setLocation((int) (e.getX() - orangutanbutton.getPreferredSize().getWidth() / 2),
+						(int) (e.getY() - orangutanbutton.getPreferredSize().getHeight() / 2));
 
 			}
 		});
