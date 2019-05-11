@@ -72,41 +72,37 @@ public class Window extends JFrame {
 				(int) (DrawRect.y15 - w1b.getPreferredSize().getHeight() / 2));
 		//w1b.setText("W1");
 
-		w2b = new JButton("03");
+		w2b = new JButton("W2");
 		w2b.setBounds((int) (400 - w2b.getPreferredSize().getWidth()) / 2, 0,
 				(int) w2b.getPreferredSize().getWidth(), (int) w2b.getPreferredSize().getHeight());
 		
 		mainPanel.add(w2b);
 		w2b.setLocation((int) (DrawRect.x42 - w2b.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y42 - w2b.getPreferredSize().getHeight() / 2));
-		w2b.setText("W2");
 		
-		cab = new JButton("04");
+		cab = new JButton("CA");
 		cab.setBounds((int) (400 - cab.getPreferredSize().getWidth()) / 2, 0,
 				(int) cab.getPreferredSize().getWidth(), (int) cab.getPreferredSize().getHeight());
 		
 		mainPanel.add(cab);
 		cab.setLocation((int) (DrawRect.x20 - cab.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y20 - cab.getPreferredSize().getHeight() / 2));
-		cab.setText("CA");
 		
-		smb = new JButton("05");
+		smb = new JButton("SM");
 		smb.setBounds((int) (400 - smb.getPreferredSize().getWidth()) / 2, 0,
 				(int) smb.getPreferredSize().getWidth(), (int) smb.getPreferredSize().getHeight());
 		
 		mainPanel.add(smb);
 		smb.setLocation((int) (DrawRect.x24 - smb.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y24 - smb.getPreferredSize().getHeight() / 2));
-		smb.setText("SM");
 		
-		acb = new JButton("06");
+		acb = new JButton("AC");
 		acb.setBounds((int) (400 - acb.getPreferredSize().getWidth()) / 2, 0,
 				(int) acb.getPreferredSize().getWidth(), (int) acb.getPreferredSize().getHeight());
 		
 		mainPanel.add(acb);
 		acb.setLocation((int) (DrawRect.x37 - acb.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y37 - acb.getPreferredSize().getHeight() / 2));
-		acb.setText("AC");
 		
 		sp1b = new JButton("SP1");
 		sp1b.setBounds((int) (400 - sp1b.getPreferredSize().getWidth()) / 2, 0,

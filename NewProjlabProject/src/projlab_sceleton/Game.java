@@ -140,9 +140,12 @@ public class Game {
 			tiles.get(19).AddNeighbour(23);
 			
 			tiles.get(20).AddNeighbour(20);
+			tiles.get(20).AddNeighbour(22);
 			tiles.get(20).AddNeighbour(36);
 
 			tiles.get(21).AddNeighbour(20);
+			tiles.get(21).AddNeighbour(21);
+			tiles.get(21).AddNeighbour(23);
 			tiles.get(21).AddNeighbour(35);
 
 			tiles.get(22).AddNeighbour(19);
@@ -181,11 +184,12 @@ public class Game {
 			tiles.get(28).AddNeighbour(28);
 			tiles.get(28).AddNeighbour(30);
 			
+			tiles.get(29).AddNeighbour(29);
 			tiles.get(29).AddNeighbour(31);
 			tiles.get(29).AddNeighbour(41);
 			
 			tiles.get(30).AddNeighbour(28);
-			tiles.get(30).AddNeighbour(29);
+			tiles.get(30).AddNeighbour(32);
 			tiles.get(30).AddNeighbour(30);
 			tiles.get(30).AddNeighbour(41);
 

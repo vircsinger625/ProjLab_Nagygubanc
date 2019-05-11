@@ -217,6 +217,7 @@ class DrawRect extends JPanel {
         g.drawLine(x18, y18, x20, y20);
 
         g.drawLine(x19, y19, x20, y20);
+        g.drawLine(x19, y19, x24, y24);
         g.drawLine(x19, y19, x23, y23);
 
         g.drawLine(x20, y20, x21, y21);
