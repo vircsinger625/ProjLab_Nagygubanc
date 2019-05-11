@@ -11,7 +11,16 @@ public class Tile {
 	private int y;
 	private  List<Integer> neighbours = new ArrayList<Integer>();
 	private int id;
+	private boolean hasWardrobe = false;
 	
+
+	public boolean isHasWardrobe() {
+		return hasWardrobe;
+	}
+
+	public void setHasWardrobe(boolean hasWardrobe) {
+		this.hasWardrobe = hasWardrobe;
+	}
 
 	public boolean isNeighbour(int id) {
 		for (int i = 0; i < neighbours.size(); i++) {
@@ -21,6 +30,14 @@ public class Tile {
 		}
 		return false;
 	}
+	
+	public int getNeighbours() {
+		return neighbours.size();
+	}
+	public int getNeighbourById(int id) {
+		return  neighbours.get(id);
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -35,10 +52,15 @@ public class Tile {
 	}
 
 	public boolean stepIn(Orangutan o) {
-		if (element == null) {
+		if (element == null && hasWardrobe == false) {
 			return true;
 		}else {
+			if (hasWardrobe) {
+				return Game.floor.getWardrobeByTile(this.getId()).collide(o);
+				
+			}else {
 			return element.collide(o);
+			}
 		}
 	}
 	
@@ -46,7 +68,12 @@ public class Tile {
 		if (element == null) {
 			return true;
 		}else {
+			if (hasWardrobe) {
+				return Game.floor.getWardrobeByTile(this.getId()).collide(p);
+				
+			}else {
 			return element.collide(p);
+			}
 		}
 	}
 

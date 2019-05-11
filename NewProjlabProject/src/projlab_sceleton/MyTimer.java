@@ -7,12 +7,18 @@ import java.util.List;
 public class MyTimer extends TimerTask {
 
 	private List<Steppable> steppable = new ArrayList<Steppable>();
+	private int counter=0;
 
 	public void tick() {
-		/*for (int i = 0; i < steppable.size(); i++) {
-			Steppable s = steppable.get(i);
-			s.step();
-		}*/
+		counter++;
+		if (counter >= 100) {
+			for (int i = 0; i < steppable.size(); i++) {
+				Steppable s = steppable.get(i);
+				s.step();
+			}
+			counter = 0;
+		}
+		
 		Tile t = Game.floor.getOrangutan1().getTile();
 		Game.window.moveOrangutanButton(t.getX(), t.getY());
 		

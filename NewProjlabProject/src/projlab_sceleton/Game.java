@@ -17,7 +17,7 @@ public class Game {
 	public static Floor floor = new Floor();
 	public static Window window = new Window();
 	public static Timer timer = new Timer();
-	public static TimerTask task = new MyTimer();
+	public static MyTimer task = new MyTimer();
 
 	public static void main(String[] args) {
 
@@ -254,19 +254,30 @@ public class Game {
 			tiles.get(2).setElement(ent);
 			floor.setEntranceTile(tiles.get(2));
 			
+			Exit ex = new Exit();
+			tiles.get(40).setElement(ex);
+			
+			
 			ChocolateAutomat ca1 = new ChocolateAutomat();
 			tiles.get(19).setElement(ca1);
 			
 			ArmChair ac1 = new ArmChair();
 			tiles.get(36).setElement(ac1);
 			
+			SlotMachine sm1 = new SlotMachine();
+			tiles.get(23).setElement(sm1);
+			
 			Wardrobe wa1 = new Wardrobe();
 			wa1.setPersonalNumber(1);
 			tiles.get(14).setElement(wa1);
+			tiles.get(14).setHasWardrobe(true);
+			floor.addWardrobe(wa1);
 			
 			Wardrobe wa2 = new Wardrobe();
 			wa2.setPersonalNumber(2);
 			tiles.get(41).setElement(wa2);
+			tiles.get(41).setHasWardrobe(true);
+			floor.addWardrobe(wa2);
 			
 			ScaryPanda sp = new ScaryPanda();
 			sp.setTile(tiles.get(8));
@@ -299,8 +310,17 @@ public class Game {
 			floor.addPanda(hp2);
 			
 			floor.setTiles(tiles);
+			task.addSteppable(sp);
+			task.addSteppable(hp);
+			task.addSteppable(lp);
+			task.addSteppable(sp2);
+			task.addSteppable(lp2);
+			task.addSteppable(hp2);
+			task.addSteppable(ca1);
+			task.addSteppable(sm1);
+			task.addSteppable(ac1);
+			timer.schedule(task, 20, 50);
 			
-			timer.schedule(task, 20, 50); 
 			
 			
 			

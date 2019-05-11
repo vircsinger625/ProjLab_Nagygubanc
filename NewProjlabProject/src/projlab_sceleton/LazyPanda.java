@@ -26,9 +26,9 @@ public class LazyPanda extends Panda {
 		Random r = new Random();
 		if (isCaptured == false) {
 			if (isResting == false) {
-				int x = r.nextInt((tile.getX()+1)-(tile.getX()-1))+(tile.getX()-1);
-				int y = r.nextInt((tile.getY()+1)-(tile.getY()-1))+(tile.getY()-1);
-				move(x,y);
+				int rand = r.nextInt(this.tile.getNeighbours());
+				Tile t = Game.floor.getTileById(rand);
+				move(t);
 				
 			}else {
 				decraseCounter();

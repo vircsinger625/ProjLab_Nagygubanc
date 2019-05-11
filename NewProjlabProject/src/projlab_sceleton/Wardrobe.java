@@ -18,6 +18,7 @@ public class Wardrobe extends Element {
 		p.getTile().remove(p) ; 
 		p.setTile( Game.floor.getNextWardrobe(this).getTile() );
 		Game.floor.getNextWardrobe(this).getTile().setElement(p);
+		//p.move(Game.floor.getNextWardrobe(this));
 		
 		return false;
 	}

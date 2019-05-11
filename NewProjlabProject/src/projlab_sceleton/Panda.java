@@ -57,20 +57,26 @@ public class Panda extends Animal implements Steppable {
 	}
 
 	public void move(Tile t) {
+		if (t != null) {
+			
+		
 		boolean canStepin = t.stepIn(this);
 		if (canStepin) {
 			this.tile.remove(this);
 			t.setElement(this);
 		}
+		}
 	}
 
 	public void step() {
-		Random r = new Random();
 		if (isCaptured == false) {
-			int x = r.nextInt((tile.getX()+1)-(tile.getX()-1))+(tile.getX()-1);
-			int y = r.nextInt((tile.getY()+1)-(tile.getY()-1))+(tile.getY()-1);
-			move(x,y);
 			
+		
+		Random r = new Random();
+		int rand = r.nextInt(this.tile.getNeighbours());
+		int id= this.tile.getNeighbourById(rand);
+		Tile t = Game.floor.getTileById(id);
+		move(t);
 		}
 	}
 	

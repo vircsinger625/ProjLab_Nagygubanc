@@ -1,6 +1,6 @@
 package projlab_sceleton;
 
-public class ArmChair extends Element {
+public class ArmChair extends Element implements Steppable{
 
 	public boolean collide(Orangutan o) {
 		return false;

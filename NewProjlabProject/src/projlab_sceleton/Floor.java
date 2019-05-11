@@ -27,6 +27,15 @@ public class Floor {
 		return tiles;
 	}
 */
+	public Wardrobe getWardrobeByTile(int id) {
+		for (int i = 0; i < wardrobes.size(); i++) {
+			if (wardrobes.get(i).getTile().getId() == id) {
+				return wardrobes.get(i);
+			}
+			
+		}
+		return null;
+	}
 	public void removeElement(Orangutan o) {
 		if(o == orangutan1) {
 			orangutan1 = null;
@@ -45,9 +54,9 @@ public class Floor {
 
 	public Wardrobe getNextWardrobe(Wardrobe w) {
 		
-		if(wardrobes.size() < w.getPersonalNumber() +1)
+		if(wardrobes.size() > w.getPersonalNumber())
 		{
-			return wardrobes.get(w.getPersonalNumber() +1 );
+			return wardrobes.get(w.getPersonalNumber());
 		}
 		else
 		{
@@ -60,7 +69,7 @@ public class Floor {
 	}
 
 	public void setEntranceTile(Tile et) {
-		enteranceTile = getTile(et.getX(), et.getY());
+		enteranceTile = et;
 	}
 
 	public Orangutan getOrangutan1() {
@@ -100,6 +109,15 @@ public class Floor {
 		
 		return tile;
 		
+	}
+	public Tile getTileById(int id) {
+		Tile tile = null;
+		for (int i = 0; i < tiles.size(); i++) {
+				if(tiles.get(i).getId() == id) {
+				return tiles.get(i);
+				}
+			}
+		return tile;
 	}
 	public List<Tile> getTiles() {
 		return tiles;
