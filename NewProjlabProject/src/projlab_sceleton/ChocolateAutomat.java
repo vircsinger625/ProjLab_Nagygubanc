@@ -1,9 +1,16 @@
 package projlab_sceleton;
 
+//Csokiautomatat reprezentalo osztaly
+//implementalja a steppeblet mert orajelre uzenetet kuld ki
+//element leszarmazottja
 public class ChocolateAutomat extends Element implements Steppable {
 
+	//sipolasok szamat tarolja
 	private int whistleCounter = 0;
 
+	//kovetkezo harom fuggveny oroklodes miatt kell,
+	//nincsenek az osztalyban implementalva
+	
 	public boolean collide(Orangutan o) {
 		return false;
 	}
@@ -14,7 +21,9 @@ public class ChocolateAutomat extends Element implements Steppable {
 
 	public void reaction(InputEffect i, Tile t) {
 	}
-
+	
+	//step fuggveny implementalasa
+	//szomszedos mezokek ertesiti
 	public void step() {
 		incraseWhistleCounter();
 		
@@ -34,14 +43,17 @@ public class ChocolateAutomat extends Element implements Steppable {
 		}
 	}
 
+	//sipolaspok szamat noveli
 	public void incraseWhistleCounter() {
 		whistleCounter++;
 	}
 
+	//sipolasok szamat kerdezi le
 	public int getWhistleCounter() {
 		return whistleCounter;
 	}
 
+	//sipolasok szamat allitja be
 	public void setWhistleCounter(int whistleCounter) {
 		this.whistleCounter = whistleCounter;
 	}

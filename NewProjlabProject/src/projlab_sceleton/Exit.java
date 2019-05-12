@@ -3,10 +3,16 @@ package projlab_sceleton;
 import java.util.Iterator;
 import java.util.List;
 
+//kijaratot szimbolizalo osztaly, element leszarmazottja
 public class Exit extends Element {
 
+	//segedvaltozo
 	private boolean isCounting = false;
 
+	
+	//getter, setter fuggvenyek
+	//oroklodes miatti fuggvenyek amiket nem itt imolementalunk
+	
 	public boolean collide(Orangutan o) {
 		return false;
 	}
