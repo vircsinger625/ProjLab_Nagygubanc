@@ -8,14 +8,15 @@ public class Panda extends Animal implements Steppable {
 	protected boolean isCaptured;
 	protected Orangutan orangutan;
 
-	public Orangutan getOrangutan() {
+	public Orangutan getOrangutan() {		
 		return orangutan;
 	}
 
-	public void setOrangutan(Orangutan orangutan) {
+	public void setOrangutan(Orangutan orangutan) { //orángután beállítása
 		this.orangutan = orangutan;
 	}
 
+	//isCaptured paraméter beállítása és lekérdezése
 	public boolean isCaptured() {
 		return isCaptured;
 	}
@@ -24,7 +25,7 @@ public class Panda extends Animal implements Steppable {
 		this.isCaptured = isCaptured;
 	}
 
-	public boolean collide(Orangutan o) {
+	public boolean collide(Orangutan o) {  //panda és orángután ütközését hajtja végre
 		orangutan = o;
 		setCaptured(true);
 		o.addCapturedPandas(this);
@@ -41,7 +42,7 @@ public class Panda extends Animal implements Steppable {
 	public void reaction(InputEffect i, Tile t) {
 	}
 
-	public void move(int x, int y) {
+	public void move(int x, int y) {			//ez a fügvény mozgatja a pandát adott x és y koordinátára
 		Tile t = Game.floor.getTile(x, y);
 		
 		boolean canStepin = t.stepIn(this);
@@ -51,13 +52,13 @@ public class Panda extends Animal implements Steppable {
 		}
 	}
 
-	public void die() {
+	public void die() {		//ha egy panda meghal ez a fügvény hívódik meg.
 		tile.remove(this);
 		Game.floor.removeElement(this);
 		
 	}
 
-	public void move(Tile t) {
+	public void move(Tile t) {		//ez a fügvény mozgatja a pandát adott csempére
 		if (t != null) {
 			
 		
@@ -69,7 +70,7 @@ public class Panda extends Animal implements Steppable {
 		}
 	}
 
-	public void step() {
+	public void step() {			//lépteti a pandát
 		if (isCaptured == false) {
 			
 		

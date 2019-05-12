@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class HoppperPanda extends Panda {
 
 
-	public void reaction(InputEffect i, Tile t) {
+	public void reaction(InputEffect i, Tile t) {		//a hopperPanda reakcióját valósítja meg a csilingeléskor
 		if (i == InputEffect.whistleMessage) {
 			tile.incraseCounter();
 		}

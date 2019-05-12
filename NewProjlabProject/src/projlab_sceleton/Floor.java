@@ -6,28 +6,28 @@ import java.util.List;
 public class Floor {
 
 	private int score;
-	private List<Tile> tiles = new ArrayList<Tile>();
+	private List<Tile> tiles = new ArrayList<Tile>(); // a csempéket tároló lista létrehozása
 	
-	private Orangutan orangutan1;
+	private Orangutan orangutan1;			//a pályán lévõ két orángután
 	private Orangutan orangutan2;
 	
 	
 
-	private List<Panda> pandas = new ArrayList<Panda>();
-	public List<Panda> getPandas() {
+	private List<Panda> pandas = new ArrayList<Panda>(); //A pályán lévõ pandákat tárolja egy listában
+	public List<Panda> getPandas() {	
 		return pandas;
 	}
 	public void setPandas(List<Panda> pandas) {
 		this.pandas = pandas;
 	}
-	private List<Wardrobe> wardrobes = new ArrayList<Wardrobe>();
-	private Tile enteranceTile; // nincs meg konkret ertï¿½ke
+	private List<Wardrobe> wardrobes = new ArrayList<Wardrobe>();	//a szekrényeket tárolja egy listában
+	private Tile enteranceTile; // nincs meg konkret ertï¿½ke		//a bejárat
 
 /*	public Tile getNextTile(Tile t, Direction d) { //diretction --> x, y koordinatak
 		return tiles;
 	}
 */
-	public Wardrobe getWardrobeByTile(int id) {
+	public Wardrobe getWardrobeByTile(int id) {			//egy csempén lévõ szekrény id-ját adja meg
 		for (int i = 0; i < wardrobes.size(); i++) {
 			if (wardrobes.get(i).getTile().getId() == id) {
 				return wardrobes.get(i);
@@ -36,7 +36,7 @@ public class Floor {
 		}
 		return null;
 	}
-	public void removeElement(Orangutan o) {
+	public void removeElement(Orangutan o) {	//leveszi az orángutánt a pályáról
 		if(o == orangutan1) {
 			orangutan1 = null;
 		}
@@ -44,7 +44,7 @@ public class Floor {
 			orangutan2 = null;
 		}
 	}
-	public void removeElement(Panda p) {
+	public void removeElement(Panda p) {		//leveszi a pandát az osztályról
 		for (int i = 0; i < pandas.size(); i++) {
 			if (pandas.get(i).getId() == p.getId()) {
 				pandas.remove(i);
@@ -54,11 +54,11 @@ public class Floor {
 		
 	}
 
-	public void incraseScore() {
+	public void incraseScore() {		
 		score++;
 	}
 
-	public Wardrobe getNextWardrobe(Wardrobe w) {
+	public Wardrobe getNextWardrobe(Wardrobe w) {		//a szekrény listában a sorban következõ szekény id-ját adja meg
 		
 		if(wardrobes.size() > w.getPersonalNumber())
 		{
@@ -69,8 +69,9 @@ public class Floor {
 			return wardrobes.get(0);
 		} 
 	}
-
-	public Tile getEntranceTile() {
+	
+	//getter és setter függvények:
+	public Tile getEntranceTile() {			
 		return enteranceTile;
 	}
 
@@ -102,7 +103,7 @@ public class Floor {
 		this.score = score;
 	}
 	
-	public Tile getTile(int x, int y) {
+	public Tile getTile(int x, int y) {			//egy csempét ad meg x,y koordináta alapján
 		Tile tile = null;
 		for (int i = 0; i < tiles.size(); i++) {
 			if (tiles.get(i).getX() >= x-40 && tiles.get(i).getX() <= x+40 && tiles.get(i).getY() >= y-40 && tiles.get(i).getY() <= y+40) {
@@ -116,7 +117,7 @@ public class Floor {
 		return tile;
 		
 	}
-	public Tile getTileById(int id) {
+	public Tile getTileById(int id) {			//egy csempét ad meg id alapján
 		Tile tile = null;
 		for (int i = 0; i < tiles.size(); i++) {
 				if(tiles.get(i).getId() == id) {
@@ -131,7 +132,7 @@ public class Floor {
 	public void setTiles(List<Tile> tiles) {
 		this.tiles = tiles;
 	}
-	public Panda getPandaById(int id) {
+	public Panda getPandaById(int id) {		//egy pandát ad meg id alapján
 		for (int i = 0; i < pandas.size(); i++) {
 			if (pandas.get(i).getId() == id) {
 				return pandas.get(i);
@@ -140,7 +141,7 @@ public class Floor {
 		return null;
 	}
 	
-	public Orangutan getOrangutanById(int id) {
+	public Orangutan getOrangutanById(int id) {		////egy orángutánt ad meg id alapján
 		
 			if (id == 1) {
 				return orangutan1;
@@ -151,11 +152,11 @@ public class Floor {
 			else
 				return null;
 		}
-	public void addPanda(Panda p) {
+	public void addPanda(Panda p) {		//panda hozzáadása a listához
 		pandas.add(p);
 	}
 	
-	public void addWardrobe(Wardrobe w) {
+	public void addWardrobe(Wardrobe w) {	//szekrény hozzáadása a listához
 		wardrobes.add(w);
 	}
 	

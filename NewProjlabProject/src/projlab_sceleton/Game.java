@@ -16,6 +16,7 @@ import java.util.List;
 
 public class Game {
 
+	//statikus elemek definiálása a program elején
 	public static int usecase;
 	public static Floor floor = new Floor();
 	public static Window window = new Window();
@@ -25,19 +26,19 @@ public class Game {
 	public static void main(String[] args) {
 
 			floor = new Floor();
-			List<Tile> tiles = new ArrayList<Tile>();
+			List<Tile> tiles = new ArrayList<Tile>();		//a csempéket tartalmazó lista
 			
-			for (int i = 1; i <= 42; i++) {
+			for (int i = 1; i <= 42; i++) {			//csempék létrehozása és paramétereik beállítása
 				Tile tile = new Tile();
 				if (i == 13 || i == 35) {
 					tile = new WeakTile();
 				}
-				tile.setId(i);
-				tile.setX(DrawRect.xcoord[i-1]);
-				tile.setY(DrawRect.ycoord[i-1]);
+				tile.setId(i);					//id beállítása
+				tile.setX(DrawRect.xcoord[i-1]);	//X koordináta beállítása
+				tile.setY(DrawRect.ycoord[i-1]);	//Y koordináta beállítása
 				tiles.add(tile);
 			}
-			tiles.get(0).AddNeighbour(2);
+			tiles.get(0).AddNeighbour(2);		//Az egyes csempék szomszédainak beállítása
 			tiles.get(0).AddNeighbour(3);
 			
 			tiles.get(1).AddNeighbour(1);
@@ -253,72 +254,74 @@ public class Game {
 			tiles.get(41).AddNeighbour(40);
 			tiles.get(41).AddNeighbour(41);
 			
-			Orangutan o1 = new Orangutan();
+			Orangutan o1 = new Orangutan();		//orángután létrehozása és a pályára helyezése
 			floor.setOrangutan1(o1);
 			tiles.get(2).setElement(o1);
 			
-			Orangutan o2 = new Orangutan();
+			Orangutan o2 = new Orangutan();		// mégegy orángután létrehozása és a pályára helyezése
 			floor.setOrangutan2(o2);
 			tiles.get(34).setElement(o2);
 			
-			Entrance ent = new Entrance(tiles.get(2));
+			Entrance ent = new Entrance(tiles.get(2));		//bejárat létrehozása és a pályára helyezése
 			tiles.get(2).setElement(ent);
 			floor.setEntranceTile(tiles.get(2));
 			
-			Exit ex = new Exit();
+			Exit ex = new Exit();			//kijárat létrehozása és a pályára helyezése
 			tiles.get(40).setElement(ex);
 			
 			
-			ChocolateAutomat ca1 = new ChocolateAutomat();
+			ChocolateAutomat ca1 = new ChocolateAutomat();		//csokiautomata létrehozása és a pályára helyezése
 			tiles.get(19).setElement(ca1);
 			
-			ArmChair ac1 = new ArmChair();
+			ArmChair ac1 = new ArmChair();		//fotel létrehozása és a pályára helyezése
 			tiles.get(36).setElement(ac1);
 			
-			SlotMachine sm1 = new SlotMachine();
+			SlotMachine sm1 = new SlotMachine();	//játékgép létrehozása és a pályára helyezése
 			tiles.get(23).setElement(sm1);
 			
-			Wardrobe wa1 = new Wardrobe();
+			Wardrobe wa1 = new Wardrobe();	//szekrény létrehozása és a pályára helyezése
 			wa1.setPersonalNumber(1);
 			tiles.get(14).setElement(wa1);
 			tiles.get(14).setHasWardrobe(true);
 			floor.addWardrobe(wa1);
 			
-			Wardrobe wa2 = new Wardrobe();
+			Wardrobe wa2 = new Wardrobe();	//szekrény létrehozása és a pályára helyezése
 			wa2.setPersonalNumber(2);
 			tiles.get(41).setElement(wa2);
 			tiles.get(41).setHasWardrobe(true);
 			floor.addWardrobe(wa2);
 			
-			ScaryPanda sp = new ScaryPanda();
+			ScaryPanda sp = new ScaryPanda();	//scaryPanda létrehozása és a pályára helyezése
 			sp.setTile(tiles.get(8));
 			tiles.get(8).setElement(sp);
 			floor.addPanda(sp);
 			
-			LazyPanda lp = new LazyPanda();
+			LazyPanda lp = new LazyPanda();	//lazyPanda létrehozása és a pályára helyezése
 			lp.setTile(tiles.get(17));
 			tiles.get(17).setElement(lp);
 			floor.addPanda(lp);
 			
-			HoppperPanda hp = new HoppperPanda();
+			HoppperPanda hp = new HoppperPanda();	//hopperPanda létrehozása és a pályára helyezése
 			hp.setTile(tiles.get(24));
 			tiles.get(24).setElement(hp);
 			floor.addPanda(hp);
 			
-			ScaryPanda sp2 = new ScaryPanda();
+			ScaryPanda sp2 = new ScaryPanda();	//oscaryPanda létrehozása és a pályára helyezése
 			sp2.setTile(tiles.get(29));
 			tiles.get(29).setElement(sp2);
 			floor.addPanda(sp2);
 			
-			LazyPanda lp2 = new LazyPanda();
+			LazyPanda lp2 = new LazyPanda();	//lazyPanda létrehozása és a pályára helyezése
 			lp2.setTile(tiles.get(30));
 			tiles.get(30).setElement(lp2);
 			floor.addPanda(lp2);
 			
-			HoppperPanda hp2 = new HoppperPanda();
+			HoppperPanda hp2 = new HoppperPanda();	//hopperPanda létrehozása és a pályára helyezése
 			hp2.setTile(tiles.get(35));
 			tiles.get(35).setElement(hp2);
 			floor.addPanda(hp2);
+			
+			//Az elemek léptethetőségének beállítása
 			
 			floor.setTiles(tiles);
 			task.addSteppable(sp);
@@ -335,6 +338,9 @@ public class Game {
 			
 
 		}
+	
+	
+	//A program végén kiírja a játék eredményét
 	public static void infoBox(String infoMessage, String titleBar, int number)
     {
         JOptionPane.showMessageDialog(null,"Ennyi pandat fogtal el: " + number, "Jatek vege", JOptionPane.INFORMATION_MESSAGE);

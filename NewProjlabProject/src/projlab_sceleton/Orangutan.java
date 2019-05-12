@@ -9,7 +9,7 @@ public class Orangutan extends Animal implements Steppable {
 	private boolean hasCapturedPanda = false;
 	public List<Panda> capturedPandas = new ArrayList<Panda>();
 
-	public boolean collide(Orangutan o) {
+	public boolean collide(Orangutan o) {		// panda és orángután ütközését hajtja végre
 		if (o.isHasCapturedPanda() == false) {
 			return false;
 		} else {
@@ -25,7 +25,7 @@ public class Orangutan extends Animal implements Steppable {
 		}
 	}
 
-	public boolean collide(Panda p) {
+	public boolean collide(Panda p) {		// orángután és panda ütközését hajtja végre
 
 		p.setCaptured(true);
 		addCapturedPandas(p);
@@ -39,7 +39,7 @@ public class Orangutan extends Animal implements Steppable {
 	public void reaction(InputEffect i, Tile t) {
 	}
 
-	public void move(int x, int y) {
+	public void move(int x, int y) {		//mozgatja az orángutánt
 
 		Tile t = Game.floor.getTile(x, y);
 
@@ -51,13 +51,13 @@ public class Orangutan extends Animal implements Steppable {
 			Game.infoBox("Ã¼zenet", "ezis", pandasnumber);
 			System.exit(0);
 		}
-		boolean canStepIn = t.stepIn(this);
-		if (canStepIn) {
+		boolean canStepIn = t.stepIn(this);				
+		if (canStepIn) {					//ha az orángután rá tud lépni a csempére akkor hajtódik végre a feltétel kódja
 			Tile prevtile = tile;
 			this.tile.remove(this);
 			t.setElement(this);
 
-			if (hasCapturedPanda == true) {
+			if (hasCapturedPanda == true) {		//ha van az orángutánnak elfogott pandája akkor hajtódik végre a feltétel kódja
 				Tile tile1 = null;
 				Tile tile2 = null;
 				Tile tmp;
@@ -89,12 +89,12 @@ public class Orangutan extends Animal implements Steppable {
 		}
 	}
 
-	public void die() {
+	public void die() {			//egy orángután hlálakor hívódik meg
 		tile.remove(this);
 		Game.floor.removeElement(this);
 	}
 
-	public void move(Tile t) {
+	public void move(Tile t) {		//egy adott csempére mozdítja az orángutánt
 
 		boolean canStepIn = t.stepIn(this);
 		if (canStepIn) {
@@ -129,7 +129,7 @@ public class Orangutan extends Animal implements Steppable {
 
 	}
 
-	public void step() {
+	public void step() {			//lépteti az orángutánt
 		Random r = new Random();
 		int rand = r.nextInt(this.tile.getNeighbours());
 		int id= this.tile.getNeighbourById(rand);
@@ -137,12 +137,12 @@ public class Orangutan extends Animal implements Steppable {
 		move(t);
 	}
 
-	public void addCapturedPandas(Panda p) {
+	public void addCapturedPandas(Panda p) {		//az orángutánhoz egy adott elkapott pandát ad
 		capturedPandas.add(0, p);
 		setHasCapturedPanda(true);
 	}
 
-	public void removeCapturedPandas(Panda p) {
+	public void removeCapturedPandas(Panda p) {		//egy adott elfogott pandát elvesz azorángutántól
 		int pos = capturedPandas.indexOf(p);
 		for (int i = 0; i < capturedPandas.size(); i++) {
 			if (i >= pos) {
@@ -153,7 +153,7 @@ public class Orangutan extends Animal implements Steppable {
 		}
 	}
 	
-	public void killCapturedPandas() {
+	public void killCapturedPandas() {		//az otángután elfogott pandáit megöli
 		for (int i = 0; i < capturedPandas.size(); i++) {
 				capturedPandas.get(i).setCaptured(false);
 				capturedPandas.remove(i);
@@ -161,8 +161,9 @@ public class Orangutan extends Animal implements Steppable {
 
 		}
 	}
-
-	public boolean isHasCapturedPanda() {
+	
+	// getter és setter függvények
+	public boolean isHasCapturedPanda() {		
 		return hasCapturedPanda;
 	}
 

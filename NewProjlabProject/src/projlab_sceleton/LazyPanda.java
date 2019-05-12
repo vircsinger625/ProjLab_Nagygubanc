@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class LazyPanda extends Panda {
 
-	private boolean isResting = false;
+	private boolean isResting = false;		
 	private int paralyzedCounter = 0;
 
 
-	public void reaction(InputEffect i, Tile t) {
+	public void reaction(InputEffect i, Tile t) {		//a lazyPanda reakcióját valósítja meg a sleepMessage esetén, azaz mikor elhalad egy fotel mellett
 		
 		if (i == InputEffect.sleepMessage) {
 			setIsResting(true);
@@ -22,7 +22,7 @@ public class LazyPanda extends Panda {
 		}
 	}
 
-	public void step() {
+	public void step() {			//a függvény lépteti a pandát
 		Random r = new Random();
 		if (isCaptured == false) {
 			if (isResting == false) {
@@ -45,19 +45,19 @@ public class LazyPanda extends Panda {
 	}
 
 
-	public void setIsResting(boolean b) { 
+	public void setIsResting(boolean b) { //isResting paraméter beállítása
 		isResting = b;
 	}
 
-	public void decraseCounter() {
+	public void decraseCounter() {		//csökkenti a fotelben tartózkodó idõ számát
 		paralyzedCounter--;
 	}
 
-	public int getParalyzedCounter() {
+	public int getParalyzedCounter() {		//lekéri a fotelben tartózkodási idõ számát
 		return paralyzedCounter;
 	}
 
-	public void setParalyzedCounter(int paralyzedCounter) {
+	public void setParalyzedCounter(int paralyzedCounter) {		//beállítjaa fotelben tartózkodási idõ számát
 		this.paralyzedCounter = paralyzedCounter;
 	}
 
