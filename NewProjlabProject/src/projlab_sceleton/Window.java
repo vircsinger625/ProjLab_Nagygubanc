@@ -20,14 +20,14 @@ public class Window extends JFrame {
 
 	public Window() {
 		super("Window");
-		setSize(1000, 700);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		mainPanel = new DrawRect();
+		setSize(1000, 700); //Ablak merete
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		setResizable(false); //Fix meretu
+		mainPanel = new DrawRect(); //Palya kirajzolasa
 		
 		mainPanel.setLayout(null);// no layout for absolute positioning
 		statusBarPanel = new JPanel();
-		statusBar = new JLabel("Coords: ");
+		statusBar = new JLabel("Coords: "); //Az eger koordinatainak kiirasa
 		add(statusBarPanel, BorderLayout.SOUTH);
 		add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -44,7 +44,7 @@ public class Window extends JFrame {
 
 
 
-		mainPanel.addMouseListener(new MouseAdapter() {
+		mainPanel.addMouseListener(new MouseAdapter() { //egerkattintas kezelese az aktualisan kattintott koordinatan
 			@Override
 			public void mouseClicked(final MouseEvent e) {
 				super.mouseClicked(e);
@@ -56,15 +56,19 @@ public class Window extends JFrame {
 			}
 		});
 		
-		//Gombok
-		w1b = new JButton("W1");
+		//Gombok megvalositasa, amik az egyes allatokat vagy elemeket szimbolizalja
+		w1b = new JButton("W1"); //Szekreny gomb letrehozasa
+		//Gomb elhelyezese x, y koordinata alpjan, a komponens magassaganak es szelessegenek megadasa
+		/*public void setBounds(int x, int y, int width, int height) */
 		w1b.setBounds((int) (400 - w1b.getPreferredSize().getWidth()) / 2, 0,
 				(int) w1b.getPreferredSize().getWidth(), (int) w1b.getPreferredSize().getHeight());
 		
-		mainPanel.add(w1b);
+		mainPanel.add(w1b); //A gomb hozzaadasa a panelhez
+	    //Uj koordinatakra helyezese a gombnak 
 		w1b.setLocation((int) (DrawRect.x15 - w1b.getPreferredSize().getWidth() / 2),
-				(int) (DrawRect.y15 - w1b.getPreferredSize().getHeight() / 2));
+			    (int) (DrawRect.y15 - w1b.getPreferredSize().getHeight() / 2));
 		
+		/** Minden tovabbi gomb letrahizas, elhelyezes, mozgatas hasonloan mukodik mint a fenti w1b**/
 
 		w2b = new JButton("W2");
 		w2b.setBounds((int) (400 - w2b.getPreferredSize().getWidth()) / 2, 0,
@@ -171,11 +175,11 @@ public class Window extends JFrame {
 		pandabuttons.add(hp2b);
 		pandabuttons.add(o2b);
 	
-		mainPanel.setFocusable(true);
+		mainPanel.setFocusable(true); //Eloterben levo, tud valtozni
 		setVisible(true);
 	};
 	
-	public void moveOrangutanButton(int x, int y) {
+	public void moveOrangutanButton(int x, int y) { //Orangutan mozgatasa a megadott koordinatakra
 		orangutanbutton.setLocation((int) (x - orangutanbutton.getPreferredSize().getWidth() / 2),
 				(int) (y - orangutanbutton.getPreferredSize().getHeight() / 2));
 	}
@@ -184,7 +188,7 @@ public class Window extends JFrame {
 		pandas = Game.floor.getPandas();
 		for (int i = 0; i < pandas.size(); i++) {
 			Panda p = pandas.get(i);
-			if (p != null && pandabuttons.get(i) != null ) {
+			if (p != null && pandabuttons.get(i) != null ) { //Panda mozgatasa, ha minden kovetelmenynek megfelelt
 				pandabuttons.get(i).setLocation((int) (p.getTile().getX() - pandabuttons.get(i).getPreferredSize().getWidth() / 2),
 						(int) (p.getTile().getY() - pandabuttons.get(i).getPreferredSize().getHeight() / 2));
 			}else {

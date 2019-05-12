@@ -4,21 +4,20 @@ public class Wardrobe extends Element {
 
 	private int personalNumber;
 
-	public boolean collide(Orangutan o) {
+	public boolean collide(Orangutan o) { //Orangutan probal olyan csempere lepni, amin szekreny all
 		
-		o.getTile().remove(o) ; 
-		o.setTile( Game.floor.getNextWardrobe(this).getTile() );
+		o.getTile().remove(o) ; //Orangutan torlese a csemperol -> teleportalas kovetkezik 
+		o.setTile( Game.floor.getNextWardrobe(this).getTile() ); //Megfelelo/soron kovetkezo szekrenybe teleportalas
 		Game.floor.getNextWardrobe(this).getTile().setElement(o);
 				
 		return false;
 	}
 
-	public boolean collide(Panda p) {
+	public boolean collide(Panda p) { //Panda probal olyan csempere lepni, amin szekreny all
 	
 		p.getTile().remove(p) ; 
 		p.setTile( Game.floor.getNextWardrobe(this).getTile() );
 		Game.floor.getNextWardrobe(this).getTile().setElement(p);
-		//p.move(Game.floor.getNextWardrobe(this));
 		
 		return false;
 	}
@@ -30,11 +29,11 @@ public class Wardrobe extends Element {
 		return this.tile;
 	}
 
-	public int getPersonalNumber() {
+	public int getPersonalNumber() { //A szekreny sajat azonositojanak lekerese
 		return personalNumber;
 	}
 
-	public void setPersonalNumber(int personalNumber) {
+	public void setPersonalNumber(int personalNumber) { //A szekreny sajat azonositojanak  beallitasa
 		this.personalNumber = personalNumber;
 	}
 

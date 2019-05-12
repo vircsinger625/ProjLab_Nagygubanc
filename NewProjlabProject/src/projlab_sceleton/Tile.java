@@ -14,7 +14,7 @@ public class Tile {
 	private boolean hasWardrobe = false;
 	
 
-	public boolean isHasWardrobe() {
+	public boolean isHasWardrobe() { 
 		return hasWardrobe;
 	}
 
@@ -64,20 +64,20 @@ public class Tile {
 		}
 	}
 	
-	public boolean stepIn(Panda p) {
-		if (element == null) {
-			return true;
+	public boolean stepIn(Panda p) {//Ha panda akar lepni a csempere
+		if (element == null) { //Ha ures
+			return true; //lephet
 		}else {
-			if (hasWardrobe) {
-				return Game.floor.getWardrobeByTile(this.getId()).collide(p);
+			if (hasWardrobe) { // ha a csempen szekreny all
+				return Game.floor.getWardrobeByTile(this.getId()).collide(p); //a szekrenyre lepes megfelelo fugvenyenek meghivasa az id alapjan (teleportalas)
 				
 			}else {
-			return element.collide(p);
+			return element.collide(p); //A csempen levo "dolog" collide fgvenek meghivasa
 			}
 		}
 	}
 
-	public void remove(Element e) {
+	public void remove(Element e) { //Elem kitorlese az adott csemperol
 		element = null;
 	}
 
@@ -88,7 +88,7 @@ public class Tile {
 		return -1;
 	}
 
-	public Element getElement() {
+	public Element getElement() { // csempen levo elem lekerdezese
 		return element;
 	}
 
@@ -115,7 +115,7 @@ public class Tile {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public void AddNeighbour(int id) {
+	public void AddNeighbour(int id) { //szomszed beallitasa, mely csempe mely mas csempe(kkel)vel szomszedos
 		neighbours.add(id);
 	}
 }

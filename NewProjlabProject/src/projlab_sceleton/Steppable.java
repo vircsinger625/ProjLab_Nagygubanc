@@ -2,6 +2,6 @@ package projlab_sceleton;
 
 public interface Steppable {
 
-	public void step();
+	public void step(); 
 
 }
