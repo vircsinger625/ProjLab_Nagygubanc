@@ -2,6 +2,7 @@ package projlab_sceleton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Orangutan extends Animal implements Steppable {
 
@@ -44,7 +45,12 @@ public class Orangutan extends Animal implements Steppable {
 
 		if ((this.tile.isNeighbour(t.getId()) == true) && t != null) {
 			
-		
+		if (t.getId() == 41) {
+			int pandasnumber = this.capturedPandas.size();
+			
+			Game.infoBox("üzenet", "ezis", pandasnumber);
+			System.exit(0);
+		}
 		boolean canStepIn = t.stepIn(this);
 		if (canStepIn) {
 			Tile prevtile = tile;
@@ -124,6 +130,11 @@ public class Orangutan extends Animal implements Steppable {
 	}
 
 	public void step() {
+		Random r = new Random();
+		int rand = r.nextInt(this.tile.getNeighbours());
+		int id= this.tile.getNeighbourById(rand);
+		Tile t = Game.floor.getTileById(id);
+		move(t);
 	}
 
 	public void addCapturedPandas(Panda p) {
@@ -139,6 +150,15 @@ public class Orangutan extends Animal implements Steppable {
 				capturedPandas.remove(i);
 
 			}
+		}
+	}
+	
+	public void killCapturedPandas() {
+		for (int i = 0; i < capturedPandas.size(); i++) {
+				capturedPandas.get(i).setCaptured(false);
+				capturedPandas.remove(i);
+				capturedPandas.get(i).die();
+
 		}
 	}
 

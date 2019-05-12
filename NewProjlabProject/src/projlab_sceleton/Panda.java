@@ -54,6 +54,7 @@ public class Panda extends Animal implements Steppable {
 	public void die() {
 		tile.remove(this);
 		Game.floor.removeElement(this);
+		
 	}
 
 	public void move(Tile t) {

@@ -15,7 +15,7 @@ public class Window extends JFrame {
 	private final JLabel statusBar;
 	private final DrawRect mainPanel;
 	private final JPanel statusBarPanel;
-	JButton orangutanbutton, w1b, w2b, cab,smb,acb, sp1b, lp1b, hp1b, sp2b, lp2b, hp2b ;
+	JButton orangutanbutton, w1b, w2b, cab,smb,acb, sp1b, lp1b, hp1b, sp2b, lp2b, hp2b, o2b ;
 	private List<JButton> pandabuttons = new ArrayList<JButton>();
 
 	public Window() {
@@ -42,13 +42,7 @@ public class Window extends JFrame {
 		orangutanbutton.setLocation((int) (50 - orangutanbutton.getPreferredSize().getWidth() / 2),
 				(int) (300 - orangutanbutton.getPreferredSize().getHeight() / 2));
 
-		mainPanel.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(final MouseEvent e) {
-				super.mouseMoved(e);
-				statusBar.setText("Coords: (" + e.getX() + ":" + e.getY() + ")");
-			}
-		});
+
 
 		mainPanel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -70,7 +64,7 @@ public class Window extends JFrame {
 		mainPanel.add(w1b);
 		w1b.setLocation((int) (DrawRect.x15 - w1b.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y15 - w1b.getPreferredSize().getHeight() / 2));
-		//w1b.setText("W1");
+		
 
 		w2b = new JButton("W2");
 		w2b.setBounds((int) (400 - w2b.getPreferredSize().getWidth()) / 2, 0,
@@ -161,12 +155,21 @@ public class Window extends JFrame {
 		hp2b.setLocation((int) (DrawRect.x36 - hp2b.getPreferredSize().getWidth() / 2),
 				(int) (DrawRect.y36 - hp2b.getPreferredSize().getHeight() / 2));
 		
+		o2b = new JButton("O2");
+		o2b.setBounds((int) (400 - o2b.getPreferredSize().getWidth()) / 2, 0,
+				(int) o2b.getPreferredSize().getWidth(), (int) o2b.getPreferredSize().getHeight());
+		
+		mainPanel.add(o2b);
+		o2b.setLocation((int) (DrawRect.x35 - o2b.getPreferredSize().getWidth() / 2),
+				(int) (DrawRect.y35 - o2b.getPreferredSize().getHeight() / 2));
+		
 		pandabuttons.add(sp1b);
 		pandabuttons.add(lp1b);
 		pandabuttons.add(hp1b);
 		pandabuttons.add(sp2b);
 		pandabuttons.add(lp2b);
 		pandabuttons.add(hp2b);
+		pandabuttons.add(o2b);
 	
 		mainPanel.setFocusable(true);
 		setVisible(true);

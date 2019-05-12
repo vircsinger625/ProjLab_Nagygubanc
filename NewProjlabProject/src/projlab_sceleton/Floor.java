@@ -45,7 +45,13 @@ public class Floor {
 		}
 	}
 	public void removeElement(Panda p) {
-		pandas.remove(p);
+		for (int i = 0; i < pandas.size(); i++) {
+			if (pandas.get(i).getId() == p.getId()) {
+				pandas.remove(i);
+			}
+		}
+		
+		
 	}
 
 	public void incraseScore() {

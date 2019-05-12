@@ -11,7 +11,7 @@ public class MyTimer extends TimerTask {
 
 	public void tick() {
 		counter++;
-		if (counter >= 100) {
+		if (counter >= 300) {
 			for (int i = 0; i < steppable.size(); i++) {
 				Steppable s = steppable.get(i);
 				s.step();
