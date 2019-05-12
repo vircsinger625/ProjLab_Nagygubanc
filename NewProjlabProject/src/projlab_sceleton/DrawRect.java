@@ -4,10 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 
+//Grafikus kirajzolashoz szukseges osztaly, Jpanel leszarmazottja
 @SuppressWarnings("serial")
 class DrawRect extends JPanel {
 
-	
+	//negyzetek adatai
     private int squareW = 20;
     private int squareH = 20;
     
@@ -100,8 +101,11 @@ class DrawRect extends JPanel {
     static int x42 = 850;
     static int y42 = 400;
 
+    //koordinatak tarolasa
     public static int[] xcoord = {x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x25,x26,x27,x28,x29,x31,x32,x33,x34,x35,x36,x37,x38,x39,x40,x41,x42,};
     public static int[] ycoord = {y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y23,y24,y25,y25,y26,y27,y28,y29,y31,y32,y33,y34,y35,y36,y37,y38,y39,y40,y41,y42,};
+    
+    //negyzetek kirajzolasa
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // do your superclass's painting routine first, and then paint on top of it.
         g.setColor(Color.blue);
@@ -149,11 +153,7 @@ class DrawRect extends JPanel {
         g.fillRect(x42, y42, squareW, squareH);
         
         
-        
-        
-        
-        
-        
+        //szomszedos negyzetek koze vonal rajzolasa
         
         g.drawLine(x1, y1, x3, y3);
         g.drawLine(x1, y1, x2, y2);

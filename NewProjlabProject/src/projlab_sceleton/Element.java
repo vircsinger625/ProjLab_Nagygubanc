@@ -1,10 +1,15 @@
 package projlab_sceleton;
 
+//dolgokat szimbolizalo osztaly
 public class Element {
 
+	//az adott dolognak a csempeje
 	protected Tile tile;
-	protected int id = -1;
+	protected int id = -1; //identifikalasra hasznalt valtozo
 
+	
+	//lekerdezo es beallito fuggvenyek
+	
 	public int getId() {
 		return id;
 	}
@@ -13,6 +18,9 @@ public class Element {
 		this.id = id;
 	}
 
+	
+	//orokles miatt nem implementalt fuggvenyek
+	
 	public boolean collide(Orangutan o) {
 		return false;
 	}
